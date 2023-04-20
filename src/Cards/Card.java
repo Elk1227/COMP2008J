@@ -12,4 +12,4 @@ public abstract class Card {
         this.isUsed = isUsed;
         this.becomePriceCard = becomePriceCard;
     }
-}
+}	
