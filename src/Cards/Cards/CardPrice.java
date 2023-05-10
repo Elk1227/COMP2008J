@@ -1,4 +1,4 @@
-package Cards;
+package Cards.Cards;
 
 public enum CardPrice {
     M1("1M",1),M2("2M", 2),M3("3M", 3),M4("4M", 4),

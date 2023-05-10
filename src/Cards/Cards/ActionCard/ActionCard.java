@@ -1,7 +1,6 @@
-package Cards.ActionCard;
+package Cards.Cards.ActionCard;
 
-import Cards.Card;
-import Cards.CardPrice;
+import Cards.Cards.*;
 
 public abstract class ActionCard extends Card {
 
