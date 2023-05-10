@@ -1,10 +1,14 @@
 package Cards.PriceCard;
 
 import Cards.Card;
+import Cards.CardPrice;
 
-public class PriceCard extends Card {
-    public PriceCard(String name, int value, boolean isUsed, boolean becomePriceCard) {
-        super(name, value, isUsed, becomePriceCard);
+public abstract class PriceCard extends Card {
+
+    public String name;
+    public CardPrice price;
+    public PriceCard(String name, CardPrice price) {
+        super(name, price);
     }
 }
 
