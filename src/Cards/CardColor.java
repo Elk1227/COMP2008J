@@ -1,4 +1,4 @@
-package Cards.Cards;
+package Cards;
 
 import java.awt.*;
 

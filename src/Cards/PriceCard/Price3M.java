@@ -1,6 +1,6 @@
-package Cards.Cards.PriceCard;
+package Cards.PriceCard;
 
-import Cards.Cards.*;
+import Cards.*;
 
 public class Price3M extends PriceCard{
     public Price3M(String name, CardPrice price) {
