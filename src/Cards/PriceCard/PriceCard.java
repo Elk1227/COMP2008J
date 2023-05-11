@@ -1,6 +1,7 @@
 package Cards.PriceCard;
 
-import Cards.*;
+import Cards.Card;
+import Cards.CardPrice;
 
 public abstract class PriceCard extends Card {
 

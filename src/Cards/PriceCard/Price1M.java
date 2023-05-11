@@ -1,6 +1,8 @@
 package Cards.PriceCard;
 
-import Cards.*;
+import Cards.Card;
+import Cards.CardPrice;
+
 
 public class Price1M extends PriceCard {
 
