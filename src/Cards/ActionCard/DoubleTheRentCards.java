@@ -4,8 +4,8 @@ import Cards.CardPrice;
 
 public class DoubleTheRentCards extends ActionCard{
 
-	public DoubleTheRentCards(String name, CardPrice price) {
-		super(name, price);
+	public DoubleTheRentCards() {
+		super("Double The Rent", CardPrice.M1);
 		
 	}
 

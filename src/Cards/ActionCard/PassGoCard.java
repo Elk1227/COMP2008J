@@ -2,10 +2,10 @@ package Cards.ActionCard;
 
 import Cards.CardPrice;
 
-public class House extends ActionCard {
+public class PassGoCard extends ActionCard {
 
-	public House(String name, CardPrice price) {
-		super(name, price);
+	public PassGoCard() {
+		super("Pass Go",CardPrice.M1);
 		
 	}
 
