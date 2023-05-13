@@ -1,16 +1,16 @@
-package Cards.Rentcard;
+package Cards.Properties;
 
 import Cards.CardColor;
 import Cards.CardPrice;
 
-public class LightGreenAndBlack extends Rentcard{
+public class LightGreenAndBlackPropertyCard extends Propertycard{
     CardColor colorOne = CardColor.LightGreen;
     CardColor colorTwo = CardColor.Black;
 
     CardColor currentColor ;
     int currentLayer ;
 
-    public LightGreenAndBlack(String name) {
+    public LightGreenAndBlackPropertyCard(String name) {
         super(name, CardPrice.M2);
     }
 

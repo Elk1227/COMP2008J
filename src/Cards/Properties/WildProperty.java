@@ -1,9 +1,9 @@
-package Cards.Rentcard;
+package Cards.Properties;
 
 import Cards.CardColor;
 import Cards.CardPrice;
 
-public class WildProperty extends Rentcard{
+public class WildProperty extends Propertycard{
 
     CardColor color;
     public WildProperty(String name) {
