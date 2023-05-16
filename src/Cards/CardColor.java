@@ -23,4 +23,28 @@ public enum CardColor {
         this.layer4_rent = layer4_rent;
         this.color = color;
     }
+
+    public Color getTrueColor() {
+        return trueColor;
+    }
+
+    public int getLayer1_rent() {
+        return layer1_rent;
+    }
+
+    public int getLayer2_rent() {
+        return layer2_rent;
+    }
+
+    public int getLayer3_rent() {
+        return layer3_rent;
+    }
+
+    public int getLayer4_rent() {
+        return layer4_rent;
+    }
+
+    public String getColor() {
+        return color;
+    }
 }

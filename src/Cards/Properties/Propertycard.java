@@ -7,7 +7,7 @@ import Cards.CardPrice;
 public abstract class Propertycard extends Card {
     public int rent;
     public CardColor color;
-    public int layer;
+    public int fullLayer;
 
 
 
@@ -16,9 +16,21 @@ public abstract class Propertycard extends Card {
     }
 
 
-    public Propertycard(String name, CardPrice price, CardColor color, int layer) {
+    public Propertycard(String name, CardPrice price, CardColor color, int fullLayer) {
         super(name, price);
         this.color = color;
-        this.layer = layer;
+        this.fullLayer = fullLayer;
+    }
+
+    public int getRent() {
+        return rent;
+    }
+
+    public CardColor getColor() {
+        return color;
+    }
+
+    public int getFullLayer() {
+        return fullLayer;
     }
 }
