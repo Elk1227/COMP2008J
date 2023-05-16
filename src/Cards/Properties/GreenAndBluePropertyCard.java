@@ -4,11 +4,11 @@ import Cards.CardColor;
 import Cards.CardPrice;
 
 public class GreenAndBluePropertyCard extends Propertycard{
-    CardColor colorOne = CardColor.Green;
-    CardColor colorTwo = CardColor.Blue;
+    private CardColor colorOne = CardColor.Green;
+    private CardColor colorTwo = CardColor.Blue;
 
-    CardColor currentColor ;
-    int currentLayer ;
+    private CardColor currentColor ;
+    private int currentLayer ;
 
     public GreenAndBluePropertyCard(String name) {
         super(name, CardPrice.M4);
@@ -16,4 +16,20 @@ public class GreenAndBluePropertyCard extends Propertycard{
 
     public void choseColor(){}
     public void changeColor(){}
+
+    public CardColor getColorOne() {
+        return colorOne;
+    }
+
+    public CardColor getColorTwo() {
+        return colorTwo;
+    }
+
+    public CardColor getCurrentColor() {
+        return currentColor;
+    }
+
+    public int getCurrentLayer() {
+        return currentLayer;
+    }
 }

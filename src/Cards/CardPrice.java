@@ -10,4 +10,8 @@ public enum CardPrice {
         this.name = name;
         this.price = price;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }

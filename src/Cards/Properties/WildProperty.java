@@ -5,7 +5,7 @@ import Cards.CardPrice;
 
 public class WildProperty extends Propertycard{
 
-    CardColor color;
+    private CardColor color;
     public WildProperty(String name) {
 
         super(name,null,null,0);
@@ -13,4 +13,9 @@ public class WildProperty extends Propertycard{
 
     public void ChosenColor(){}
     public void ChangeColor(){}
+
+    @Override
+    public CardColor getColor() {
+        return color;
+    }
 }

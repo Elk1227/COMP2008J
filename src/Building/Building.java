@@ -8,29 +8,25 @@ import Cards.Properties.Propertycard;
 import java.util.ArrayList;
 
 public class Building {
-    ArrayList<Propertycard> building;
-    ArrayList<HotelCard> hotel;
-    ArrayList<HouseCard> house;
-    CardColor colorOfBuilding;
+    private ArrayList<Propertycard> building;
+    private ArrayList<HotelCard> hotel;
+    private ArrayList<HouseCard> house;
+    private CardColor colorOfBuilding;
+    private int rentOfBuilding  ;
 
-    int rentOfBuilding = 0 ;
+    private int rentOfHotel ;
+    private int rentOfHouse ;
+    private int rent ;
+    private int layer;
+    private boolean isFull;
 
-    int rentOfHotel = 0;
-    int rentOfHouse = 0;
-    int rent = 0;
-    int layer;
-    boolean isFull = false;
-
-    public CardColor getColorOfBuilding() {
-        return colorOfBuilding;
-    }
-
-    public int getRent() {
-        return rent;
-    }
-
-    public int getLayer() {
-        return layer;
+    public Building(CardColor colorOfBuilding) {
+        this.colorOfBuilding = colorOfBuilding;
+        rentOfBuilding = 0;
+        rentOfHotel = 0;
+        rent = colorOfBuilding.getLayer1_rent();
+        layer = 1;
+        isFull = false;
     }
     public void buildBuilding(Propertycard propertycard){
         if(!isFull){
@@ -53,7 +49,7 @@ public class Building {
         rent = rentOfBuilding+rentOfHotel+rentOfHouse;
     }
     public void checkIsFull(){
-        if(layer == building.get(0).fullLayer){
+        if(layer == building.get(0).getFullLayer()){
             isFull = true;
         }
     }
@@ -97,5 +93,41 @@ public class Building {
 
     public boolean isFull() {
         return isFull;
+    }
+
+    public ArrayList<Propertycard> getBuilding() {
+        return building;
+    }
+
+    public ArrayList<HotelCard> getHotel() {
+        return hotel;
+    }
+
+    public ArrayList<HouseCard> getHouse() {
+        return house;
+    }
+
+    public CardColor getColorOfBuilding() {
+        return colorOfBuilding;
+    }
+
+    public int getRentOfBuilding() {
+        return rentOfBuilding;
+    }
+
+    public int getRentOfHotel() {
+        return rentOfHotel;
+    }
+
+    public int getRentOfHouse() {
+        return rentOfHouse;
+    }
+
+    public int getRent() {
+        return rent;
+    }
+
+    public int getLayer() {
+        return layer;
     }
 }

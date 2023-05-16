@@ -11,7 +11,6 @@ public class DealBreakerCard extends ActionCard {
 	@Override
 	public void function() {
 		
-		
 	}
 
 }

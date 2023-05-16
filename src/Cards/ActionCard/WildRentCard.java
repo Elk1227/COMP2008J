@@ -4,7 +4,7 @@ import Cards.CardColor;
 import Cards.CardPrice;
 
 public class WildRentCard extends ActionCard{
-	CardColor color;
+	private CardColor color;
 	public WildRentCard(String name) {
 		super(name, CardPrice.M3);
 		}
@@ -14,4 +14,7 @@ public class WildRentCard extends ActionCard{
 		
 	}
 
+	public CardColor getColor() {
+		return color;
+	}
 }

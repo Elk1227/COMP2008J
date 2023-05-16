@@ -5,9 +5,9 @@ import Cards.CardColor;
 import Cards.CardPrice;
 
 public abstract class Propertycard extends Card {
-    public int rent;
-    public CardColor color;
-    public int fullLayer;
+    private int rent;
+    private CardColor color;
+    private int fullLayer;
 
 
 
@@ -33,4 +33,5 @@ public abstract class Propertycard extends Card {
     public int getFullLayer() {
         return fullLayer;
     }
+
 }
