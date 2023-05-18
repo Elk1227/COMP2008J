@@ -1,6 +1,7 @@
 package RealEstate;
 
 import Building.Building;
+import Cards.CardColor;
 import Cards.Properties.Propertycard;
 import Player.Player;
 
@@ -11,20 +12,15 @@ public class RealEstate {
     Player owner;
 
     public boolean addRealEstate(Propertycard propertycard) {
-        int i = 0;
-        for (Building building : buildings) {
-            if (building.getColorOfBuilding() == propertycard.getColor() && i < 1) {
-                building.buildBuilding(propertycard);
-                i++;
-                return true;
+        if(checkIfCanInsert(propertycard.getColor())){
+            for (Building building : buildings) {
+                if (building.getColorOfBuilding() == propertycard.getColor()) {
+                    building.buildBuilding(propertycard);
+                    return true;
+                }
             }
         }
-        if (i == 0) {
-            Building building = new Building(propertycard.getColor());
-            return true;
-        }else{
-            return false;
-        }
+        return false;
     }
 
     public void removeRealEstate(Propertycard propertycard) {
@@ -48,6 +44,24 @@ public class RealEstate {
             return false;
         }
 
+    }
+
+    public boolean checkIfCanInsert(CardColor color){
+        int i = 0;
+        for (Building building : buildings) {
+            if(building.getColorOfBuilding()==color){
+                if(building.isFull()){
+                    i++;
+                }
+
+            }
+        }
+        if(i==0){
+            return true;
+
+        }else {
+            return false;
+        }
     }
     public void  addBuilding(Building building) {
         buildings.add(building);

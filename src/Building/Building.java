@@ -22,9 +22,10 @@ public class Building {
 
     public Building(CardColor colorOfBuilding) {
         this.colorOfBuilding = colorOfBuilding;
-        rentOfBuilding = 0;
+        rentOfHouse = 0;
         rentOfHotel = 0;
-        rent = colorOfBuilding.getLayer1_rent();
+        rentOfBuilding = colorOfBuilding.getLayer1_rent();
+        updateRent();
         layer = 1;
         isFull = false;
     }
@@ -32,7 +33,6 @@ public class Building {
         if(!isFull){
             building.add(propertycard);
             layer= building.size();
-            checkIsFull();
             if(layer == 1){
                 rentOfBuilding = colorOfBuilding.getLayer1_rent();
             } else if (layer == 2) {
@@ -43,6 +43,7 @@ public class Building {
                 rentOfBuilding = colorOfBuilding.getLayer4_rent();
             }
             updateRent();
+            checkIsFull();
         }
     }
     public void updateRent(){
