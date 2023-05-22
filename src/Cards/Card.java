@@ -2,7 +2,7 @@ package Cards;
 
     public abstract class Card {
         private String name;
-        private CardPrice price;
+        public CardPrice price;
 
         public Card(String name, CardPrice price) {
             this.name = name;

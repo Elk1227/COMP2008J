@@ -17,5 +17,16 @@ public class LightGreenAndBlackRentCard extends ActionCard{
 		
 		
 	}
+	public CardColor getColorOne() {
+		return colorOne;
+	}
+
+	public CardColor getColorTwo() {
+		return colorTwo;
+	}
+
+	public CardColor getCurrentColor() {
+		return currentColor;
+	}
 
 }
