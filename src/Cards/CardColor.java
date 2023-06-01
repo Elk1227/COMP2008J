@@ -3,30 +3,39 @@ package Cards;
 import java.awt.*;
 
 public enum CardColor {
-    Red(Color.RED,2,3,6, 6, "Red"),Blue(Color.BLUE, 3, 8, 8, 8, "Blue"),Black(Color.BLACK, 1, 2, 3, 4,"Black"),Green(Color.GREEN, 2, 4, 7, 7, "Green"),CambridgeBlue(Color.CYAN, 1, 2, 3, 3, "CambridgeBlue"),
-    Orange(Color.ORANGE, 1, 3, 5, 5, "Orange"),Yellow(Color.YELLOW, 2, 4, 6, 6, "Yellow"),Pink(Color.MAGENTA, 1, 2, 4, 4, "Pink"),Brown(new Color(160,82,45), 1, 2, 2, 2, "Brown")
-    ,LightGreen(new Color(127,255,0), 1, 2, 2, 2, "LightGreen"),FullColor(Color.WHITE,0,0,0,0,"FullColor");
-
-    Color trueColor;
+    Red(2,3,6, 3 ),Blue(3, 8, 2 ),Black(1, 2, 3, 4,4),Green( 2, 4, 7, 3),CambridgeBlue( 1, 2, 3, 3),
+    Orange(1, 3, 5, 3),Yellow(2, 4, 6, 3),Pink( 1, 2, 4, 3),Brown(1, 2, 2 )
+    ,LightGreen(1, 2, 2 );
     int layer1_rent;
     int layer2_rent;
     int layer3_rent;
     int layer4_rent;
-    String color;
+    int fullLayer;
 
 
-    CardColor(Color trueColor, int layer1_rent, int layer2_rent, int layer3_rent, int layer4_rent, String color) {
-        this.trueColor = trueColor;
+
+    CardColor(int layer1_rent, int layer2_rent,  int fullLayer) {
+        this.layer1_rent = layer1_rent;
+        this.layer2_rent = layer2_rent;
+        this.fullLayer = fullLayer;
+    }
+
+    CardColor(int layer1_rent, int layer2_rent, int layer3_rent, int fullLayer) {
+        this.layer1_rent = layer1_rent;
+        this.layer2_rent = layer2_rent;
+        this.layer3_rent = layer3_rent;
+        this.fullLayer = fullLayer;
+    }
+
+
+     CardColor(int layer1_rent, int layer2_rent, int layer3_rent, int layer4_rent, int fullLayer) {
         this.layer1_rent = layer1_rent;
         this.layer2_rent = layer2_rent;
         this.layer3_rent = layer3_rent;
         this.layer4_rent = layer4_rent;
-        this.color = color;
+        this.fullLayer = fullLayer;
     }
 
-    public Color getTrueColor() {
-        return trueColor;
-    }
 
     public int getLayer1_rent() {
         return layer1_rent;
@@ -44,7 +53,4 @@ public enum CardColor {
         return layer4_rent;
     }
 
-    public String getColor() {
-        return color;
-    }
 }
