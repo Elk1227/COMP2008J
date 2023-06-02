@@ -11,6 +11,11 @@ public class RealEstate {
     ArrayList<Building> buildings;
     Player owner;
 
+    public RealEstate(Player owner) {
+        this.buildings = new ArrayList<>();
+        this.owner = owner;
+    }
+
     public boolean addRealEstate(Propertycard propertycard) {
         if(checkIfCanInsert(propertycard.getColor())){
             for (Building building : buildings) {
