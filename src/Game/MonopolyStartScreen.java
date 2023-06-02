@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MonopolyStartScreen extends JFrame {
 	private JButton startButton;
@@ -72,14 +73,24 @@ public class MonopolyStartScreen extends JFrame {
                 ageList = new ArrayList<>();
                 for (int i = 0; i < selectedMembers; i++) {
                     String input = JOptionPane.showInputDialog("please input User" + (i + 1) + "'s age");
-                    int age = Integer.parseInt(input);
-                    if (age < 8) {
-                        JOptionPane.showMessageDialog(null, "Sorry, players under the age of 8 are not allowed to play!");
-                        i--;
-                    }else {
-                    	ageList.add(age);
+                    if (input == null) {
+                        // Cancel button is clicked, exit the loop
+                        break;
                     }
-                    
+                    try {
+                        int number = Integer.parseInt(input);
+                        int age = Integer.parseInt(input);
+                        if (age < 8) {
+                            JOptionPane.showMessageDialog(null, "Sorry, players under the age of 8 are not allowed to play!");
+                            i--;
+                        }else{
+                        	ageList.add(age);
+                        }
+                        
+                    } catch (NumberFormatException e1) {
+                    	JOptionPane.showMessageDialog(null, "The input content is incorrect or not entered. Please re-enter");
+                    	i--;
+                    }
                 }
                 if (ageList.size() == selectedMembers) {
                     JOptionPane.showMessageDialog(null, "Age input complete!");
@@ -101,7 +112,10 @@ public class MonopolyStartScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	 if (ageList == null ) {
                      JOptionPane.showMessageDialog(null, "Please add player age first!");
-                 } else {
+                 } else if (ageList.size() != (int) memberComboBox.getSelectedItem()){
+                	 ageList.clear();
+                	 JOptionPane.showMessageDialog(null, "Incorrect number of entered age, please re-enter from Player 1");
+                 }else {
                      dispose(); //The Start window is closed
                      
                      // 在此处添加打开游戏主界面的代码
@@ -119,6 +133,7 @@ public class MonopolyStartScreen extends JFrame {
     }
 
     public static void main(String[] args) {
+    	Locale.setDefault(Locale.ENGLISH);
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
