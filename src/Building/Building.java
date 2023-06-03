@@ -3,12 +3,12 @@ package Building;
 import Cards.ActionCard.HotelCard;
 import Cards.ActionCard.HouseCard;
 import Cards.CardColor;
-import Cards.Properties.Propertycard;
+import Cards.Properties.PropertyCard;
 
 import java.util.ArrayList;
 
 public class Building {
-    private ArrayList<Propertycard> building;
+    private ArrayList<PropertyCard> building;
     private ArrayList<HotelCard> hotel;
     private ArrayList<HouseCard> house;
     private CardColor colorOfBuilding;
@@ -29,7 +29,7 @@ public class Building {
         layer = 1;
         isFull = false;
     }
-    public void buildBuilding(Propertycard propertycard){
+    public void buildBuilding(PropertyCard propertycard){
         if(!isFull){
             building.add(propertycard);
             layer= building.size();
@@ -74,7 +74,7 @@ public class Building {
 
     }
 
-    public void reduceLayer(Propertycard propertycard){
+    public void reduceLayer(PropertyCard propertycard){
         if (!isFull){
             building.remove(propertycard);
             layer= building.size();
@@ -96,7 +96,7 @@ public class Building {
         return isFull;
     }
 
-    public ArrayList<Propertycard> getBuilding() {
+    public ArrayList<PropertyCard> getBuilding() {
         return building;
     }
 

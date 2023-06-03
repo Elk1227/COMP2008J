@@ -3,7 +3,7 @@ package Cards.PriceCard;
 import Cards.Card;
 import Cards.CardPrice;
 
-public abstract class PriceCard extends Card {
+public class PriceCard extends Card {
 
     public String name;
     public CardPrice price;

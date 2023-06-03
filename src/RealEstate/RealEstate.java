@@ -2,7 +2,7 @@ package RealEstate;
 
 import Building.Building;
 import Cards.CardColor;
-import Cards.Properties.Propertycard;
+import Cards.Properties.PropertyCard;
 import Player.Player;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class RealEstate {
         this.owner = owner;
     }
 
-    public boolean addRealEstate(Propertycard propertycard) {
+    public boolean addRealEstate(PropertyCard propertycard) {
         if(checkIfCanInsert(propertycard.getColor())){
             for (Building building : buildings) {
                 if (building.getColorOfBuilding() == propertycard.getColor()) {
@@ -28,7 +28,7 @@ public class RealEstate {
         return false;
     }
 
-    public void removeRealEstate(Propertycard propertycard) {
+    public void removeRealEstate(PropertyCard propertycard) {
         for (Building building : buildings) {
             if (building.getColorOfBuilding() == propertycard.getColor()) {
                 building.reduceLayer(propertycard);

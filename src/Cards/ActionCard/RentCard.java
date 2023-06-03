@@ -8,10 +8,6 @@ public class RentCard extends ActionCard{
     private CardColor color1;
     private CardColor color2;
     
-    public RentCard(String name, CardPrice price, CardColor color) {
-        super(name, price);
-        this.color = color;
-    }
     public RentCard(String name, CardPrice price, CardColor color1, CardColor color2) {
         super(name, price);
         this.color1 = color1;
