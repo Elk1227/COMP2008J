@@ -8,11 +8,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class changeImageSize {
-	public void changeSize(String imageName) throws IOException {    	
+	public void changeSize(String imageName, int newWidth, int newHeight) throws IOException {    	
 	    String before = imageName;  // input the path of picture
 	    String now = imageName;  // output the path of picture
-	    int newWidth = 60;  
-	    int newHeight = 100; 
 
         BufferedImage previousImages = ImageIO.read(new File(before));
         BufferedImage currentImage = new BufferedImage(newWidth, newHeight, previousImages.getType());

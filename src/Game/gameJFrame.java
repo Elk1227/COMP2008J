@@ -92,7 +92,10 @@ public class gameJFrame extends JFrame implements ActionListener {
 		this.setLocationRelativeTo(null);
 		
 		playerScreen pS = new playerScreen(this);
-		pS.two_player();
+		//pS.two_player();
+		//pS.three_player();
+		//pS.four_player();
+		pS.five_player();
 	}
 
 	@Override
