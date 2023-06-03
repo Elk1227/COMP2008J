@@ -91,11 +91,17 @@ public class gameJFrame extends JFrame implements ActionListener {
 		// 界面居中
 		this.setLocationRelativeTo(null);
 		
+		playerScreen pS = new playerScreen(this);
+		pS.two_player();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public static void main(String[] args) {
+		new gameJFrame();
 	}
 }
