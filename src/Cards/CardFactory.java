@@ -1,5 +1,8 @@
 package Cards;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import Cards.ActionCard.*;
 import Cards.PriceCard.*;
 import Cards.Properties.*;
@@ -96,10 +99,7 @@ public class CardFactory extends AbstractCardFactory {
 	    
 	    case "wildpropertycard":
 	        return new WildPropertyCard("multi-colour Property Wildcards");
-	    
-	    
-	    
-	    
+	        
 	    default:
 	        
 	        break;
@@ -107,7 +107,135 @@ public class CardFactory extends AbstractCardFactory {
 
 	return null; 
 	}
-}
+
 //调用时大概如下
 //Card cardl = CardFactory.createCard ("DealBreakerCard")；
 //card1.function();
+
+public List<Card> packaging (){
+List<Card> cardList = new ArrayList<>();
+
+Card dealBreakerCard = createCard("dealBreakerCard");
+cardList.add(dealBreakerCard);
+
+Card debtCollectorCard = createCard("debtCollectorCard");
+cardList.add(debtCollectorCard);
+
+Card doubleTheRentCards = createCard("doubleTheRentCards ");
+cardList.add(doubleTheRentCards );
+
+Card forceDealCard = createCard("forceDealCard  ");
+cardList.add(forceDealCard );
+
+Card hotelCard = createCard("hotelCard  ");
+cardList.add(hotelCard );
+
+Card houseCard = createCard("houseCard ");
+cardList.add(houseCard );
+
+Card itIsMyBirthdayCard = createCard("itIsMyBirthdayCard ");
+cardList.add(itIsMyBirthdayCard );
+
+Card justSayNoCard = createCard("justSayNoCard ");
+cardList.add(justSayNoCard );
+
+Card passGoCard = createCard("passGoCard ");
+cardList.add(passGoCard );
+
+Card slyDealCard = createCard("slyDealCard ");
+cardList.add(slyDealCard );
+
+Card wildRentCard = createCard("wildRentCard ");
+cardList.add(wildRentCard );
+
+Card redoryellowrentcard = createCard("redoryellowrentcard");
+cardList.add(redoryellowrentcard);
+
+Card darkblueorgreenrentcard = createCard("darkblueorgreenrentcard ");
+cardList.add(darkblueorgreenrentcard );
+
+Card pinkororangerentcard= createCard("pinkororangerentcard");
+cardList.add(pinkororangerentcard);
+
+Card lightblueorbrownrentcard = createCard("lightblueorbrownrentcard ");
+cardList.add(lightblueorbrownrentcard );
+
+Card railroadorutilityrentcard= createCard("wrailroadorutilityrentcard ");
+cardList.add(railroadorutilityrentcard );
+
+Card onempricecard = createCard("onempricecard");
+cardList.add(onempricecard);
+
+Card twompricecard = createCard("twompricecard");
+cardList.add(twompricecard);
+
+Card threempricecard = createCard("threempricecard");
+cardList.add(threempricecard);
+
+Card fourmpricecard = createCard("fourmpricecard");
+cardList.add(fourmpricecard);
+
+Card fivempricecard = createCard("fivempricecard");
+cardList.add(fivempricecard);
+
+Card tenmpricecard = createCard("tenmpricecard");
+cardList.add(tenmpricecard);
+
+Card redpropertycard = createCard("redpropertycard");
+cardList.add(redpropertycard);
+
+Card bluepropertycard= createCard("bluepropertycard");
+cardList.add(bluepropertycard);
+
+Card brownpropertycard = createCard("brownpropertycard");
+cardList.add(brownpropertycard);
+
+Card utilitypropertycard = createCard("utilitypropertycard");
+cardList.add(utilitypropertycard);
+
+Card greenpropertycard = createCard("greenpropertycard");
+cardList.add(greenpropertycard);
+
+Card yellowpropertycard = createCard("yellowpropertycard");
+cardList.add(yellowpropertycard);
+
+Card orangepropertycard = createCard("orangepropertycard");
+cardList.add(orangepropertycard);
+
+Card pinkpropertycard = createCard("pinkpropertycard");
+cardList.add(pinkpropertycard);
+
+Card lightbluepropertycard = createCard("lightbluepropertycard");
+cardList.add(lightbluepropertycard);
+
+Card railroadpropertycard = createCard("railroadpropertycard");
+cardList.add(railroadpropertycard);
+
+Card redoryellowpropertycard = createCard("redoryellowpropertycard");
+cardList.add(redoryellowpropertycard);
+
+Card darkblueorgreenpropertycard = createCard("darkblueorgreenpropertycard");
+cardList.add(darkblueorgreenpropertycard);
+
+Card pinkororangepropertycard = createCard("pinkororangepropertycard");
+cardList.add(pinkororangepropertycard);
+
+Card lightblueorbrownpropertycard = createCard("lightblueorbrownpropertycard");
+cardList.add(lightblueorbrownpropertycard);
+
+Card railroadorutilitypropertycard = createCard("railroadorutilitypropertycard");
+cardList.add(railroadorutilitypropertycard);
+
+Card greenorrailroadpropertycard = createCard("greenorrailroadpropertycard");
+cardList.add(greenorrailroadpropertycard);
+
+Card lightblueorrailroadpropertycard = createCard("lightblueorrailroadpropertycard");
+cardList.add(lightblueorrailroadpropertycard);
+
+Card wildpropertycard = createCard("wildpropertycard");
+cardList.add(wildpropertycard);
+
+
+return cardList;
+    }
+}

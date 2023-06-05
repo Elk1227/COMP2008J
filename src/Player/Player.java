@@ -27,7 +27,6 @@ public class Player {
         if (handCards.isEmpty()){
             for (Card card : cardPile.getCards(5)) {
                 handCards.addCard(card);
-
             }
 
         }else {
@@ -38,7 +37,6 @@ public class Player {
     }
 
     public void discard(){}
-
     public void playCard(){}
     public void payRent(){}
     public void buildPropertySet(){}
