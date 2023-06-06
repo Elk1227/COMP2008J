@@ -16,6 +16,7 @@ public class MonopolyStartScreen extends JFrame {
     
 
     public MonopolyStartScreen() {
+    	ageList = new ArrayList<>();
         setTitle("Monopoly start screen");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
@@ -48,14 +49,15 @@ public class MonopolyStartScreen extends JFrame {
             memberComboBox.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                	
+                	JComboBox<?> comboBox = (JComboBox<?>) e.getSource();
+                	int selectedValue = (int) comboBox.getSelectedItem();
+                	OtherClass.selectedValue = selectedValue;
                 	ageList.clear();
                 }
             });
         }
         optionPanel.add(memberLabel);
         optionPanel.add(memberComboBox);
-        
         // Create an age selection button
         chooseAgeButton = new JButton("Input age");
         chooseAgeButton.setFont(new Font("Arial", Font.BOLD, 30));
@@ -70,7 +72,7 @@ public class MonopolyStartScreen extends JFrame {
                     return;
                 }
                 int selectedMembers = (int) memberComboBox.getSelectedItem();
-                ageList = new ArrayList<>();
+                
                 for (int i = 0; i < selectedMembers; i++) {
                     String input = JOptionPane.showInputDialog("please input User" + (i + 1) + "'s age");
                     if (input == null) {
@@ -130,13 +132,7 @@ public class MonopolyStartScreen extends JFrame {
         getContentPane().add(panel);
     }
     //The output age is used for sorting later
-    public ArrayList<Integer> getAgeList() {
-        return ageList;
-    }
     
-    public int getMember() {
-        return (int) memberComboBox.getSelectedItem();
-    }
 
     public static void main(String[] args) {
     	Locale.setDefault(Locale.ENGLISH);

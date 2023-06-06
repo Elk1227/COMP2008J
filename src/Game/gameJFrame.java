@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class gameJFrame extends JFrame implements ActionListener {
 	private Container container = null;
 
+
 	/**管理出牌、结束、弃牌、使用功能牌、放入银行5个按钮*/
 	private JButton[] playerButton = new JButton[5];
 
@@ -56,6 +57,9 @@ public class gameJFrame extends JFrame implements ActionListener {
 		new Thread(this::initCard).start();
 		// 打牌之前的准备工作
 		initGame();
+		
+	    
+
 	}
 	
 	private void initGame() {
@@ -92,7 +96,8 @@ public class gameJFrame extends JFrame implements ActionListener {
 		this.setLocationRelativeTo(null);
 		
 		playerScreen pS = new playerScreen(this);
-		int playerNumber=m.getMember();
+		int playerNumber=OtherClass.selectedValue;
+		System.out.println(playerNumber);
 		if(playerNumber==2) {
 			pS.two_player();
 		}else if(playerNumber==3) {
