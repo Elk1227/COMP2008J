@@ -36,69 +36,69 @@ public class CardFactory extends AbstractCardFactory {
 	        return new SlyDealCard();
 	   //rent card     
 	    case "redoryellowrentcard":
-	        return new RentCard("Red or Yellow rent card", Cards.CardPrice.M1,Cards.CardColor.Red,Cards.CardColor.Yellow);
+	        return new RentCard("Red or Yellow rent card", Cards.CardPrice.M1,Cards.CardColor.Red,Cards.CardColor.Yellow,"resources/action cards/rent cards/red_yellow.jpg");
 	    case "darkblueorgreenrentcard":
-	        return new RentCard("Dark Blue or Green rent card", Cards.CardPrice.M1,Cards.CardColor.Blue,Cards.CardColor.Green);
+	        return new RentCard("Dark Blue or Green rent card", Cards.CardPrice.M1,Cards.CardColor.Blue,Cards.CardColor.Green,"resources/action cards/rent cards/green_blue.jpg");
 	    case "pinkororangerentcard":
-	        return new RentCard("Pink or Orange rent card", Cards.CardPrice.M1,Cards.CardColor.Pink,Cards.CardColor.Orange);
+	        return new RentCard("Pink or Orange rent card", Cards.CardPrice.M1,Cards.CardColor.Pink,Cards.CardColor.Orange,"resources/action cards/rent cards/pink_orange.png");
 	    case "lightblueorbrownrentcard":
-	        return new RentCard("Light Blue or Brown rent card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,Cards.CardColor.Brown);
+	        return new RentCard("Light Blue or Brown rent card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,Cards.CardColor.Brown,"resources/action cards/rent cards/brown_blue.jpg");
 	    case "railroadorutilityrentcard":
-	        return new RentCard("Railroad or Utility rent card", Cards.CardPrice.M1,Cards.CardColor.Black,Cards.CardColor.LightGreen);
+	        return new RentCard("Railroad or Utility rent card", Cards.CardPrice.M1,Cards.CardColor.Black,Cards.CardColor.LightGreen,"resources/action cards/rent cards/railroad_utility.jpg");
 	    case "wildrentcard":
-	        return new WildRentCard("Wild Rent Card");
-	    //price cards    
-	    case "onempricecard":
-	        return new PriceCard("price card of 1M",Cards.CardPrice.M1);
-	    case "twompricecard":
-	        return new PriceCard("price card of 2M",Cards.CardPrice.M2);
-	    case "threempricecard":
-	        return new PriceCard("price card of 3M",Cards.CardPrice.M3);
-	    case "fourmpricecard":
-	        return new PriceCard("price card of 4M",Cards.CardPrice.M4);
-	    case "fivempricecard":
-	        return new PriceCard("price card of 5M",Cards.CardPrice.M5);
-	    case "tenmpricecard":
-	        return new PriceCard("price card of 10M",Cards.CardPrice.M10);
-	    //property card
-	    case "redpropertycard":
-	        return new PropertyCard("Red property card", Cards.CardPrice.M3,Cards.CardColor.Red,3);
-	    case "bluepropertycard":
-	        return new PropertyCard("Blue property card", Cards.CardPrice.M4,Cards.CardColor.Blue,2);
-	    case "brownpropertycard":
-	        return new PropertyCard("Brown property card", Cards.CardPrice.M1,Cards.CardColor.Brown,2);
-	    case "utilitypropertycard":
-	        return new PropertyCard("Utility property card", Cards.CardPrice.M2,Cards.CardColor.LightGreen,2);
-	    case "greenpropertycard":
-	        return new PropertyCard("Green property card", Cards.CardPrice.M4,Cards.CardColor.Green,3);
-	    case "yellowpropertycard":
-	        return new PropertyCard("Yellow property card", Cards.CardPrice.M3,Cards.CardColor.Yellow,3);
-	    case "orangepropertycard":
-	        return new PropertyCard("Orange property card", Cards.CardPrice.M2,Cards.CardColor.Orange,3);
-	    case "pinkpropertycard":
-	        return new PropertyCard("Pink property card", Cards.CardPrice.M2,Cards.CardColor.Pink,3);
-	    case "lightbluepropertycard":
-	        return new PropertyCard("Light Blue property card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,3);
-	    case "railroadpropertycard":
-	        return new PropertyCard("Railroad property card", Cards.CardPrice.M2,Cards.CardColor.Black,4);
-	    
-	    case "redoryellowpropertycard":
-	        return new PropertyCard("Red or Yellow property card", Cards.CardPrice.M3,Cards.CardColor.Red,Cards.CardColor.Yellow,3,3);
-	    case "darkblueorgreenpropertycard":
-	        return new PropertyCard("Dark Blue or Green property card", Cards.CardPrice.M4,Cards.CardColor.Blue,Cards.CardColor.Green,2,3);
-	    case "pinkororangepropertycard":
-	        return new PropertyCard("Pink or Orange property card", Cards.CardPrice.M2,Cards.CardColor.Pink,Cards.CardColor.Orange,3,3);
-	    case "lightblueorbrownpropertycard":
-	        return new PropertyCard("Light Blue or Brown property card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,Cards.CardColor.Brown,3,2);
-	    case "railroadorutilitypropertycard":
-	        return new PropertyCard("Railroad or Utility property card", Cards.CardPrice.M2,Cards.CardColor.Black,Cards.CardColor.LightGreen,4,2);
-	    case "greenorrailroadpropertycard":
-	        return new PropertyCard("Green or Railroad property card", Cards.CardPrice.M4,Cards.CardColor.Green,Cards.CardColor.Black,3,4);
-	    case "lightblueorrailroadpropertycard":
-	        return new PropertyCard("Light Blue or Railroad property card", Cards.CardPrice.M4,Cards.CardColor.CambridgeBlue,Cards.CardColor.Black,3,4);
+	        return new RentCard("Wild Rent Card",Cards.CardPrice.M3,Cards.CardColor.wild,"resources/action cards/rent cards/all.png");
+	      //price cards    
+	     case "onempricecard":
+	         return new PriceCard("price card of 1M",Cards.CardPrice.M1,"resources/money/1.png");
+	     case "twompricecard":
+	         return new PriceCard("price card of 2M",Cards.CardPrice.M2,"resources/money/2.png");
+	     case "threempricecard":
+	         return new PriceCard("price card of 3M",Cards.CardPrice.M3,"resources/money/3.png");
+	     case "fourmpricecard":
+	         return new PriceCard("price card of 4M",Cards.CardPrice.M4,"resources/money/4.png");
+	     case "fivempricecard":
+	         return new PriceCard("price card of 5M",Cards.CardPrice.M5,"resources/money/5.png");
+	     case "tenmpricecard":
+	         return new PriceCard("price card of 10M",Cards.CardPrice.M10,"resources/money/10.png");
+	     //property card
+	     case "redpropertycard":
+	         return new PropertyCard("Red property card", Cards.CardPrice.M3,Cards.CardColor.Red,3,"resources/property cards/Red.jpg");
+	     case "bluepropertycard":
+	         return new PropertyCard("Blue property card", Cards.CardPrice.M4,Cards.CardColor.Blue,2,"resources/property cards/Dark Blue.png");
+	     case "brownpropertycard":
+	         return new PropertyCard("Brown property card", Cards.CardPrice.M1,Cards.CardColor.Brown,2,"resources/property cards/Brown.jpg");
+	     case "utilitypropertycard":
+	         return new PropertyCard("Utility property card", Cards.CardPrice.M2,Cards.CardColor.LightGreen,2,"resources/property cards/Utility.jpg");
+	     case "greenpropertycard":
+	         return new PropertyCard("Green property card", Cards.CardPrice.M4,Cards.CardColor.Green,3,"resources/property cards/Green.jpg");
+	     case "yellowpropertycard":
+	         return new PropertyCard("Yellow property card", Cards.CardPrice.M3,Cards.CardColor.Yellow,3,"resources/property cards/Yellow.jpg");
+	     case "orangepropertycard":
+	         return new PropertyCard("Orange property card", Cards.CardPrice.M2,Cards.CardColor.Orange,3,"resources/property cards/Orange.jpg");
+	     case "pinkpropertycard":
+	         return new PropertyCard("Pink property card", Cards.CardPrice.M2,Cards.CardColor.Pink,3,"resources/property cards/Pink.jpg");
+	     case "lightbluepropertycard":
+	         return new PropertyCard("Light Blue property card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,3,"resources/property cards/Light Blue.jpg");
+	     case "railroadpropertycard":
+	         return new PropertyCard("Railroad property card", Cards.CardPrice.M2,Cards.CardColor.Black,4,"resources/property cards/Railroad.jpg");
+	     
+	     case "redoryellowpropertycard":
+	         return new PropertyCard("Red or Yellow property card", Cards.CardPrice.M3,Cards.CardColor.Red,Cards.CardColor.Yellow,3,3,"resources/property cards/Property Wildcards/yellow_red.png");
+	     case "darkblueorgreenpropertycard":
+	         return new PropertyCard("Dark Blue or Green property card", Cards.CardPrice.M4,Cards.CardColor.Blue,Cards.CardColor.Green,2,3,"resources/property cards/Property Wildcards/darkblue_green.png");
+	     case "pinkororangepropertycard":
+	         return new PropertyCard("Pink or Orange property card", Cards.CardPrice.M2,Cards.CardColor.Pink,Cards.CardColor.Orange,3,3,"resources/property cards/Property Wildcards/orange_pink.png");
+	     case "lightblueorbrownpropertycard":
+	         return new PropertyCard("Light Blue or Brown property card", Cards.CardPrice.M1,Cards.CardColor.CambridgeBlue,Cards.CardColor.Brown,3,2,"resources/property cards/Property Wildcards/light blue_brown.jpg");
+	     case "railroadorutilitypropertycard":
+	         return new PropertyCard("Railroad or Utility property card", Cards.CardPrice.M2,Cards.CardColor.Black,Cards.CardColor.LightGreen,4,2,"resources/property cards/Property Wildcards/Utility_Railroad.jpg");
+	     case "greenorrailroadpropertycard":
+	         return new PropertyCard("Green or Railroad property card", Cards.CardPrice.M4,Cards.CardColor.Green,Cards.CardColor.Black,3,4,"resources/property cards/Property Wildcards/green_railroad.jpg");
+	     case "lightblueorrailroadpropertycard":
+	         return new PropertyCard("Light Blue or Railroad property card", Cards.CardPrice.M4,Cards.CardColor.CambridgeBlue,Cards.CardColor.Black,3,4,"resources/property cards/Property Wildcards/light blue _railroad.jpg");
 	    
 	    case "wildpropertycard":
-	        return new WildPropertyCard("multi-colour Property Wildcards");
+	        return new PropertyCard("multi-colour Property Wildcards", Cards.CardPrice.M0,Cards.CardColor.wild,0,"resources/property cards/Property Wildcards/Property Wildcards.jpg");
 	        
 	    default:
 	        

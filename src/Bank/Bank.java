@@ -34,7 +34,7 @@ public class Bank {
         List<CardPrice> prices = new ArrayList<>();
         for (int i=0; i<cards.size(); i=i+1) {
             Card aCard = cards.get(i);
-            prices.add(aCard.price);
+            prices.add(aCard.getPrice());
         }
         return prices;
     }

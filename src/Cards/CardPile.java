@@ -1,11 +1,33 @@
 package Cards;
 
+import Game.gameJFrame;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Stack;
 
 public class CardPile {
-    private static ArrayList<Card> cardPile = new ArrayList<>();
-    private static Stack<Card> trueCardPile = new Stack<>();
+    private  ArrayList<Card> cardPile = new ArrayList<>();
+    private  Stack<Card> trueCardPile = new Stack<>();
+
+    private gameJFrame gameJFrame;
+
+    private CardFactory factory;
+
+
+    public CardPile(gameJFrame gameJFrame){
+        this.gameJFrame = gameJFrame;
+        this.initialPile();
+        Collections.shuffle(cardPile);
+        for (Card card : cardPile) {
+            trueCardPile.push(card);
+        }
+
+    }
+
+    public void  initialPile(){
+        cardPile =  (ArrayList<Card>)factory.packaging();
+    }
 
 
 
@@ -35,8 +57,7 @@ public class CardPile {
     }
 
 
-
-
-
-
+    public  ArrayList<Card> getCardPile() {
+        return cardPile;
+    }
 }

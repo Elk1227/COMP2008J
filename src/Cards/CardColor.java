@@ -5,7 +5,7 @@ import java.awt.*;
 public enum CardColor {
     Red(2,3,6, 3 ),Blue(3, 8, 2 ),Black(1, 2, 3, 4,4),Green( 2, 4, 7, 3),CambridgeBlue( 1, 2, 3, 3),
     Orange(1, 3, 5, 3),Yellow(2, 4, 6, 3),Pink( 1, 2, 4, 3),Brown(1, 2, 2 )
-    ,LightGreen(1, 2, 2 );
+    ,LightGreen(1, 2, 2 ),wild;
     int layer1_rent;
     int layer2_rent;
     int layer3_rent;
@@ -14,7 +14,10 @@ public enum CardColor {
 
 
 
-    CardColor(int layer1_rent, int layer2_rent,  int fullLayer) {
+    private CardColor() {
+	}
+
+	CardColor(int layer1_rent, int layer2_rent,  int fullLayer) {
         this.layer1_rent = layer1_rent;
         this.layer2_rent = layer2_rent;
         this.fullLayer = fullLayer;

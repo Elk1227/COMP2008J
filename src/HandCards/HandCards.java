@@ -30,6 +30,7 @@ public class HandCards {
         for (Card handcard : handcards) {
             if (handcard == card){
                 handcards.remove(handcard);
+                count--;
                 return handcard;
 
             }
@@ -45,5 +46,13 @@ public class HandCards {
 
     public boolean isFull(){
         return count > 7;
+    }
+
+
+
+
+
+    public int getCount() {
+        return count;
     }
 }
