@@ -12,10 +12,9 @@ public class playerScreen {
 	
 	JFrame frame;
 	Container container;
-	public playerScreen(JFrame frame) {
+	public playerScreen(JFrame frame, Container container) {
 		this.frame = frame;
-		container = frame.getContentPane();
-		container.setLayout(null);
+		this.container = container;
 	}
 	
 	public void two_player() {
@@ -237,7 +236,7 @@ public class playerScreen {
 		
 		JTextField player4 = new JTextField();
 		player4.setBounds(0,0,60,20);
-		player4.setText("plater 4");
+		player4.setText("player 4");
 		player4.setFont(new Font("Arial", Font.PLAIN, 15));
 		player4.setEditable(false);
 		
@@ -330,7 +329,7 @@ public class playerScreen {
 		
 		JTextField player4 = new JTextField();
 		player4.setBounds(0,0,60,20);
-		player4.setText("plater 4");
+		player4.setText("player 4");
 		player4.setFont(new Font("Arial", Font.PLAIN, 15));
 		player4.setEditable(false);
 		
@@ -342,7 +341,7 @@ public class playerScreen {
 		
 		JTextField player5 = new JTextField();
 		player5.setBounds(0,0,60,20);
-		player5.setText("plater 5");
+		player5.setText("player 5");
 		player5.setFont(new Font("Arial", Font.PLAIN, 15));
 		player5.setEditable(false);
 		

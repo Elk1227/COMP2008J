@@ -43,6 +43,7 @@ public class MonopolyStartScreen extends JFrame {
         memberLabel.setFont(new Font("Arial", Font.PLAIN, 18));
         memberLabel.setForeground(Color.RED);
         memberComboBox = new JComboBox<>();
+        memberComboBox.addItem(null);
         for (int i = 2; i <= 5; i++) {
             memberComboBox.addItem(i);
             memberComboBox.setFont(new Font("Arial", Font.PLAIN, 18));
