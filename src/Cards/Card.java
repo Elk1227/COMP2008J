@@ -28,6 +28,9 @@ public abstract class Card extends JLabel implements MouseListener {
             this.price = price;
             this.graph = graph;
             this.addMouseListener(this);
+
+
+
         }
 
     public void turnFront() {
@@ -49,7 +52,7 @@ public abstract class Card extends JLabel implements MouseListener {
     public void turnRear() {
         // 给牌设置反面
         this.removeAll();
-        this.setIcon(new ImageIcon("src/images/bg_card(1).jpg"));
+        this.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         this.repaint();
         gameJFrame.repaint();
         // 修改成员变量
@@ -62,7 +65,19 @@ public abstract class Card extends JLabel implements MouseListener {
             return price;
         }
 
+    public Game.gameJFrame getGameJFrame() {
+        return gameJFrame;
+    }
 
+    public void setGameJFrame(Game.gameJFrame gameJFrame) {
+        this.gameJFrame = gameJFrame;
+    }
 
+    public boolean isUp() {
+        return up;
+    }
 
+    public void setUp(boolean up) {
+        this.up = up;
+    }
 }

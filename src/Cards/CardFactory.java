@@ -9,6 +9,7 @@ import Cards.Properties.*;
 
 
 public class CardFactory extends AbstractCardFactory {
+	public CardFactory(){}
 
 	@Override
 	public Card createCard(String cardType) {
@@ -121,47 +122,47 @@ for (int i = 0; i < 3; i++) {
 Card debtCollectorCard1 = createCard("debtCollectorCard");
 cardList.add(debtCollectorCard1);}
 for (int i = 0; i < 2; i++) {
-Card doubleTheRentCards1 = createCard("doubleTheRentCards ");
+Card doubleTheRentCards1 = createCard("doubleTheRentCards");
 cardList.add(doubleTheRentCards1 );}
 for (int i = 0; i < 4; i++) {
-Card forceDealCard = createCard("forceDealCard  ");
+Card forceDealCard = createCard("forceDealCard");
 cardList.add(forceDealCard );}
 
 for (int i = 0; i < 3; i++) {
-Card hotelCard = createCard("hotelCard  ");
+Card hotelCard = createCard("hotelCard");
 cardList.add(hotelCard );}
 for (int i = 0; i < 3; i++) {
-Card houseCard = createCard("houseCard ");
+Card houseCard = createCard("houseCard");
 cardList.add(houseCard );}
 for (int i = 0; i < 3; i++) {
-Card itIsMyBirthdayCard = createCard("itIsMyBirthdayCard ");
+Card itIsMyBirthdayCard = createCard("itIsMyBirthdayCard");
 cardList.add(itIsMyBirthdayCard );}
 for (int i = 0; i < 3; i++) {
-Card justSayNoCard = createCard("justSayNoCard ");
+Card justSayNoCard = createCard("justSayNoCard");
 cardList.add(justSayNoCard );}
 for (int i = 0; i < 10; i++) {
-Card passGoCard = createCard("passGoCard ");
+Card passGoCard = createCard("passGoCard");
 cardList.add(passGoCard );}
 for (int i = 0; i < 3; i++) {
-Card slyDealCard = createCard("slyDealCard ");
+Card slyDealCard = createCard("slyDealCard");
 cardList.add(slyDealCard );}
 for (int i = 0; i <3 ; i++) {
-Card wildRentCard = createCard("wildRentCard ");
+Card wildRentCard = createCard("wildRentCard");
 cardList.add(wildRentCard );}
 for (int i = 0; i < 2; i++) {
 Card redoryellowrentcard = createCard("redoryellowrentcard");
 cardList.add(redoryellowrentcard);}
 for (int i = 0; i <2; i++) {
-Card darkblueorgreenrentcard = createCard("darkblueorgreenrentcard ");
+Card darkblueorgreenrentcard = createCard("darkblueorgreenrentcard");
 cardList.add(darkblueorgreenrentcard );}
 for (int i = 0; i < 2; i++) {
 Card pinkororangerentcard= createCard("pinkororangerentcard");
 cardList.add(pinkororangerentcard);}
 for (int i = 0; i < 2; i++) {
-Card lightblueorbrownrentcard = createCard("lightblueorbrownrentcard ");
+Card lightblueorbrownrentcard = createCard("lightblueorbrownrentcard");
 cardList.add(lightblueorbrownrentcard );}
 for (int i = 0; i < 2; i++) {
-Card railroadorutilityrentcard= createCard("wrailroadorutilityrentcard ");
+Card railroadorutilityrentcard= createCard("railroadorutilityrentcard");
 cardList.add(railroadorutilityrentcard );}
 for (int i = 0; i < 6; i++) {
 Card onempricecard = createCard("onempricecard");

@@ -17,16 +17,38 @@ public class CardPile {
 
     public CardPile(gameJFrame gameJFrame){
         this.gameJFrame = gameJFrame;
+        factory = new CardFactory();
         this.initialPile();
         Collections.shuffle(cardPile);
         for (Card card : cardPile) {
+
             trueCardPile.push(card);
         }
+
 
     }
 
     public void  initialPile(){
         cardPile =  (ArrayList<Card>)factory.packaging();
+        for (Card card : cardPile) {
+            card.setGameJFrame(gameJFrame);
+            card.setUp(false);
+            card.turnRear();
+            if(card.getGameJFrame().getPlayersArr().size()==2){
+                card.setSize(90,150);
+
+            } else if (card.getGameJFrame().getPlayersArr().size()==3) {
+                card.setSize(60,100);
+
+            } else if (card.getGameJFrame().getPlayersArr().size()==4) {
+                card.setSize(54,90);
+
+            }else {
+                card.setSize(48,80);
+            }
+            card.setVisible(true);
+        }
+
     }
 
 
