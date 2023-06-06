@@ -10,7 +10,7 @@ import Cards.Card;
 import Cards.CardPile;
 import Player.Player;
 
-import java.awt.Container;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -137,8 +137,10 @@ public class gameJFrame extends JFrame implements ActionListener {
 
 	private void initJframe() {
 		// TODO Auto-generated method stub
-		container = this.getContentPane();
+		container= this.getContentPane();
 		container.setLayout(null);
+		this.setVisible(true);
+
 		// 设置标题
 		this.setTitle("Monopoly Deal Cards");
 		// 设置大小
@@ -181,6 +183,7 @@ public class gameJFrame extends JFrame implements ActionListener {
 			card.setLocation(40, 70);
 			container.add(card);
 			container.setComponentZOrder(card, 0);
+			card.setVisible(true);
 		}else if(playersArr.size()==3){
 			card.setLocation(40, 70);
 			container.add(card);

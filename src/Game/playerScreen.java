@@ -29,7 +29,7 @@ public class playerScreen {
 		}
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
 		draw_pile.setBackground(Color.gray);
-		draw_pile.setOpaque(true);
+		draw_pile.setOpaque(false);
 		
 		
 		JTextField drawPile = new JTextField();
@@ -87,7 +87,7 @@ public class playerScreen {
 	
 	public void three_player(){
 		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel(pile);
+		JLabel draw_pile = new JLabel();
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 60, 100);
@@ -96,7 +96,8 @@ public class playerScreen {
 			e.printStackTrace();
 		}
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
-		draw_pile.setOpaque(true);
+		draw_pile.setBackground(Color.gray);
+		draw_pile.setOpaque(false);
 		
 		
 		JTextField drawPile = new JTextField();
@@ -167,7 +168,7 @@ public class playerScreen {
 	
 	public void four_player(){
 		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel(pile);
+		JLabel draw_pile = new JLabel();
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 54, 90);
@@ -176,7 +177,8 @@ public class playerScreen {
 			e.printStackTrace();
 		}
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
-		draw_pile.setOpaque(true);
+		draw_pile.setBackground(Color.gray);
+		draw_pile.setOpaque(false);
 		
 		
 		JTextField drawPile = new JTextField();
@@ -260,7 +262,7 @@ public class playerScreen {
 	
 	public void five_player(){
 		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel(pile);
+		JLabel draw_pile = new JLabel();
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 48, 80);
@@ -269,7 +271,8 @@ public class playerScreen {
 			e.printStackTrace();
 		}
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
-		draw_pile.setOpaque(true);
+		draw_pile.setBackground(Color.gray);
+		draw_pile.setOpaque(false);
 		
 		
 		JTextField drawPile = new JTextField();
