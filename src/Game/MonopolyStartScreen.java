@@ -117,8 +117,10 @@ public class MonopolyStartScreen extends JFrame {
                 	 JOptionPane.showMessageDialog(null, "Incorrect number of entered age, please re-enter from Player 1");
                  }else {
                      dispose(); //The Start window is closed
-                     
-                     // 在此处添加打开游戏主界面的代码
+                     gameJFrame gameFrame = new gameJFrame();
+                     gameFrame.setVisible(true);
+                	 
+                      
                  }
             }
         });
@@ -130,6 +132,10 @@ public class MonopolyStartScreen extends JFrame {
     //The output age is used for sorting later
     public ArrayList<Integer> getAgeList() {
         return ageList;
+    }
+    
+    public int getMember() {
+        return (int) memberComboBox.getSelectedItem();
     }
 
     public static void main(String[] args) {

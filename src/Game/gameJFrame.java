@@ -77,7 +77,7 @@ public class gameJFrame extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
-
+	MonopolyStartScreen m=new MonopolyStartScreen();
 	private void initJframe() {
 		// TODO Auto-generated method stub
 		// 设置标题
@@ -92,10 +92,16 @@ public class gameJFrame extends JFrame implements ActionListener {
 		this.setLocationRelativeTo(null);
 		
 		playerScreen pS = new playerScreen(this);
-		//pS.two_player();
-		//pS.three_player();
-		//pS.four_player();
-		pS.five_player();
+		int playerNumber=m.getMember();
+		if(playerNumber==2) {
+			pS.two_player();
+		}else if(playerNumber==3) {
+			pS.three_player();
+		}else if(playerNumber==4) {
+			pS.four_player();
+		}else{
+			pS.five_player();
+		}
 	}
 
 	@Override
