@@ -114,126 +114,128 @@ public class CardFactory extends AbstractCardFactory {
 
 public List<Card> packaging (){
 List<Card> cardList = new ArrayList<>();
-
-Card dealBreakerCard = createCard("dealBreakerCard");
-cardList.add(dealBreakerCard);
-
-Card debtCollectorCard = createCard("debtCollectorCard");
-cardList.add(debtCollectorCard);
-
-Card doubleTheRentCards = createCard("doubleTheRentCards ");
-cardList.add(doubleTheRentCards );
-
+for (int i = 0; i < 2; i++) {
+Card dealBreakerCard1 = createCard("dealBreakerCard");
+cardList.add(dealBreakerCard1);}
+for (int i = 0; i < 3; i++) {
+Card debtCollectorCard1 = createCard("debtCollectorCard");
+cardList.add(debtCollectorCard1);}
+for (int i = 0; i < 2; i++) {
+Card doubleTheRentCards1 = createCard("doubleTheRentCards ");
+cardList.add(doubleTheRentCards1 );}
+for (int i = 0; i < 4; i++) {
 Card forceDealCard = createCard("forceDealCard  ");
-cardList.add(forceDealCard );
+cardList.add(forceDealCard );}
 
+for (int i = 0; i < 3; i++) {
 Card hotelCard = createCard("hotelCard  ");
-cardList.add(hotelCard );
-
+cardList.add(hotelCard );}
+for (int i = 0; i < 3; i++) {
 Card houseCard = createCard("houseCard ");
-cardList.add(houseCard );
-
+cardList.add(houseCard );}
+for (int i = 0; i < 3; i++) {
 Card itIsMyBirthdayCard = createCard("itIsMyBirthdayCard ");
-cardList.add(itIsMyBirthdayCard );
-
+cardList.add(itIsMyBirthdayCard );}
+for (int i = 0; i < 3; i++) {
 Card justSayNoCard = createCard("justSayNoCard ");
-cardList.add(justSayNoCard );
-
+cardList.add(justSayNoCard );}
+for (int i = 0; i < 10; i++) {
 Card passGoCard = createCard("passGoCard ");
-cardList.add(passGoCard );
-
+cardList.add(passGoCard );}
+for (int i = 0; i < 3; i++) {
 Card slyDealCard = createCard("slyDealCard ");
-cardList.add(slyDealCard );
-
+cardList.add(slyDealCard );}
+for (int i = 0; i <3 ; i++) {
 Card wildRentCard = createCard("wildRentCard ");
-cardList.add(wildRentCard );
-
+cardList.add(wildRentCard );}
+for (int i = 0; i < 2; i++) {
 Card redoryellowrentcard = createCard("redoryellowrentcard");
-cardList.add(redoryellowrentcard);
-
+cardList.add(redoryellowrentcard);}
+for (int i = 0; i <2; i++) {
 Card darkblueorgreenrentcard = createCard("darkblueorgreenrentcard ");
-cardList.add(darkblueorgreenrentcard );
-
+cardList.add(darkblueorgreenrentcard );}
+for (int i = 0; i < 2; i++) {
 Card pinkororangerentcard= createCard("pinkororangerentcard");
-cardList.add(pinkororangerentcard);
-
+cardList.add(pinkororangerentcard);}
+for (int i = 0; i < 2; i++) {
 Card lightblueorbrownrentcard = createCard("lightblueorbrownrentcard ");
-cardList.add(lightblueorbrownrentcard );
-
+cardList.add(lightblueorbrownrentcard );}
+for (int i = 0; i < 2; i++) {
 Card railroadorutilityrentcard= createCard("wrailroadorutilityrentcard ");
-cardList.add(railroadorutilityrentcard );
-
+cardList.add(railroadorutilityrentcard );}
+for (int i = 0; i < 6; i++) {
 Card onempricecard = createCard("onempricecard");
-cardList.add(onempricecard);
-
+cardList.add(onempricecard);}
+for (int i = 0; i < 5; i++) {
 Card twompricecard = createCard("twompricecard");
-cardList.add(twompricecard);
-
+cardList.add(twompricecard);}
+for (int i = 0; i < 3; i++) {
 Card threempricecard = createCard("threempricecard");
-cardList.add(threempricecard);
-
+cardList.add(threempricecard);}
+for (int i = 0; i < 3; i++) {
 Card fourmpricecard = createCard("fourmpricecard");
-cardList.add(fourmpricecard);
-
+cardList.add(fourmpricecard);}
+for (int i = 0; i < 2; i++) {
 Card fivempricecard = createCard("fivempricecard");
-cardList.add(fivempricecard);
-
+cardList.add(fivempricecard);}
+for (int i = 0; i < 1; i++) {
 Card tenmpricecard = createCard("tenmpricecard");
-cardList.add(tenmpricecard);
-
+cardList.add(tenmpricecard);}
+for (int i = 0; i < 3; i++) {
 Card redpropertycard = createCard("redpropertycard");
-cardList.add(redpropertycard);
-
+cardList.add(redpropertycard);}
+for (int i = 0; i < 3; i++) {
 Card bluepropertycard= createCard("bluepropertycard");
-cardList.add(bluepropertycard);
-
+cardList.add(bluepropertycard);}
+for (int i = 0; i < 3; i++) {
 Card brownpropertycard = createCard("brownpropertycard");
 cardList.add(brownpropertycard);
-
+}
+for (int i = 0; i < 3; i++) {
 Card utilitypropertycard = createCard("utilitypropertycard");
-cardList.add(utilitypropertycard);
-
+cardList.add(utilitypropertycard);}
+for (int i = 0; i < 3; i++) {
 Card greenpropertycard = createCard("greenpropertycard");
-cardList.add(greenpropertycard);
-
+cardList.add(greenpropertycard);}
+for (int i = 0; i < 3; i++) {
 Card yellowpropertycard = createCard("yellowpropertycard");
-cardList.add(yellowpropertycard);
-
+cardList.add(yellowpropertycard);}
+for (int i = 0; i < 3; i++) {
 Card orangepropertycard = createCard("orangepropertycard");
-cardList.add(orangepropertycard);
-
+cardList.add(orangepropertycard);}
+for (int i = 0; i < 3; i++) {
 Card pinkpropertycard = createCard("pinkpropertycard");
-cardList.add(pinkpropertycard);
-
+cardList.add(pinkpropertycard);}
+for (int i = 0; i < 3; i++) {
 Card lightbluepropertycard = createCard("lightbluepropertycard");
-cardList.add(lightbluepropertycard);
-
+cardList.add(lightbluepropertycard);}
+for (int i = 0; i < 4; i++) {
 Card railroadpropertycard = createCard("railroadpropertycard");
-cardList.add(railroadpropertycard);
-
+cardList.add(railroadpropertycard);}
+for (int i = 0; i < 2; i++) {
 Card redoryellowpropertycard = createCard("redoryellowpropertycard");
-cardList.add(redoryellowpropertycard);
-
+cardList.add(redoryellowpropertycard);}
+for (int i = 0; i < 1; i++) {
 Card darkblueorgreenpropertycard = createCard("darkblueorgreenpropertycard");
-cardList.add(darkblueorgreenpropertycard);
-
+cardList.add(darkblueorgreenpropertycard);}
+for (int i = 0; i < 2; i++) {
 Card pinkororangepropertycard = createCard("pinkororangepropertycard");
-cardList.add(pinkororangepropertycard);
-
+cardList.add(pinkororangepropertycard);}
+for (int i = 0; i < 1; i++) {
 Card lightblueorbrownpropertycard = createCard("lightblueorbrownpropertycard");
-cardList.add(lightblueorbrownpropertycard);
-
+cardList.add(lightblueorbrownpropertycard);}
+for (int i = 0; i < 1; i++) {
 Card railroadorutilitypropertycard = createCard("railroadorutilitypropertycard");
-cardList.add(railroadorutilitypropertycard);
-
+cardList.add(railroadorutilitypropertycard);}
+for (int i = 0; i < 1; i++) {
 Card greenorrailroadpropertycard = createCard("greenorrailroadpropertycard");
-cardList.add(greenorrailroadpropertycard);
-
+cardList.add(greenorrailroadpropertycard);}
+for (int i = 0; i < 1; i++) {
 Card lightblueorrailroadpropertycard = createCard("lightblueorrailroadpropertycard");
-cardList.add(lightblueorrailroadpropertycard);
-
+cardList.add(lightblueorrailroadpropertycard);}
+for (int i = 0; i < 2; i++) {
 Card wildpropertycard = createCard("wildpropertycard");
-cardList.add(wildpropertycard);
+cardList.add(wildpropertycard);}
 
 
 return cardList;
