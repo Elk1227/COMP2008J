@@ -11,6 +11,7 @@ public class HandCards {
     private int count;
 
     public HandCards(Player owner) {
+        handcards = new ArrayList<>();
         this.owner = owner;
     }
 

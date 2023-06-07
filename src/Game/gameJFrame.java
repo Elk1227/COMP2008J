@@ -130,7 +130,18 @@ public class gameJFrame extends JFrame implements ActionListener {
 			this.setCardLocation(card);
 		}
 
+		if(playersArr.size() == 2){
+			Player player1 =  playersArr.get(0);
+			ArrayList<Card> cards = player1.drawCard(cardPile);
+			for (int i = 0; i<cards.size(); i++) {
+				Card card = cards.get(i);
+				Common.move(card , card.getLocation(),new Point(180+i*40,300));
+			}
 
+
+
+
+		}
 	}
 
 	MonopolyStartScreen m =new MonopolyStartScreen();
@@ -176,7 +187,6 @@ public class gameJFrame extends JFrame implements ActionListener {
 	}
 
 
-
 	public void setCardLocation(Card card) {
 		if(playersArr.size()==2){
 
@@ -209,5 +219,13 @@ public class gameJFrame extends JFrame implements ActionListener {
 
 	public void setPlayersArr(ArrayList<Player> playersArr) {
 		this.playersArr = playersArr;
+	}
+
+	public Container getContainer() {
+		return container;
+	}
+
+	public void setContainer(Container container) {
+		this.container = container;
 	}
 }

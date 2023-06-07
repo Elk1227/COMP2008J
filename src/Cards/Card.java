@@ -80,4 +80,20 @@ public abstract class Card extends JLabel implements MouseListener {
     public void setUp(boolean up) {
         this.up = up;
     }
+
+    public boolean isCanClicked() {
+        return canClicked;
+    }
+
+    public String getGraph() {
+        return graph;
+    }
+
+    public boolean isClicked() {
+        return clicked;
+    }
+
+    public boolean isMultipleClicks() {
+        return multipleClicks;
+    }
 }

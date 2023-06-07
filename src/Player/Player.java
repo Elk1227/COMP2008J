@@ -37,18 +37,23 @@ public class Player {
     }
 
 
-    public void drawCard(CardPile cardPile){
+    public ArrayList<Card> drawCard(CardPile cardPile){
+        ArrayList<Card> cards = new ArrayList<>();
         if (handCards.isEmpty()){
             for (Card card : cardPile.getCards(5)) {
                 handCards.addCard(card);
+                cards.add(card);
+
 
             }
 
         }else {
             for (Card card : cardPile.getCards(2)) {
                 handCards.addCard(card);
+                cards.add(card);
             }
         }
+        return cards;
     }
 
     public void discard(Card card){
