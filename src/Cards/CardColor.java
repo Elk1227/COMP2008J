@@ -55,5 +55,27 @@ public enum CardColor {
     public int getLayer4_rent() {
         return layer4_rent;
     }
+    public int getFullLayer() {
+        return fullLayer;
+    }
 
+    public void setLayer1_rent(int layer1_rent) {
+        this.layer1_rent = layer1_rent;
+    }
+
+    public void setLayer2_rent(int layer2_rent) {
+        this.layer2_rent = layer2_rent;
+    }
+
+    public void setLayer3_rent(int layer3_rent) {
+        this.layer3_rent = layer3_rent;
+    }
+
+    public void setLayer4_rent(int layer4_rent) {
+        this.layer4_rent = layer4_rent;
+    }
+
+    public void setFullLayer(int fullLayer) {
+        this.fullLayer = fullLayer;
+    }
 }

@@ -13,6 +13,7 @@ import Player.Player;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class gameJFrame extends JFrame implements ActionListener {
@@ -135,13 +136,64 @@ public class gameJFrame extends JFrame implements ActionListener {
 			ArrayList<Card> cards = player1.drawCard(cardPile);
 			for (int i = 0; i<cards.size(); i++) {
 				Card card = cards.get(i);
-				Common.move(card , card.getLocation(),new Point(180+i*40,300));
+				Common.move(card , card.getLocation(),new Point(180+i*100,500));
+
+				try {
+					card.turnFront();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
 			}
 
+		}
 
+		if(playersArr.size() == 3){
+			Player player1 =  playersArr.get(0);
+			ArrayList<Card> cards = player1.drawCard(cardPile);
+			for (int i = 0; i<cards.size(); i++) {
+				Card card = cards.get(i);
+				Common.move(card , card.getLocation(),new Point(180+i*100,550));
 
+				try {
+					card.turnFront();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
 
 		}
+		if(playersArr.size() == 4){
+			Player player1 =  playersArr.get(0);
+			ArrayList<Card> cards = player1.drawCard(cardPile);
+			for (int i = 0; i<cards.size(); i++) {
+				Card card = cards.get(i);
+				Common.move(card , card.getLocation(),new Point(150+i*100,635));
+
+				try {
+					card.turnFront();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
+		}
+		if(playersArr.size() == 5){
+			Player player1 =  playersArr.get(0);
+			ArrayList<Card> cards = player1.drawCard(cardPile);
+			for (int i = 0; i<cards.size(); i++) {
+				Card card = cards.get(i);
+				Common.move(card , card.getLocation(),new Point(150+i*100,645));
+
+				try {
+					card.turnFront();
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
+		}
+
+
 	}
 
 	MonopolyStartScreen m =new MonopolyStartScreen();

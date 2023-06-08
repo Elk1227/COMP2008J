@@ -1,10 +1,12 @@
 package Cards;
 
+import Game.changeImageSize;
 import Game.gameJFrame;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 public abstract class Card extends JLabel implements MouseListener {
         private gameJFrame gameJFrame;
@@ -33,10 +35,13 @@ public abstract class Card extends JLabel implements MouseListener {
 
         }
 
-    public void turnFront() {
+    public void turnFront() throws IOException {
+
         // 给牌设置反面
+        changeImageSize changeSize = new changeImageSize();
         this.removeAll();
-        this.setIcon(new ImageIcon());
+        changeSize.changeSize(this.graph,this.getWidth(),this.getHeight());
+        this.setIcon(new ImageIcon(this.graph));
         this.repaint();
         gameJFrame.repaint();
         // 修改成员变量
@@ -95,5 +100,30 @@ public abstract class Card extends JLabel implements MouseListener {
 
     public boolean isMultipleClicks() {
         return multipleClicks;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(CardPrice price) {
+        this.price = price;
+    }
+
+    public void setCanClicked(boolean canClicked) {
+        this.canClicked = canClicked;
+    }
+
+    public void setGraph(String graph) {
+        this.graph = graph;
+    }
+
+    public void setClicked(boolean clicked) {
+        this.clicked = clicked;
+    }
+
+    public void setMultipleClicks(boolean multipleClicks) {
+        this.multipleClicks = multipleClicks;
     }
 }

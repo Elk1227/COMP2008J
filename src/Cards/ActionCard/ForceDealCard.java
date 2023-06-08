@@ -7,7 +7,7 @@ import Cards.CardPrice;
 public class ForceDealCard extends ActionCard{
 
 	public ForceDealCard() {
-		super("Force Deal",CardPrice.M3,"resources/action cards/FORCED DEAL.jpeg");
+		super("Force Deal",CardPrice.M3,"resources/action cards/FORCED DEAL.jpg");
 		
 	}
 

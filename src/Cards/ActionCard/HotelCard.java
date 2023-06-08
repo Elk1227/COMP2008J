@@ -7,7 +7,8 @@ import Cards.CardPrice;
 public class HotelCard extends ActionCard{
 
 	public HotelCard() {
-		super("Hotel",CardPrice.M4,"resources/action cards/Hotel.png");
+		super("Hotel",CardPrice.M4,"resources/action cards/Hotel.jpg");
+
 		
 	}
 

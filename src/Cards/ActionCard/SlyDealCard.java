@@ -7,7 +7,7 @@ import Cards.CardPrice;
 public class SlyDealCard extends ActionCard {
 
 	public SlyDealCard() {
-		super("Sly Deal",CardPrice.M3,"");
+		super("Sly Deal",CardPrice.M3,"resources/action cards/sly-deal.jpg");
 		
 	}
 

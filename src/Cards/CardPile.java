@@ -1,5 +1,6 @@
 package Cards;
 
+import Game.changeImageSize;
 import Game.gameJFrame;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class CardPile {
             card.setUp(false);
             card.turnRear();
             if(card.getGameJFrame().getPlayersArr().size()==2){
+
                 card.setSize(90,150);
 
             } else if (card.getGameJFrame().getPlayersArr().size()==3) {
@@ -78,6 +80,29 @@ public class CardPile {
         return trueCardPile;
     }
 
+    public void setCardPile(ArrayList<Card> cardPile) {
+        this.cardPile = cardPile;
+    }
+
+    public void setTrueCardPile(Stack<Card> trueCardPile) {
+        this.trueCardPile = trueCardPile;
+    }
+
+    public Game.gameJFrame getGameJFrame() {
+        return gameJFrame;
+    }
+
+    public void setGameJFrame(Game.gameJFrame gameJFrame) {
+        this.gameJFrame = gameJFrame;
+    }
+
+    public CardFactory getFactory() {
+        return factory;
+    }
+
+    public void setFactory(CardFactory factory) {
+        this.factory = factory;
+    }
 
     public  ArrayList<Card> getCardPile() {
         return cardPile;

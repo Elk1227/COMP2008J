@@ -7,7 +7,7 @@ import Cards.CardPrice;
 public class ItIsMyBirthdayCard extends ActionCard {
 
 	public ItIsMyBirthdayCard() {
-		super("It's My Birthday", CardPrice.M2,"resources/action cards/It’s My Birthday.png");
+		super("It's My Birthday", CardPrice.M2,"resources/action cards/It’s My Birthday.jpg");
 		
 	}
 

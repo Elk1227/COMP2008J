@@ -14,5 +14,17 @@ public enum CardPrice {
     public int getPrice() {
         return price;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
 //因为WildPropertyCard没有价格所以增加了0元，可以考虑进一步调整

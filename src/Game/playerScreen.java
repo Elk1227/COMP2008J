@@ -18,8 +18,6 @@ public class playerScreen {
 	}
 	
 	public void two_player() {
-		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel();
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 90, 150);
@@ -27,6 +25,8 @@ public class playerScreen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
+		JLabel draw_pile = new JLabel();
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
 		draw_pile.setBackground(Color.gray);
 		draw_pile.setOpaque(false);
@@ -86,8 +86,7 @@ public class playerScreen {
 	
 	
 	public void three_player(){
-		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel();
+		
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 60, 100);
@@ -95,6 +94,8 @@ public class playerScreen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
+		JLabel draw_pile = new JLabel();
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
 		draw_pile.setBackground(Color.gray);
 		draw_pile.setOpaque(false);
@@ -167,8 +168,6 @@ public class playerScreen {
 	
 	
 	public void four_player(){
-		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel();
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 54, 90);
@@ -176,6 +175,8 @@ public class playerScreen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
+		JLabel draw_pile = new JLabel();
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
 		draw_pile.setBackground(Color.gray);
 		draw_pile.setOpaque(false);
@@ -260,9 +261,7 @@ public class playerScreen {
 	}
 	
 	
-	public void five_player(){
-		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
-		JLabel draw_pile = new JLabel();
+	public void five_player(){		
 		changeImageSize changeSize = new changeImageSize();
 		try {
 			changeSize.changeSize("resources/action cards/images.jpg", 48, 80);
@@ -270,6 +269,8 @@ public class playerScreen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ImageIcon pile = new ImageIcon("resources/action cards/images.jpg");
+		JLabel draw_pile = new JLabel();
 		draw_pile.setBounds(40, 70, pile.getIconWidth(), pile.getIconHeight());
 		draw_pile.setBackground(Color.gray);
 		draw_pile.setOpaque(false);
