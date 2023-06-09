@@ -50,8 +50,9 @@ public class HandCards {
     }
 
 
-
-
+    public ArrayList<Card> getHandcards(){
+        return handcards;
+    }
 
     public int getCount() {
         return count;

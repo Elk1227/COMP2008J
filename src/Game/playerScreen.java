@@ -20,7 +20,7 @@ public class playerScreen {
 	public void two_player() {
 		changeImageSize changeSize = new changeImageSize();
 		try {
-			changeSize.changeSize("resources/action cards/images.jpg", 90, 150);
+			changeSize.changeSize("resources/action cards/images.jpg", 60, 100);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,13 +39,13 @@ public class playerScreen {
 		drawPile.setEditable(false);
 		
 		JTextField playerPile = new JTextField();
-		playerPile.setBounds(40, 280, 80, 20);
+		playerPile.setBounds(40, 230, 80, 20);
 		playerPile.setText("player pile");
 		playerPile.setFont(new Font("Arial", Font.PLAIN, 15));
 		playerPile.setEditable(false);
 		
 		JLabel action_pile = new JLabel();
-		action_pile.setBounds(40, 310, pile.getIconWidth(), pile.getIconHeight());
+		action_pile.setBounds(40, 260, pile.getIconWidth(), pile.getIconHeight());
 		action_pile.setBackground(Color.gray);
 		action_pile.setOpaque(true);
 		

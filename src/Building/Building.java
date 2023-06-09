@@ -21,6 +21,7 @@ public class Building {
     private boolean isFull;
 
     public Building(CardColor colorOfBuilding) {
+        building = new ArrayList<>();
         this.colorOfBuilding = colorOfBuilding;
         rentOfHouse = 0;
         rentOfHotel = 0;

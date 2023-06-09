@@ -1,15 +1,17 @@
 package Cards;
 
 import Game.changeImageSize;
-import Game.gameJFrame;
+import Player.Player;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
+
 public abstract class Card extends JLabel implements MouseListener {
-        private gameJFrame gameJFrame;
+        //private GameJFrame gameJFrame;
         private String name;
         private CardPrice price;
         private boolean canClicked = false;
@@ -21,6 +23,8 @@ public abstract class Card extends JLabel implements MouseListener {
     private boolean clicked = false;
 
     private boolean multipleClicks = false;
+
+    private Player owner;
 
 
 
@@ -43,23 +47,51 @@ public abstract class Card extends JLabel implements MouseListener {
         changeSize.changeSize(this.graph,this.getWidth(),this.getHeight());
         this.setIcon(new ImageIcon(this.graph));
         this.repaint();
-        gameJFrame.repaint();
+        //gameJFrame.repaint();
         // 修改成员变量
         this.up = true;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
+            Point from = this.getLocation();
+            int step;
+            if (clicked) {
+                //已经被点击：下降, 而且原本选中的角色不变成未选中状态
+                step = 20;
+                clicked = false;
+            } else {
+                int i = 0;
+                for (Card handcard : owner.getHandCards().getHandcards()) {
+                    if(handcard.clicked == true){
+                        i++;
+
+                    }
+
+                }
+                if (i==0){
+                    step = -20;
+
+                    clicked = true;
+                }else {
+                    step = 0;
+                }
+
+            }
+
+            Point to = new Point(from.x, from.y + step);
+            this.setLocation(to);
+        }
 
 
-    }
+
 
     public void turnRear() {
         // 给牌设置反面
         this.removeAll();
         this.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         this.repaint();
-        gameJFrame.repaint();
+        //gameJFrame.repaint();
         // 修改成员变量
         this.up = false;
     }
@@ -70,13 +102,6 @@ public abstract class Card extends JLabel implements MouseListener {
             return price;
         }
 
-    public Game.gameJFrame getGameJFrame() {
-        return gameJFrame;
-    }
-
-    public void setGameJFrame(Game.gameJFrame gameJFrame) {
-        this.gameJFrame = gameJFrame;
-    }
 
     public boolean isUp() {
         return up;
@@ -125,5 +150,13 @@ public abstract class Card extends JLabel implements MouseListener {
 
     public void setMultipleClicks(boolean multipleClicks) {
         this.multipleClicks = multipleClicks;
+    }
+
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
     }
 }

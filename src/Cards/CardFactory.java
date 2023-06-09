@@ -145,7 +145,7 @@ Card passGoCard = createCard("passGoCard");
 cardList.add(passGoCard );}
 for (int i = 0; i < 3; i++) {
 Card slyDealCard = createCard("slyDealCard");
-cardList.add(slyDealCard );}
+cardList.add(slyDealCard);}
 for (int i = 0; i <3 ; i++) {
 Card wildRentCard = createCard("wildRentCard");
 cardList.add(wildRentCard );}

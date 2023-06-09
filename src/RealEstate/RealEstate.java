@@ -24,6 +24,11 @@ public class RealEstate {
                     return true;
                 }
             }
+            Building building = new Building(propertycard.getColor());
+            building.buildBuilding(propertycard);
+            this.addBuilding(building);
+            return true;
+
         }
         return false;
     }
@@ -74,4 +79,10 @@ public class RealEstate {
     public  void removeBuilding(Building building){
         buildings.remove(building);
     }
+
+    public  int getSize(){
+        return  buildings.size();
+    }
+
+
 }

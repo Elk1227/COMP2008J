@@ -18,6 +18,8 @@ public class Player {
     private  RealEstate realEstate;
     private HandCards handCards;
 
+    private int time;
+
     playerField feild;
 
 
@@ -91,5 +93,38 @@ public class Player {
 
     public HandCards getHandCards() {
         return handCards;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public void setRealEstate(RealEstate realEstate) {
+        this.realEstate = realEstate;
+    }
+
+    public void setHandCards(HandCards handCards) {
+        this.handCards = handCards;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public playerField getFeild() {
+        return feild;
+    }
+
+    public void setFeild(playerField feild) {
+        this.feild = feild;
     }
 }
