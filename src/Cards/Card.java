@@ -56,27 +56,31 @@ public abstract class Card extends JLabel implements MouseListener {
     public void mouseClicked(MouseEvent e) {
             Point from = this.getLocation();
             int step;
-            if (clicked) {
-                //已经被点击：下降, 而且原本选中的角色不变成未选中状态
-                step = 20;
-                clicked = false;
-            } else {
-                int i = 0;
-                for (Card handcard : owner.getHandCards().getHandcards()) {
-                    if(handcard.clicked == true){
-                        i++;
+            if(this.owner.getHandCards().getHandcards().contains(this)){
+                if (clicked) {
+                    //已经被点击：下降, 而且原本选中的角色不变成未选中状态
+                    step = 20;
+                    clicked = false;
+                } else {
+                    int i = 0;
+                    for (Card handcard : owner.getHandCards().getHandcards()) {
+                        if(handcard.clicked == true){
+                            i++;
 
+                        }
+
+                    }
+                    if (i==0){
+                        step = -20;
+
+                        clicked = true;
+                    }else {
+                        step = 0;
                     }
 
                 }
-                if (i==0){
-                    step = -20;
-
-                    clicked = true;
-                }else {
-                    step = 0;
-                }
-
+            }else {
+                step = 0;
             }
 
             Point to = new Point(from.x, from.y + step);

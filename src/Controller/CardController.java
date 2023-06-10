@@ -254,21 +254,75 @@ public class CardController {
 
     public void buildRealEstate(){
         Player player =  playerController.getCurrentplayer();
-        for (Card handcard : player.getHandCards().getHandcards()) {
-            if(handcard.isClicked()){
-                if(handcard instanceof PropertyCard){
-                    player.buildPropertySet((PropertyCard) handcard);
-                    int i = player.getRealEstate().getSize();
-                    Point to = new  Point(560+i*40,70);
-                    this.moveCard(handcard,to);
-                    player.getHandCards().removeCard(handcard);
-                    reposition();
+        int size  =    players.size();
+        if(size == 2){
+            for (Card handcard : player.getHandCards().getHandcards()) {
+                if(handcard.isClicked()){
+                    if(handcard instanceof PropertyCard){
+                        player.buildPropertySet((PropertyCard) handcard);
+                        int i = player.getRealEstate().getSize();
+                        Point to = new  Point(550+i*90,100);
+                        this.moveCard(handcard,to);
+                        player.getHandCards().removeCard(handcard);
+                        reposition();
 
+                    }
                 }
+
             }
 
-        }
+        } else if (size == 3) {
+            for (Card handcard : player.getHandCards().getHandcards()) {
+                if(handcard.isClicked()){
+                    if(handcard instanceof PropertyCard){
+                        player.buildPropertySet((PropertyCard) handcard);
+                        int i = player.getRealEstate().getSize();
+                        Point to = new  Point(550+i*60,80);
+                        this.moveCard(handcard,to);
+                        player.getHandCards().removeCard(handcard);
+                        reposition();
 
+                    }
+                }
+
+            }
+
+        }else if (size == 4){
+            for (Card handcard : player.getHandCards().getHandcards()) {
+                if(handcard.isClicked()){
+                    if(handcard instanceof PropertyCard){
+                        player.buildPropertySet((PropertyCard) handcard);
+                        int i = player.getRealEstate().getSize();
+                        Point to = new  Point(560+i*54,70);
+                        this.moveCard(handcard,to);
+                        player.getHandCards().removeCard(handcard);
+                        reposition();
+
+                    }
+                }
+
+            }
+
+
+
+        }else {
+            for (Card handcard : player.getHandCards().getHandcards()) {
+                if(handcard.isClicked()){
+                    if(handcard instanceof PropertyCard){
+                        player.buildPropertySet((PropertyCard) handcard);
+                        int i = player.getRealEstate().getSize();
+                        Point to = new  Point(560+i*48,60);
+                        this.moveCard(handcard,to);
+                        player.getHandCards().removeCard(handcard);
+                        reposition();
+
+                    }
+                }
+
+            }
+
+
+        }
 
 
 
