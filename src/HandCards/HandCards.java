@@ -44,6 +44,12 @@ public class HandCards {
         return handcards.isEmpty();
     }
 
+    public Card getFirstHandCard(){
+        return handcards.get(0);
+    }
+    public int getHandCardSize(){
+        return handcards.size();
+    }
 
     public boolean isFull(){
         return count > 7;

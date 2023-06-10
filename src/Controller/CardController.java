@@ -1,8 +1,10 @@
 package Controller;
 
+import Cards.ActionCard.ActionCard;
 import Cards.Card;
 import Cards.CardFactory;
 import Cards.CardPile;
+import Cards.PriceCard.PriceCard;
 import Cards.Properties.PropertyCard;
 import Game.changeImageSize;
 import Player.Player;
@@ -360,6 +362,34 @@ public class CardController {
         }
 
     }
+
+    public void moveToBank() {
+        Player player = playerController.getCurrentplayer();
+        for (Card collectCard : player.getHandCards().getHandcards()) {
+            if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                player.buildBank(collectCard);
+                int i = player.getBank().getBankSize();
+                if(players.size()==2){
+                    Point to = new Point(245+i*10, 100);
+                    this.moveCard(collectCard, to);
+                } else if (players.size()==3){
+                    Point to = new Point(240+i*10, 80);
+                    this.moveCard(collectCard, to);
+                }
+                else if (players.size()==4){
+                    Point to = new Point(210+i*10, 70);
+                    this.moveCard(collectCard, to);
+                }
+                else if (players.size()==5){
+                    Point to = new Point(210+i*10, 60);
+                    this.moveCard(collectCard, to);
+                }
+                player.getHandCards().removeCard(collectCard);
+            }
+        }
+
+    }
+
 
     public  void moveCard(Card moveCard, Point to) {
         Runnable moveTask = new MoveCartoon(moveCard, to);

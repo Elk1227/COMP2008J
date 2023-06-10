@@ -347,7 +347,9 @@ public class GameController  {
 //	public void setContainer(Container container) {
 //		this.container = container;
 //	}
-
+public ArrayList<Player> getPlayersArr() {
+	return playersArr;
+}
 	public ViewController getViewController() {
 		return viewController;
 	}
@@ -362,5 +364,27 @@ public class GameController  {
 
 	public void setCardController(CardController cardController) {
 		this.cardController = cardController;
+	}
+	
+	public void updateHandCard(){
+		Player player= playerController.getCurrentplayer();
+		ArrayList<Card> handCard1 = player.getHandCards().getHandcards();
+		for (int j = 0; j < handCard1.size(); j++) {
+			viewController.remove(handCard1.get(j));
+			viewController.revalidate();
+			viewController.repaint();
+		}
+		playerController.changeTONextPlayer();
+		Player playerCurrent =   playerController.getCurrentplayer();
+		ArrayList<Card> handCards = playerCurrent.getHandCards().getHandcards();
+		for (int i = 0; i < handCards.size(); i++) {
+			handCards.get(i).setIcon(new ImageIcon(handCards.get(i).getGraph()));
+			viewController.add(handCards.get(i));
+
+		}
+		viewController.revalidate();
+		viewController.repaint();
+
+
 	}
 }

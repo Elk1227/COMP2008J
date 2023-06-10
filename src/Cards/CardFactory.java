@@ -185,14 +185,14 @@ cardList.add(tenmpricecard);}
 for (int i = 0; i < 3; i++) {
 Card redpropertycard = createCard("redpropertycard");
 cardList.add(redpropertycard);}
-for (int i = 0; i < 3; i++) {
+for (int i = 0; i < 2; i++) {
 Card bluepropertycard= createCard("bluepropertycard");
 cardList.add(bluepropertycard);}
-for (int i = 0; i < 3; i++) {
+for (int i = 0; i < 2; i++) {
 Card brownpropertycard = createCard("brownpropertycard");
 cardList.add(brownpropertycard);
 }
-for (int i = 0; i < 3; i++) {
+for (int i = 0; i < 2; i++) {
 Card utilitypropertycard = createCard("utilitypropertycard");
 cardList.add(utilitypropertycard);}
 for (int i = 0; i < 3; i++) {

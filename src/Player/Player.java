@@ -78,6 +78,9 @@ public class Player {
         realEstate.addRealEstate(card);
     }
 
+    public void buildBank(Card card){
+        bank.addCard(card);
+    }
 
     public int getId() {
         return id;

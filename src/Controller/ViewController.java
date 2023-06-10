@@ -35,7 +35,6 @@ public class ViewController extends JFrame implements ActionListener {
 
 	JButton finish_output;
 	JButton give_up;
-	ActionListener actionListener;
 
 	GameController gameController;
 
@@ -69,11 +68,11 @@ public class ViewController extends JFrame implements ActionListener {
 
 	private void initView() {
 		int i=playerNumber-2;
-		// TODO Auto-generated method stub
+// TODO Auto-generated method stub
 		check = new JButton("VIEW");
-		check.setBounds(30, 630+i*30, 80, 40);
+		check.setBounds(30, 640-i*30, 80, 40);
 		check.setFocusable(false);
-		check.addActionListener(actionListener);
+		check.addActionListener(this);
 
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.add(check, JLayeredPane.PALETTE_LAYER);
@@ -81,17 +80,17 @@ public class ViewController extends JFrame implements ActionListener {
 //add to bank
 
 		add_to_bank = new JButton("AS MONEY");
-		add_to_bank.setBounds(30,380+i*30,80,40);
+		add_to_bank.setBounds(30,390-i*30,80,40);
 		add_to_bank.setFocusable(false);
 		add_to_bank.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				gameController.getCardController().moveToBank();
 			}
 		});
 		layeredPane.add(add_to_bank, JLayeredPane.PALETTE_LAYER);
 		use_function = new JButton("USE FUNCTION");
-		use_function.setBounds(30,430+i*30,80,40);
+		use_function.setBounds(30,440-i*30,80,40);
 		use_function.setFocusable(false);
 		use_function.addActionListener(new ActionListener() {
 			@Override
@@ -101,7 +100,7 @@ public class ViewController extends JFrame implements ActionListener {
 		});
 		layeredPane.add(use_function, JLayeredPane.PALETTE_LAYER);
 		add_house = new JButton("ADD HOUSE");
-		add_house.setBounds(30,480+i*30,80,40);
+		add_house.setBounds(30,490-i*30,80,40);
 		add_house.setFocusable(false);
 		add_house.addActionListener(new ActionListener() {
 			@Override
@@ -112,18 +111,19 @@ public class ViewController extends JFrame implements ActionListener {
 		});
 		layeredPane.add(add_house, JLayeredPane.PALETTE_LAYER);
 		finish_output = new JButton("END");
-		finish_output.setBounds(30,530+i*30,80,40);
+		finish_output.setBounds(30,540-i*30,80,40);
 		finish_output.setFocusable(false);
 		finish_output.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				PlayerController playerController=new PlayerController(gameController);
+				gameController.updateHandCard();
 			}
 		});
 		layeredPane.add(finish_output, JLayeredPane.PALETTE_LAYER);
 
 		give_up = new JButton("GIVE UP");
-		give_up.setBounds(30,580+i*30,80,40);
+		give_up.setBounds(30,590-i*30,80,40);
 		give_up.setFocusable(false);
 		give_up.addActionListener(new ActionListener() {
 			@Override
@@ -282,13 +282,20 @@ public class ViewController extends JFrame implements ActionListener {
 		}
 	}
 
+	public JButton getCheck() {
+		return check;
+	}
+	public GameController getGameController() {
+		return gameController;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource()==check_bank) {
+		if(e.getSource()==check) {
 			new ViewBank(this, container, this);
 		}
-		check_bank.setEnabled(false);
+		check.setEnabled(false);
 	}
 
 

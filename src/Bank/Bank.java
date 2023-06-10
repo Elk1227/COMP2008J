@@ -123,6 +123,18 @@ public class Bank {
 		}
 	    return totalAmount;
     }
+
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
+	}
+	public int getBankSize() {
+		return cards.size();
+	}
+
 }
 
 
