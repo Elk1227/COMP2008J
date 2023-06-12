@@ -61,8 +61,10 @@ public class playerScreen {
 		JLabel p1 = new JLabel();
 		p1.setBounds(180, 70, 800, 200);
 		p1.setBorder(blackline);
+		//p1.setBackground(new Color(0,0,0,0));
 		p1.add(player1);
 		p1.setOpaque(true);
+
 		
 		JTextField player2 = new JTextField();
 		player2.setBounds(0,0,60,20);
@@ -73,6 +75,7 @@ public class playerScreen {
 		JLabel p2 = new JLabel();
 		p2.setBounds(180, 280, 800, 200);
 		p2.setBorder(blackline);
+		//p2.setBackground(new Color(0,0,0,0));
 		p2.add(player2);
 		p2.setOpaque(true);
 		
@@ -130,6 +133,7 @@ public class playerScreen {
 		JLabel p1 = new JLabel();
 		p1.setBounds(180, 50, 800, 140);
 		p1.setBorder(blackline);
+		p1.setBackground(new Color(0,0,0,0));
 		p1.add(player1);
 		p1.setOpaque(true);
 		
@@ -142,6 +146,7 @@ public class playerScreen {
 		JLabel p2 = new JLabel();
 		p2.setBounds(180, 220, 800, 140);
 		p2.setBorder(blackline);
+		p2.setBackground(new Color(0,0,0,0));
 		p2.add(player2);
 		p2.setOpaque(true);
 		
@@ -154,6 +159,7 @@ public class playerScreen {
 		JLabel p3 = new JLabel();
 		p3.setBounds(180, 390, 800, 140);
 		p3.setBorder(blackline);
+		p3.setBackground(new Color(0,0,0,0));
 		p3.add(player3);
 		p3.setOpaque(true);
 		
@@ -211,6 +217,7 @@ public class playerScreen {
 		JLabel p1 = new JLabel();
 		p1.setBounds(150, 50, 800, 120);
 		p1.setBorder(blackline);
+		p1.setBackground(new Color(0,0,0,0));
 		p1.add(player1);
 		p1.setOpaque(true);
 		
@@ -223,6 +230,7 @@ public class playerScreen {
 		JLabel p2 = new JLabel();
 		p2.setBounds(150, 200, 800, 120);
 		p2.setBorder(blackline);
+		p2.setBackground(new Color(0,0,0,0));
 		p2.add(player2);
 		p2.setOpaque(true);
 		
@@ -235,6 +243,7 @@ public class playerScreen {
 		JLabel p3 = new JLabel();
 		p3.setBounds(150, 350, 800, 120);
 		p3.setBorder(blackline);
+		p3.setBackground(new Color(0,0,0,0));
 		p3.add(player3);
 		p3.setOpaque(true);
 		
@@ -247,6 +256,7 @@ public class playerScreen {
 		JLabel p4 = new JLabel();
 		p4.setBounds(150, 500, 800, 120);
 		p4.setBorder(blackline);
+		p2.setBackground(new Color(0,0,0,0));
 		p4.add(player4);
 		p4.setOpaque(true);
 		

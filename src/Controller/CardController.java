@@ -68,10 +68,19 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-
-
-
-
+            Player player2 =  players.get(1);
+            ArrayList<Card> cards2 = player2.drawCard(cardPile);
+            for (int i = 0; i<cards2.size(); i++) {
+                Card card = cards2.get(i);
+                card.setOwner(player2);
+                card.setLocation(new Point(180+i*100,500));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }if(players.size() == 3){
             Player player1 =  players.get(0);
             ArrayList<Card> cards = player1.drawCard(cardPile);
@@ -79,6 +88,32 @@ public class CardController {
                 Card card = cards.get(i);
                 card.setOwner(player1);
                 this.move(card , card.getLocation(),new Point(180+i*100,550));
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player2 =  players.get(1);
+            ArrayList<Card> cards2 = player2.drawCard(cardPile);
+            for (int i = 0; i<cards2.size(); i++) {
+                Card card = cards2.get(i);
+                card.setOwner(player2);
+                card.setLocation(new Point(180+i*100,550));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player3 =  players.get(2);
+            ArrayList<Card> cards3 = player3.drawCard(cardPile);
+            for (int i = 0; i<cards3.size(); i++) {
+                Card card = cards3.get(i);
+                card.setOwner(player3);
+                card.setLocation(new Point(180+i*100,550));
+                card.setVisible(false);
                 try {
                     this.turnFront(card);
                 } catch (IOException e) {
@@ -100,6 +135,45 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
+            Player player2 =  players.get(1);
+            ArrayList<Card> cards2 = player2.drawCard(cardPile);
+            for (int i = 0; i<cards2.size(); i++) {
+                Card card = cards2.get(i);
+                card.setOwner(player2);
+                card.setLocation(new Point(150+i*100,635));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player3 =  players.get(2);
+            ArrayList<Card> cards3 = player3.drawCard(cardPile);
+            for (int i = 0; i<cards3.size(); i++) {
+                Card card = cards3.get(i);
+                card.setOwner(player3);
+                card.setLocation(new Point(150+i*100,635));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player4 =  players.get(3);
+            ArrayList<Card> cards4 = player4.drawCard(cardPile);
+            for (int i = 0; i<cards4.size(); i++) {
+                Card card = cards4.get(i);
+                card.setOwner(player4);
+                card.setLocation(new Point(150+i*100,635));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
         }
         if(players.size() == 5){
@@ -115,8 +189,61 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
+            Player player2 =  players.get(1);
+            ArrayList<Card> cards2 = player2.drawCard(cardPile);
+            for (int i = 0; i<cards2.size(); i++) {
+                Card card = cards2.get(i);
+                card.setOwner(player2);
+                card.setLocation(new Point(150+i*100,645));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player3 =  players.get(2);
+            ArrayList<Card> cards3 = player3.drawCard(cardPile);
+            for (int i = 0; i<cards3.size(); i++) {
+                Card card = cards3.get(i);
+                card.setOwner(player3);
+                card.setLocation(new Point(150+i*100,645));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player4 =  players.get(3);
+            ArrayList<Card> cards4 = player4.drawCard(cardPile);
+            for (int i = 0; i<cards4.size(); i++) {
+                Card card = cards4.get(i);
+                card.setOwner(player4);
+                card.setLocation(new Point(150+i*100,645));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            Player player5 =  players.get(4);
+            ArrayList<Card> cards5 = player5.drawCard(cardPile);
+            for (int i = 0; i<cards5.size(); i++) {
+                Card card = cards5.get(i);
+                card.setOwner(player5);
+                card.setLocation(new Point(150+i*100,645));
+                card.setVisible(false);
+                try {
+                    this.turnFront(card);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
         }
+        playerController.getCurrentplayer().setTime(3);
     }
 
 
@@ -257,73 +384,282 @@ public class CardController {
     public void buildRealEstate(){
         Player player =  playerController.getCurrentplayer();
         int size  =    players.size();
-        if(size == 2){
-            for (Card handcard : player.getHandCards().getHandcards()) {
-                if(handcard.isClicked()){
-                    if(handcard instanceof PropertyCard){
-                        player.buildPropertySet((PropertyCard) handcard);
-                        int i = player.getRealEstate().getSize();
-                        Point to = new  Point(550+i*90,100);
-                        this.moveCard(handcard,to);
-                        player.getHandCards().removeCard(handcard);
-                        reposition();
+        if (player.getTime()!=0){
+            if(size == 2){
+                if(player.getId()==1){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(550+i*90,100);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+                }else if(player.getId()==2){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(550+i*90,320);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            } else if (size == 3) {
+                if(player.getId()==1){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(550+i*60,80);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+                }else if(player.getId()==2){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(550+i*60,320);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else if(player.getId()==3){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(550+i*60,430);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }
+
+            }else if (size == 4){
+                if(player.getId()==1){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*54,70);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+                            }
+                        }
+
+                    }
+                }else if(player.getId()==2){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*54,220);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else if(player.getId()==3){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*54,370);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else if(player.getId()==4){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*54,520);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }
+
+
+
+            }else {
+                if(player.getId()==1){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*48,70);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+                            }
+                        }
+
+                    }
+                }else if(player.getId()==2){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*48,220);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else if(player.getId()==3){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*48,370);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else if(player.getId()==4){
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*48,520);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
+
+                    }
+
+                }else {
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if(handcard.isClicked()){
+                            if(handcard instanceof PropertyCard){
+                                player.buildPropertySet((PropertyCard) handcard);
+                                int i = player.getRealEstate().getSize();
+                                Point to = new  Point(530+i*48,550);
+                                this.moveCard(handcard,to);
+                                player.getHandCards().removeCard(handcard);
+                                reposition();
+                                int time = player.getTime()-1;
+                                player.setTime(time);
+
+
+                            }
+                        }
 
                     }
                 }
 
-            }
-
-        } else if (size == 3) {
-            for (Card handcard : player.getHandCards().getHandcards()) {
-                if(handcard.isClicked()){
-                    if(handcard instanceof PropertyCard){
-                        player.buildPropertySet((PropertyCard) handcard);
-                        int i = player.getRealEstate().getSize();
-                        Point to = new  Point(550+i*60,80);
-                        this.moveCard(handcard,to);
-                        player.getHandCards().removeCard(handcard);
-                        reposition();
-
-                    }
-                }
 
             }
-
-        }else if (size == 4){
-            for (Card handcard : player.getHandCards().getHandcards()) {
-                if(handcard.isClicked()){
-                    if(handcard instanceof PropertyCard){
-                        player.buildPropertySet((PropertyCard) handcard);
-                        int i = player.getRealEstate().getSize();
-                        Point to = new  Point(560+i*54,70);
-                        this.moveCard(handcard,to);
-                        player.getHandCards().removeCard(handcard);
-                        reposition();
-
-                    }
-                }
-
-            }
-
-
-
-        }else {
-            for (Card handcard : player.getHandCards().getHandcards()) {
-                if(handcard.isClicked()){
-                    if(handcard instanceof PropertyCard){
-                        player.buildPropertySet((PropertyCard) handcard);
-                        int i = player.getRealEstate().getSize();
-                        Point to = new  Point(560+i*48,60);
-                        this.moveCard(handcard,to);
-                        player.getHandCards().removeCard(handcard);
-                        reposition();
-
-                    }
-                }
-
-            }
-
-
         }
 
 
@@ -367,160 +703,202 @@ public class CardController {
 
         Player player = playerController.getCurrentplayer();
 
-        if (players.size() == 2) {
-            if (player.getId() == 1) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(215 + i * 20, 100);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 2) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(215 + i * 20, 320);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            }
-        } else if (players.size() == 3) {
-            if (player.getId() == 1) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 80);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 2) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 320);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 3) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 430);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            }
-        } else if (players.size() == 4) {
-            if (player.getId() == 1) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(185 + i * 20, 70);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 2) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 220);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 3) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 370);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 4) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 520);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            }
-        } else if (players.size() == 5) {
-            if (player.getId() == 1) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(185 + i * 20, 70);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 2) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 220);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 3) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 370);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 4) {
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 520);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
-                    }
-                }
-            } else if (player.getId() == 5) {
+        if(player.getTime()!=0){
+            if (players.size() == 2) {
+                if (player.getId() == 1) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(215 + i * 20, 100);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
 
-                for (Card collectCard : player.getHandCards().getHandcards()) {
-                    if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
-                        player.buildBank(collectCard);
-                        int i = player.getBank().getBankSize();
-                        Point to = new Point(210 + i * 20, 550);
-                        this.moveCard(collectCard, to);
-                        player.getHandCards().removeCard(collectCard);
+                        }
+                    }
+                } else if (player.getId() == 2) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(215 + i * 20, 320);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                }
+            } else if (players.size() == 3) {
+                if (player.getId() == 1) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 80);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 2) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 320);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 3) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 430);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                }
+            } else if (players.size() == 4) {
+                if (player.getId() == 1) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(185 + i * 20, 70);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 2) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 220);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 3) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 370);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 4) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 520);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                }
+            } else if (players.size() == 5) {
+                if (player.getId() == 1) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(185 + i * 20, 70);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 2) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 220);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 3) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 370);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 4) {
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 520);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
+                    }
+                } else if (player.getId() == 5) {
+
+                    for (Card collectCard : player.getHandCards().getHandcards()) {
+                        if (collectCard.isClicked() && (collectCard instanceof ActionCard || collectCard instanceof PriceCard)) {
+                            player.buildBank(collectCard);
+                            int i = player.getBank().getBankSize();
+                            Point to = new Point(210 + i * 20, 550);
+                            this.moveCard(collectCard, to);
+                            player.getHandCards().removeCard(collectCard);
+                            reposition();
+                            int time = player.getTime()-1;
+                            player.setTime(time);
+                        }
                     }
                 }
             }
         }
     }
-
-
-
 
 
     public  void moveCard(Card moveCard, Point to) {
@@ -548,6 +926,7 @@ public class CardController {
         public void run() {
             // TODO Auto-generated method stub
             CardController.this.move(card, card.getLocation(), point);
+            card.revalidate();
             card.repaint();
         }
 

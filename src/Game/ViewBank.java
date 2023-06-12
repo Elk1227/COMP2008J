@@ -11,12 +11,11 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.*;
+import java.util.ArrayList;
 
 import Building.Building;
+import javax.swing.*;
 
 public class ViewBank implements ActionListener{
 
@@ -49,7 +48,7 @@ public class ViewBank implements ActionListener{
 
 		showBank(gameController.getPlayerController().getCurrentplayer().getBank().getCards());
 		showRealEstate(gameController.getPlayerController().getCurrentplayer().getRealEstate().getBuildings());
-		
+
 		container.add(panel);
 		frame.getLayeredPane().add(panel, Integer.MIN_VALUE);
 
@@ -64,18 +63,6 @@ public class ViewBank implements ActionListener{
 			panel.add(put_money);
 		}
 	}
-	
-	public void showRealEstate(ArrayList<Building> estate){
-		for (int i = 0; i < estate.size(); i++){
-			ImageIcon icon = new ImageIcon(estate.get(i).getBuilding().get(0).getGraph());
-			JLabel put_building = new JLabel(icon);
-			put_building.setBounds(100*i,300, icon.getIconWidth(), icon.getIconHeight());
-			put_building.setOpaque(true);
-			panel.add(put_building);
-
-		}
-
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -88,6 +75,18 @@ public class ViewBank implements ActionListener{
 			//container.revalidate();
 			container.repaint();
 		}
+	}
+
+	public void showRealEstate(ArrayList<Building> estate){
+		for (int i = 0; i < estate.size(); i++){
+			ImageIcon icon = new ImageIcon(estate.get(i).getBuilding().get(0).getGraph());
+			JLabel put_building = new JLabel(icon);
+			put_building.setBounds(100*i,300, icon.getIconWidth(), icon.getIconHeight());
+			put_building.setOpaque(true);
+			panel.add(put_building);
+
+		}
+
 	}
 
 

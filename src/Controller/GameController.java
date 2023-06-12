@@ -350,6 +350,7 @@ public class GameController  {
 public ArrayList<Player> getPlayersArr() {
 	return playersArr;
 }
+
 	public ViewController getViewController() {
 		return viewController;
 	}
@@ -365,7 +366,7 @@ public ArrayList<Player> getPlayersArr() {
 	public void setCardController(CardController cardController) {
 		this.cardController = cardController;
 	}
-	
+
 	public void updateHandCard(){
 		Player player= playerController.getCurrentplayer();
 		ArrayList<Card> handCard1 = player.getHandCards().getHandcards();
@@ -379,11 +380,17 @@ public ArrayList<Player> getPlayersArr() {
 		ArrayList<Card> handCards = playerCurrent.getHandCards().getHandcards();
 		for (int i = 0; i < handCards.size(); i++) {
 			handCards.get(i).setIcon(new ImageIcon(handCards.get(i).getGraph()));
+			handCards.get(i).setVisible(true);
 			viewController.add(handCards.get(i));
 
+
 		}
-		viewController.revalidate();
 		viewController.repaint();
+		viewController.revalidate();
+		playerCurrent.setTime(3);
+
+
+
 
 
 	}
