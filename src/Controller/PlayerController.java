@@ -61,14 +61,15 @@ public class PlayerController {
         gameController.setPlayersArr(players);
     }
 
-    public void changeTONextPlayer(){
-       int  currentIndex =  players.indexOf(currentplayer);
-       if(currentIndex+1 == playerNumber){
-           currentplayer = players.get(0);
-       }else {
-           currentplayer = players.get(currentIndex+1);
-       }
-    }
+    public Player changeTONextPlayer(){
+        int  currentIndex =  players.indexOf(currentplayer);
+        if(currentIndex+1 == playerNumber){
+            currentplayer = players.get(0);
+        }else {
+            currentplayer = players.get(currentIndex+1);
+        }
+        return currentplayer;
+     }
 
     public GameController getGameController() {
         return gameController;

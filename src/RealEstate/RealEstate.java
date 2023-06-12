@@ -83,6 +83,12 @@ public class RealEstate {
     public  int getSize(){
         return  buildings.size();
     }
+    public ArrayList<Building> getBuildings() {
+        return buildings;
+    }
 
+    public void setBuildings(ArrayList<Building> buildings) {
+        this.buildings = buildings;
+    }
 
 }
