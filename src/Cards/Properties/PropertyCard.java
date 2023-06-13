@@ -72,5 +72,50 @@ public class PropertyCard extends Card {
     public void mouseExited(MouseEvent e) {
 
     }
-//选了颜色必须是对应的层数
+
+    public void setRent(int rent) {
+        this.rent = rent;
+    }
+
+    public void setColor(CardColor color) {
+        this.color = color;
+    }
+
+    public CardColor getColor1() {
+        return color1;
+    }
+
+    public void setColor1(CardColor color1) {
+        this.color1 = color1;
+    }
+
+    public CardColor getColor2() {
+        return color2;
+    }
+
+    public void setColor2(CardColor color2) {
+        this.color2 = color2;
+    }
+
+    public void setFullLayer(int fullLayer) {
+        this.fullLayer = fullLayer;
+    }
+
+    public int getFullLayer1() {
+        return fullLayer1;
+    }
+
+    public void setFullLayer1(int fullLayer1) {
+        this.fullLayer1 = fullLayer1;
+    }
+
+    public int getFullLayer2() {
+        return fullLayer2;
+    }
+
+    public void setFullLayer2(int fullLayer2) {
+        this.fullLayer2 = fullLayer2;
+    }
+
+    //选了颜色必须是对应的层数
 }

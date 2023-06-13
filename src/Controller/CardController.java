@@ -2,6 +2,7 @@ package Controller;
 
 import Cards.ActionCard.ActionCard;
 import Cards.Card;
+import Cards.CardColor;
 import Cards.CardFactory;
 import Cards.CardPile;
 import Cards.PriceCard.PriceCard;
@@ -15,9 +16,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
+
 public class CardController {
 
     private GameController gameController;
+    private ArrayList<Card> foldPile = new ArrayList<>();
 
     private ArrayList<Player> players;
 
@@ -62,6 +65,7 @@ public class CardController {
                 card.setOwner(player1);
                 System.out.println(card.getName());
                 this.move(card , card.getLocation(),new Point(180+i*100,500));
+                System.out.println(card.getLocation().toString());
                 try {
                     this.turnFront(card);
                 } catch (IOException e) {
@@ -74,6 +78,7 @@ public class CardController {
                 Card card = cards2.get(i);
                 card.setOwner(player2);
                 card.setLocation(new Point(180+i*100,500));
+
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -381,7 +386,49 @@ public class CardController {
         card.setUp(false);
     }
 
-    public void buildRealEstate(){
+    public Card buildRealEstate1() {
+        Player player = playerController.getCurrentplayer();
+        int size = players.size();
+        if (player.getTime() != 0) {
+            if (size == 2) {
+                if (player.getId() == 1) {
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard ) {
+                                PropertyCard propertyCard = (PropertyCard)handcard;
+                                if(propertyCard.getColor()!=null && propertyCard.getColor()== CardColor.wild){
+                                    player.buildPropertySet((PropertyCard) handcard);
+                                    int i = player.getRealEstate().getSize();
+                                    Point to = new  Point(550+i*90,100);
+                                    this.moveCard(handcard,to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime()-1;
+                                    player.setTime(time);
+                                } else if (propertyCard.getColor()== CardColor.wild) {
+
+
+
+
+                                }else {
+                                     propertyCard.getColor1();
+                                     viewController.button2.setVisible(true);
+                                     viewController.button1.setVisible(true);
+                                     System.out.println("11111");
+                                }
+
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
+        return null;
+    }
+                public void buildRealEstate(){
         Player player =  playerController.getCurrentplayer();
         int size  =    players.size();
         if (player.getTime()!=0){
@@ -711,7 +758,9 @@ public class CardController {
                             player.buildBank(collectCard);
                             int i = player.getBank().getBankSize();
                             Point to = new Point(215 + i * 20, 100);
+                            System.out.println(collectCard.getLocation());
                             this.moveCard(collectCard, to);
+                            System.out.println(collectCard.getLocation());
                             player.getHandCards().removeCard(collectCard);
                             reposition();
                             int time = player.getTime()-1;
@@ -876,6 +925,7 @@ public class CardController {
                             Point to = new Point(210 + i * 20, 520);
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
+
                             reposition();
                             int time = player.getTime()-1;
                             player.setTime(time);
@@ -902,15 +952,23 @@ public class CardController {
 
 
     public  void moveCard(Card moveCard, Point to) {
-        Runnable moveTask = new MoveCartoon(moveCard, to);
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                Thread move = new Thread(moveTask);
-                move.start();
-            }
-        });
+        this.move(moveCard,moveCard.getLocation(),to);
+//        Runnable moveTask = new MoveCartoon(moveCard, to);
+//        EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                // TODO Auto-generated method stub
+//                Thread move = new Thread(moveTask);
+//                move.start();
+//                try {
+//                    move.join();
+//                    moveTask.run();
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
+
     }
 
     public class MoveCartoon implements Runnable{
@@ -930,5 +988,62 @@ public class CardController {
             card.repaint();
         }
 
+    }
+
+    public CardPile getCardPile() {
+        return cardPile;
+    }
+
+    public void setCardPile(CardPile cardPile) {
+        this.cardPile = cardPile;
+    }
+
+
+
+
+    public void discard(){
+        Player player =  playerController.getCurrentplayer();
+
+        for (Card handcard : player.getHandCards().getHandcards()) {
+            while (player.getHandCards().isFull()){
+                viewController.add_house.setEnabled(false);
+                viewController.add_to_bank.setEnabled(false);
+                viewController.use_function.setEnabled(false);
+                viewController.finish_output.setEnabled(false);
+                for(int i=0;i<2;i++) {
+                    if(handcard.isClicked()){
+                        player.getHandCards().removeCard(handcard);
+                        foldPile.add(handcard);
+                        if (players.size() == 2) {
+                            Point to = new  Point(40,260);
+                            this.moveCard(handcard,to);
+
+
+                        }
+                        else if(players.size() == 3) {
+                            Point to = new  Point(40,240);
+                            this.moveCard(handcard,to);
+
+
+                        }else if(players.size() == 4) {
+                            Point to = new  Point(40,220);
+                            this.moveCard(handcard,to);
+
+
+                        }
+                        else if(players.size() == 5) {
+                            Point to = new  Point(40,200);
+                            this.moveCard(handcard,to);
+
+                        }
+                    }
+                }
+                viewController.add_house.setEnabled(true);
+                viewController.add_to_bank.setEnabled(true);
+                viewController.use_function.setEnabled(true);
+                viewController.finish_output.setEnabled(true);
+
+            }
+        }
     }
 }

@@ -11,6 +11,7 @@ import Player.Player;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -71,6 +72,7 @@ public class GameController  {
 		// 打牌之前的准备工作
 
 		cardController = new CardController(this);
+		cardPile = cardController.getCardPile();
 		new  Thread(cardController::initCard).start();
 		initGame();
 
@@ -367,7 +369,7 @@ public ArrayList<Player> getPlayersArr() {
 		this.cardController = cardController;
 	}
 
-	public void updateHandCard(){
+	public void updateHandCard() throws IOException {
 		Player player= playerController.getCurrentplayer();
 		ArrayList<Card> handCard1 = player.getHandCards().getHandcards();
 		for (int j = 0; j < handCard1.size(); j++) {
@@ -377,9 +379,10 @@ public ArrayList<Player> getPlayersArr() {
 		}
 		playerController.changeTONextPlayer();
 		Player playerCurrent =   playerController.getCurrentplayer();
+
 		ArrayList<Card> handCards = playerCurrent.getHandCards().getHandcards();
 		for (int i = 0; i < handCards.size(); i++) {
-			handCards.get(i).setIcon(new ImageIcon(handCards.get(i).getGraph()));
+			//handCards.get(i).setIcon(new ImageIcon(handCards.get(i).getGraph()));
 			handCards.get(i).setVisible(true);
 			viewController.add(handCards.get(i));
 
@@ -388,9 +391,18 @@ public ArrayList<Player> getPlayersArr() {
 		viewController.repaint();
 		viewController.revalidate();
 		playerCurrent.setTime(3);
+		int index =  handCards.size();
+		ArrayList<Card> cards = playerCurrent.drawCard(cardPile);
 
+		for (Card card : cards) {
+			card.setOwner(playerCurrent);
+			Point point = new Point(handCards.get(index-1).getLocation().x+card.getWidth(),handCards.get(index-1).getLocation().y);
+			cardController.moveCard(card,point);
+			card.setLocation(point);
+			card.turnFront();
+			index++;
 
-
+		}
 
 
 	}

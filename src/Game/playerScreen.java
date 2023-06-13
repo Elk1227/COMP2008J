@@ -61,7 +61,7 @@ public class playerScreen {
 		JLabel p1 = new JLabel();
 		p1.setBounds(180, 70, 800, 200);
 		p1.setBorder(blackline);
-		//p1.setBackground(new Color(0,0,0,0));
+		p1.setBackground(new Color(0,0,0,0));
 		p1.add(player1);
 		p1.setOpaque(true);
 
@@ -75,7 +75,7 @@ public class playerScreen {
 		JLabel p2 = new JLabel();
 		p2.setBounds(180, 280, 800, 200);
 		p2.setBorder(blackline);
-		//p2.setBackground(new Color(0,0,0,0));
+		p2.setBackground(new Color(0,0,0,0));
 		p2.add(player2);
 		p2.setOpaque(true);
 		

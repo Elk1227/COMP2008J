@@ -53,6 +53,7 @@ public class Player {
             for (Card card : cardPile.getCards(2)) {
                 handCards.addCard(card);
                 cards.add(card);
+
             }
         }
         return cards;

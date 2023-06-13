@@ -10,8 +10,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import static java.awt.Color.RED;
+import static java.awt.Color.YELLOW;
 
 public class ViewController extends JFrame implements ActionListener {
 	private Container container = null;
@@ -37,6 +41,10 @@ public class ViewController extends JFrame implements ActionListener {
 	JButton give_up;
 
 	GameController gameController;
+
+	JButton button1;
+	JButton button2 ;
+
 
 
 
@@ -105,7 +113,8 @@ public class ViewController extends JFrame implements ActionListener {
 		add_house.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().buildRealEstate();
+
+				gameController.getCardController().buildRealEstate1();
 
 			}
 		});
@@ -117,7 +126,11 @@ public class ViewController extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PlayerController playerController=new PlayerController(gameController);
-				gameController.updateHandCard();
+				try {
+					gameController.updateHandCard();
+				} catch (IOException ex) {
+					throw new RuntimeException(ex);
+				}
 			}
 		});
 		layeredPane.add(finish_output, JLayeredPane.PALETTE_LAYER);
@@ -128,10 +141,30 @@ public class ViewController extends JFrame implements ActionListener {
 		give_up.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				gameController.getCardController().discard();
 
 			}
 		});
 		layeredPane.add(give_up, JLayeredPane.PALETTE_LAYER);
+
+		button1=new JButton();
+		button2 = new JButton();
+		button1.setBounds(30,600,40,20);
+		button2.setBounds(160,520,40,20);
+		button1.setFocusable(false);
+		button2.setFocusable(false);
+		button2.setBackground(new Color(255,0,0,255));
+		button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		button1.setBackground(new Color(0,255,0,255));
+		button1.setVisible(false);
+		button2.setVisible(false);
+
+
 		container.add(layeredPane);
 		container.add(check);
 		container.add(add_to_bank);
@@ -139,6 +172,9 @@ public class ViewController extends JFrame implements ActionListener {
 		container.add(add_house);
 		container.add(finish_output);
 		container.add(give_up);
+		container.add(button1);
+		container.add(button2);
+
 	}
 
 
