@@ -299,27 +299,6 @@ public class CardController {
         card.setLocation(to);
     }
 
-//    public static void rePositon(GameJFrame m, ArrayList<Card> list, int flag) {
-//        Point p = new Point();
-//        if (flag == 0) {
-//            p.x = 370 - list.size() * 20;
-//            p.y = 530;
-//        }
-//        if (flag == 1) {
-//            p.x = 50 + list.size() * 20;
-//            p.y = 60;
-//        }
-//        int len = list.size();
-//        for (int i = 0; i < len; i++) {
-//            Card card = list.get(i);
-//            this.move(card, card.getLocation(), p);
-//            //moveCard(poker, p);
-//            m.getContainer().setComponentZOrder(card, 0);
-//            p.x += 90;
-//
-//        }
-//    }
-
 
     public void setCardLocation(Card card) {
         Container container = viewController.getContainer();
@@ -350,26 +329,22 @@ public class CardController {
 
     public void turnFront(Card card) throws IOException {
 
-        // 给牌设置反面
         changeImageSize changeSize = new changeImageSize();
         card.removeAll();
         changeSize.changeSize(card.getGraph(), card.getWidth(), card.getHeight());
         card.setIcon(new ImageIcon(card.getGraph()));
         card.repaint();
         viewController.repaint();
-        // 修改成员变量
         card.setUp(true);
 
     }
 
 
     public void turnRear(Card card) {
-        // 给牌设置反面
         card.removeAll();
         card.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         card.repaint();
         viewController.repaint();
-        // 修改成员变量
         card.setUp(false);
     }
 
@@ -943,22 +918,6 @@ public class CardController {
 
 
     public void moveCard(Card moveCard, Point to) {
-        this.move(moveCard, moveCard.getLocation(), to);
-//        Runnable moveTask = new MoveCartoon(moveCard, to);
-//        EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                // TODO Auto-generated method stub
-//                Thread move = new Thread(moveTask);
-//                move.start();
-//                try {
-//                    move.join();
-//                    moveTask.run();
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//        });
 
     }
 
