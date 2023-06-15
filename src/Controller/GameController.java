@@ -257,7 +257,7 @@ public ArrayList<Player> getPlayersArr() {
 		}
 		Player player1 =  playerController.getCurrentplayer();
 
-        if(player1.getHandCards().isFull()){
+        if(handCards.size()>7){
 			viewController.add_house.setVisible(false);
 			viewController.add_to_bank.setVisible(false);
 			viewController.use_function.setVisible(false);
