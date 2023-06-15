@@ -21,6 +21,8 @@ import java.util.Locale;
 import static java.awt.Color.RED;
 import static java.awt.Color.YELLOW;
 
+import View.EndFrame;
+
 public class ViewController extends JFrame implements ActionListener {
 	private Container container = null;
 	static MonopolyModel model=new MonopolyModel();
@@ -129,6 +131,7 @@ public class ViewController extends JFrame implements ActionListener {
 				PlayerController playerController=new PlayerController(gameController);
 				try {
 					gameController.updateHandCard();
+					end();
 				} catch (IOException ex) {
 					throw new RuntimeException(ex);
 				}
@@ -471,7 +474,15 @@ public class ViewController extends JFrame implements ActionListener {
 	public void setPlayerNumber(int playerNumber) {
 		this.playerNumber = playerNumber;
 	}
-
+	
+	public void end(){
+		if(gameController.checkDeadHeat()){
+			dispose();
+			EndFrame endFrame=new EndFrame();
+		}else if(!gameController.checkDeadHeat()){
+			System.out.println("ok");
+		}
+	}
 
 	public ArrayList<JButton> getButtons() {
 		return buttons;

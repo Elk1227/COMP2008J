@@ -16,6 +16,10 @@ public class RealEstate {
         this.owner = owner;
     }
 
+    public RealEstate(){
+        this.buildings = new ArrayList<>();
+    }
+    
     public boolean addRealEstate(PropertyCard propertycard) {
         if(checkIfCanInsert(propertycard.getColor())){
             for (Building building : buildings) {
