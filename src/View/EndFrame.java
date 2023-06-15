@@ -15,12 +15,13 @@ public class EndFrame extends JFrame {
         setTitle("end");
         setSize(400, 300);
         setLocationRelativeTo(null);
-        //set the panel
+
+        // set the panel
         JPanel panel = new JPanel();
         panel.setLayout(null);
 
 
-        //Create the label
+        // set the label
         if(gameController.checkDeadHeat()){
             JLabel label = new JLabel("DogFall", SwingConstants.CENTER);
             label.setFont(new Font("Arial", Font.BOLD, 60));

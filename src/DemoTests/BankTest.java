@@ -35,7 +35,6 @@ public class BankTest {
         bank.addCard(card4);
         Assert.assertEquals(4, bank.getBankSize());
         Assert.assertTrue(bank.hasCard(card4));
-        System.out.println("Successful test");
     }
 
     @Test
@@ -43,14 +42,12 @@ public class BankTest {
         bank.removeCard(card2);
         Assert.assertEquals(2, bank.getBankSize());
         Assert.assertFalse(bank.hasCard(card2));
-        System.out.println("Successful test");
     }
 
     @Test
     public void hasCardTest() {
         Assert.assertTrue(bank.hasCard(card1));
         Assert.assertFalse(bank.hasCard(new PassGoCard()));
-        System.out.println("Successful test");
     }
 
     @Test
@@ -64,7 +61,6 @@ public class BankTest {
         Assert.assertEquals(3, transferredPrices.get(0).getPrice());
         Assert.assertEquals(5, transferredPrices.get(1).getPrice());
         Assert.assertEquals(2, transferredPrices.get(2).getPrice());
-        System.out.println("Successful test");
     }
 
     @Test
@@ -74,13 +70,11 @@ public class BankTest {
         bank.removeCard(card2);
         bank.removeCard(card3);
         Assert.assertTrue(bank.isEmpty());
-        System.out.println("Successful test");
     }
 
     @Test
     public void calculatePriceTest() {
         Assert.assertEquals(10, bank.calculatePrice(600));
-        System.out.println("Successful test");
 
     }
 }

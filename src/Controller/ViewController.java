@@ -35,7 +35,7 @@ public class ViewController extends JFrame implements ActionListener {
 	private int turn = 0;
 
 
-	private  int playerNumber;
+	 private  int playerNumber;
 
 	JButton check;
 	JButton add_to_bank;
@@ -50,24 +50,27 @@ public class ViewController extends JFrame implements ActionListener {
 
 	JButton button1;
 	JButton button2 ;
-	JButton button3 ;
-	JButton button4 ;
-	JButton button5 ;
-	ArrayList<JButton> buttons= new ArrayList<>();
+
+
+
+
 
 
 	public ViewController()  {
 		playerNumber = MonopolyModel.selectedValue;
-
-		initJframe();		
-		initView();		
+		// Set the panel
+		initJframe();
+		initView();
 		this.setVisible(true);
-	
+		
 	}
 
 	public void setGameController(GameController gameController){
 		this.gameController  = gameController;
 	}
+
+
+
 
 
 	private void initView() {
@@ -144,28 +147,23 @@ public class ViewController extends JFrame implements ActionListener {
 		});
 		layeredPane.add(give_up, JLayeredPane.PALETTE_LAYER);
 
-		button1= new JButton();
+		button1=new JButton();
 		button2 = new JButton();
-		button3 = new JButton();
-		button4 = new JButton();
-		button5 = new JButton();
-		button1.setBounds(130,600,40,20);
-		button2.setBounds(130,520,40,20);
-		button3.setBounds(130,550,40,20);
-		button4.setBounds(130,630,40,20);
-		button5.setBounds(130,660,40,20);
+		button1.setBounds(30,600,40,20);
+		button2.setBounds(160,520,40,20);
 		button1.setFocusable(false);
 		button2.setFocusable(false);
-		button3.setFocusable(false);
-		button4.setFocusable(false);
-		button5.setFocusable(false);
-
-
+		button2.setBackground(new Color(255,0,0,255));
+		button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gameController.getCardController().discard();
+				System.out.println("Give up a card");
+			}
+		});
+		button1.setBackground(new Color(0,255,0,255));
 		button1.setVisible(false);
 		button2.setVisible(false);
-		button3.setVisible(false);
-		button4.setVisible(false);
-		button5.setVisible(false);
 
 
 		container.add(layeredPane);
@@ -177,88 +175,26 @@ public class ViewController extends JFrame implements ActionListener {
 		container.add(give_up);
 		container.add(button1);
 		container.add(button2);
-		container.add(button3);
-		container.add(button4);
-		container.add(button5);
-		buttons.add(button1);
-		buttons.add(button2);
-		buttons.add(button3);
-		buttons.add(button4);
-		buttons.add(button5);
-
-
-		button1.addActionListener(new ActionListener() {
-										  @Override
-			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().setColor(button1.getBackground());
-				System.out.println(111);
-				for (JButton button : getButtons()) {
-					button.setVisible(false);
-				}
-
-			}
-		});
-
-		button2.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().setColor(button2.getBackground());
-				for (JButton button : getButtons()) {
-					button.setVisible(false);
-				}
-
-			}
-		});
-
-		button3.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().setColor(button3.getBackground());
-				for (JButton button : getButtons()) {
-					button.setVisible(false);
-				}
-
-			}
-		});
-
-		button4.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().setColor(button4.getBackground());
-				for (JButton button : getButtons()) {
-					button.setVisible(false);
-				}
-
-			}
-		});
-
-		button5.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gameController.getCardController().setColor(button5.getBackground());
-				for (JButton button : getButtons()) {
-					button.setVisible(false);
-				}
-
-			}
-		});
 
 	}
+
+
 
 	private void initJframe() {
 		// TODO Auto-generated method stub
 		container= this.getContentPane();
 		container.setLayout(null);
 		this.setVisible(true);
-        //set the title
+
+		// Set the title
 		this.setTitle("Monopoly Deal Cards");
-		// set the size
+		// Set the size
 		this.setSize(1024, 768);
-		
+		// Set the off mode
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		// The Settings window cannot be adjusted
 		this.setResizable(false);
-		
+		// The interface is in the center
 		this.setLocationRelativeTo(null);
 
 		playerScreen pS = new playerScreen(this, container);
@@ -278,7 +214,6 @@ public class ViewController extends JFrame implements ActionListener {
 	public JButton getCheck() {
 		return check;
 	}
-
 	public GameController getGameController() {
 		return gameController;
 	}
@@ -293,6 +228,7 @@ public class ViewController extends JFrame implements ActionListener {
 	}
 
 
+
 	public static void initialize() {
 		view.setVisible(true);
 	}
@@ -305,7 +241,6 @@ public class ViewController extends JFrame implements ActionListener {
 	public void setContainer(Container container) {
 		this.container = container;
 	}
-
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -332,15 +267,13 @@ public class ViewController extends JFrame implements ActionListener {
 			model.getAgeList().clear();
 			JOptionPane.showMessageDialog(null, "Incorrect number of entered age, please re-enter from Player 1");
 		}else {
-			dispose(); 
+			dispose();
 			//The Start window is closed
 			beginPlay();
 
 
 		}
 	}
-
-
 
 	public int getPlayerNumber() {
 		return playerNumber;
@@ -359,11 +292,5 @@ public class ViewController extends JFrame implements ActionListener {
 		}
 	}
 
-	public ArrayList<JButton> getButtons() {
-		return buttons;
-	}
 
-	public void setButtons(ArrayList<JButton> buttons) {
-		this.buttons = buttons;
-	}
 }
