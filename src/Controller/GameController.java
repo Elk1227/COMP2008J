@@ -161,4 +161,12 @@ public ArrayList<Player> getPlayersArr() {
 		}
 
 	}
+	public boolean checkDeadHeat(){
+		if(cardPile.isEmpty()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
