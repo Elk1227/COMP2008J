@@ -403,7 +403,14 @@ public ArrayList<Player> getPlayersArr() {
 			index++;
 
 		}
+		Player player1 =  playerController.getCurrentplayer();
 
+        if(player1.getHandCards().isFull()){
+			viewController.add_house.setVisible(false);
+			viewController.add_to_bank.setVisible(false);
+			viewController.use_function.setVisible(false);
+			viewController.finish_output.setVisible(false);
+		}
 
 	}
 }

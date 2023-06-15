@@ -157,7 +157,8 @@ public class ViewController extends JFrame implements ActionListener {
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				gameController.getCardController().discard();
+				System.out.println("Give up a card");
 			}
 		});
 		button1.setBackground(new Color(0,255,0,255));

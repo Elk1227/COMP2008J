@@ -396,7 +396,7 @@ public class CardController {
                         if (handcard.isClicked()) {
                             if (handcard instanceof PropertyCard ) {
                                 PropertyCard propertyCard = (PropertyCard)handcard;
-                                if(propertyCard.getColor()!=null && propertyCard.getColor()== CardColor.wild){
+                                if(propertyCard.getColor()!=null && propertyCard.getColor()!= CardColor.wild){
                                     player.buildPropertySet((PropertyCard) handcard);
                                     int i = player.getRealEstate().getSize();
                                     Point to = new  Point(550+i*90,100);
@@ -411,7 +411,7 @@ public class CardController {
 
 
                                 }else {
-                                     propertyCard.getColor1();
+                                     propertyCard();
                                      viewController.button2.setVisible(true);
                                      viewController.button1.setVisible(true);
                                      System.out.println("11111");
@@ -1003,46 +1003,78 @@ public class CardController {
 
     public void discard(){
         Player player =  playerController.getCurrentplayer();
-
+        if (player.getHandCards().getHandCardSize()==8){
         for (Card handcard : player.getHandCards().getHandcards()) {
-            while (player.getHandCards().isFull()){
-                viewController.add_house.setEnabled(false);
-                viewController.add_to_bank.setEnabled(false);
-                viewController.use_function.setEnabled(false);
-                viewController.finish_output.setEnabled(false);
-                for(int i=0;i<2;i++) {
-                    if(handcard.isClicked()){
-                        player.getHandCards().removeCard(handcard);
-                        foldPile.add(handcard);
-                        if (players.size() == 2) {
-                            Point to = new  Point(40,260);
-                            this.moveCard(handcard,to);
+
+                if(handcard.isClicked()){
+                    player.getHandCards().removeCard(handcard);
+                    foldPile.add(handcard);
+                    if (players.size() == 2) {
+                        Point to = new  Point(40,260);
+                        this.moveCard(handcard,to);
 
 
-                        }
-                        else if(players.size() == 3) {
-                            Point to = new  Point(40,240);
-                            this.moveCard(handcard,to);
-
-
-                        }else if(players.size() == 4) {
-                            Point to = new  Point(40,220);
-                            this.moveCard(handcard,to);
-
-
-                        }
-                        else if(players.size() == 5) {
-                            Point to = new  Point(40,200);
-                            this.moveCard(handcard,to);
-
-                        }
                     }
-                }
-                viewController.add_house.setEnabled(true);
-                viewController.add_to_bank.setEnabled(true);
-                viewController.use_function.setEnabled(true);
-                viewController.finish_output.setEnabled(true);
+                    else if(players.size() == 3) {
+                        Point to = new  Point(40,240);
+                        this.moveCard(handcard,to);
 
+
+                    }else if(players.size() == 4) {
+                        Point to = new  Point(40,220);
+                        this.moveCard(handcard,to);
+
+
+                    }
+                    else if(players.size() == 5) {
+                        Point to = new  Point(40,200);
+                        this.moveCard(handcard,to);
+
+                    }
+                    reposition();
+
+
+                }
+            viewController.add_house.setVisible(true);
+            viewController.add_to_bank.setVisible(true);
+            viewController.use_function.setVisible(true);
+            viewController.finish_output.setVisible(true);
+
+            }
+        } else if (player.getHandCards().getHandCardSize()==9) {
+
+
+            for (Card handcard : player.getHandCards().getHandcards()) {
+
+                if(handcard.isClicked()){
+                    player.getHandCards().removeCard(handcard);
+                    foldPile.add(handcard);
+                    if (players.size() == 2) {
+                        Point to = new  Point(40,260);
+                        this.moveCard(handcard,to);
+
+
+                    }
+                    else if(players.size() == 3) {
+                        Point to = new  Point(40,240);
+                        this.moveCard(handcard,to);
+
+
+                    }else if(players.size() == 4) {
+                        Point to = new  Point(40,220);
+                        this.moveCard(handcard,to);
+
+
+                    }
+                    else if(players.size() == 5) {
+                        Point to = new  Point(40,200);
+                        this.moveCard(handcard,to);
+
+                    }
+                    reposition();
+
+
+                }
             }
         }
     }

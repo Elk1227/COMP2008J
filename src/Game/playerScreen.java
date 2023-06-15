@@ -39,15 +39,15 @@ public class playerScreen {
 		drawPile.setEditable(false);
 		
 		JTextField playerPile = new JTextField();
-		playerPile.setBounds(40, 230, 80, 20);
-		playerPile.setText("player pile");
+		playerPile.setBounds(40, 230, 90, 20);
+		playerPile.setText("discard pile");
 		playerPile.setFont(new Font("Arial", Font.PLAIN, 15));
 		playerPile.setEditable(false);
 		
 		JLabel action_pile = new JLabel();
 		action_pile.setBounds(40, 260, pile.getIconWidth(), pile.getIconHeight());
 		action_pile.setBackground(Color.gray);
-		action_pile.setOpaque(true);
+		action_pile.setOpaque(false);
 		
 		
 		JTextField player1 = new JTextField();
@@ -111,15 +111,15 @@ public class playerScreen {
 		drawPile.setEditable(false);
 		
 		JTextField playerPile = new JTextField();
-		playerPile.setBounds(40, 200, 80, 20);
-		playerPile.setText("player pile");
+		playerPile.setBounds(40, 200, 90, 20);
+		playerPile.setText("discard pile");
 		playerPile.setFont(new Font("Arial", Font.PLAIN, 15));
 		playerPile.setEditable(false);
 		
 		JLabel action_pile = new JLabel();
 		action_pile.setBounds(40, 240, pile.getIconWidth(), pile.getIconHeight());
 		action_pile.setBackground(Color.gray);
-		action_pile.setOpaque(true);
+		action_pile.setOpaque(false);
 		
 		
 		Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -195,15 +195,15 @@ public class playerScreen {
 		drawPile.setEditable(false);
 		
 		JTextField playerPile = new JTextField();
-		playerPile.setBounds(40, 180, 80, 20);
-		playerPile.setText("player pile");
+		playerPile.setBounds(40, 180, 90, 20);
+		playerPile.setText("discard pile");
 		playerPile.setFont(new Font("Arial", Font.PLAIN, 15));
 		playerPile.setEditable(false);
 		
 		JLabel action_pile = new JLabel();
 		action_pile.setBounds(40, 220, pile.getIconWidth(), pile.getIconHeight());
 		action_pile.setBackground(Color.gray);
-		action_pile.setOpaque(true);
+		action_pile.setOpaque(false);
 		
 		
 		Border blackline = BorderFactory.createLineBorder(Color.black);
@@ -293,15 +293,15 @@ public class playerScreen {
 		drawPile.setEditable(false);
 		
 		JTextField playerPile = new JTextField();
-		playerPile.setBounds(40, 160, 80, 20);
-		playerPile.setText("player pile");
+		playerPile.setBounds(40, 160, 90, 20);
+		playerPile.setText("discard pile");
 		playerPile.setFont(new Font("Arial", Font.PLAIN, 15));
 		playerPile.setEditable(false);
 		
 		JLabel action_pile = new JLabel();
 		action_pile.setBounds(40, 200, pile.getIconWidth(), pile.getIconHeight());
 		action_pile.setBackground(Color.gray);
-		action_pile.setOpaque(true);
+		action_pile.setOpaque(false);
 		
 		
 		Border blackline = BorderFactory.createLineBorder(Color.black);
