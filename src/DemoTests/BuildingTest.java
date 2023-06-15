@@ -31,7 +31,7 @@ public class BuildingTest {
         Assert.assertEquals(1, building.getBuilding().size());
         Assert.assertEquals(3, building.getRentOfBuilding());
         Assert.assertEquals(3, building.getRent());
-
+        System.out.println("Successful test");
     }
 
     @Test
@@ -42,6 +42,7 @@ public class BuildingTest {
         Assert.assertEquals(1, building.getHouse().size());
         Assert.assertEquals(3, building.getRentOfHouse());
         Assert.assertEquals(11, building.getRent());
+        System.out.println("Successful test");
     }
 
     @Test
@@ -52,6 +53,7 @@ public class BuildingTest {
         Assert.assertEquals(1, building.getHotel().size());
         Assert.assertEquals(4, building.getRentOfHotel());
         Assert.assertEquals(12, building.getRent());
+        System.out.println("Successful test");
     }
 
     @Test
@@ -59,6 +61,7 @@ public class BuildingTest {
         building.buildBuilding(propertyCard1);
         building.reduceLayer(propertyCard1);
         Assert.assertEquals(0, building.getBuilding().size());
+        System.out.println("Successful test");
 
     }
 
@@ -68,5 +71,6 @@ public class BuildingTest {
         building.buildBuilding(propertyCard1);
         building.buildBuilding(propertyCard2);
         Assert.assertTrue(building.isFull());
+        System.out.println("Successful test");
     }
 }

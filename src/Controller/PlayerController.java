@@ -22,7 +22,7 @@ public class PlayerController {
 
 
 
-    private void initPlayer() {
+    public void initPlayer() {
         if(playerNumber==2) {
             Player player1 = new Player(1);
             Player player2 = new Player(2);

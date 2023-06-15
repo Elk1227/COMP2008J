@@ -130,4 +130,6 @@ public class Player {
     public void setFeild(playerField feild) {
         this.feild = feild;
     }
+
+
 }

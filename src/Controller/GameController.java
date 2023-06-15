@@ -70,7 +70,7 @@ public class GameController  {
 
 	}
 
-	private void initGame() {
+	public void initGame() {
 		// TODO Auto-generated method stub
 
 	}
