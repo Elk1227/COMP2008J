@@ -286,7 +286,7 @@ public class CardController {
     }
 
 
-    public void move(Card card, Point from, Point to) {
+    public  void move(Card card, Point from, Point to) {
         if (to.y != from.y) {
             double k = (double) (to.x - from.x) / (to.y - from.y);
             double b = to.x - to.y * k;
@@ -343,26 +343,24 @@ public class CardController {
 
     public void turnFront(Card card) throws IOException {
 
-        // 给牌设置反面
+    	// Set the card on the reverse side
         changeImageSize changeSize = new changeImageSize();
         card.removeAll();
         changeSize.changeSize(card.getGraph(), card.getWidth(), card.getHeight());
         card.setIcon(new ImageIcon(card.getGraph()));
         card.repaint();
         viewController.repaint();
-        // 修改成员变量
         card.setUp(true);
 
     }
 
 
     public void turnRear(Card card) {
-        // 给牌设置反面
+    	// Set the card on the reverse side
         card.removeAll();
         card.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         card.repaint();
         viewController.repaint();
-        // 修改成员变量
         card.setUp(false);
     }
 
@@ -1438,21 +1436,6 @@ public class CardController {
 
     public void moveCard(Card moveCard, Point to) {
         this.move(moveCard, moveCard.getLocation(), to);
-//        Runnable moveTask = new MoveCartoon(moveCard, to);
-//        EventQueue.invokeLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                // TODO Auto-generated method stub
-//                Thread move = new Thread(moveTask);
-//                move.start();
-//                try {
-//                    move.join();
-//                    moveTask.run();
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//        });
 
     }
 
@@ -1497,26 +1480,6 @@ public class CardController {
                             buildRealEstate();
                         }
 
-//                        }if(handcard instanceof  ActionCard){
-//                            if(handcard instanceof HotelCard){
-//                                for (Building building : player.getRealEstate().getBuildings()) {
-//                                    if (building.getColorOfBuilding()==value){
-//                                        building.buildHotel((HotelCard) handcard);
-//                                    }
-//
-//                                }
-//                                int i = player.getRealEstate().getSize();
-//                                Point to = new Point(550 + i * 90, 100);
-//                                this.moveCard(handcard, to);
-//                                player.getHandCards().removeCard(handcard);
-//                                reposition();
-//                                int time = player.getTime() - 1;
-//                                player.setTime(time);
-//
-//                            }else if(handcard instanceof HouseCard){
-//
-//                            }
-//
                     }
 
                 }

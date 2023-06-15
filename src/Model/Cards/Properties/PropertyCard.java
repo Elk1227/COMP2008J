@@ -117,5 +117,4 @@ public class PropertyCard extends Card {
         this.fullLayer2 = fullLayer2;
     }
 
-    //选了颜色必须是对应的层数
 }

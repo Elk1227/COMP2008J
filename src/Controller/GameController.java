@@ -45,7 +45,7 @@ public class GameController  {
 	private JTextArea recordArea = new JTextArea();
 	private CardController cardController;
 
-	private PlayerController playerController;
+	public PlayerController playerController;
 
 	private ViewController viewController;
 
@@ -69,7 +69,7 @@ public class GameController  {
 
 	}
 
-	private void initGame() {
+	public void initGame() {
 		// TODO Auto-generated method stub
 
 	}

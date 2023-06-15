@@ -21,7 +21,7 @@ import java.util.Locale;
 
 import static java.awt.Color.RED;
 import static java.awt.Color.YELLOW;
-
+import Model.Cards.ActionCard.*;
 public class ViewController extends JFrame implements ActionListener {
 	private Container container = null;
 	static MonopolyModel model=new MonopolyModel();
@@ -30,7 +30,7 @@ public class ViewController extends JFrame implements ActionListener {
 
 	public JButton check_bank;
 	public ViewFrame viewFrame;
-	/**判断谁的回合*/
+	
 	private int turn = 0;
 
 
@@ -39,7 +39,6 @@ public class ViewController extends JFrame implements ActionListener {
 	JButton check;
 	JButton add_to_bank;
 	JButton use_function;
-
 	JButton add_house;
 
 	JButton finish_output;
@@ -58,17 +57,12 @@ public class ViewController extends JFrame implements ActionListener {
 	public ViewController()  {
 		playerNumber = MonopolyModel.selectedValue;
 
-		// 设置界面
+		// set the panel
 		initJframe();
-		// 初始化玩家\
-		// 添加组件
+		
 		initView();
-		// 先展示界面再发牌，因为发牌里面有动画，界面不展示出来，动画无法展示
+		
 		this.setVisible(true);
-		// 准备牌，洗牌，发牌
-		// 打牌之前的准备工作
-
-
 	}
 
 	public void setGameController(GameController gameController){
@@ -80,7 +74,7 @@ public class ViewController extends JFrame implements ActionListener {
 		int i=playerNumber-2;
 // TODO Auto-generated method stub
 		check = new JButton("VIEW");
-		check.setBounds(30, 640-i*30, 80, 40);
+		check.setBounds(30, 670-i*30, 80, 40);
 		check.setFocusable(false);
 		check.addActionListener(this);
 
@@ -90,7 +84,7 @@ public class ViewController extends JFrame implements ActionListener {
 //add to bank
 
 		add_to_bank = new JButton("AS MONEY");
-		add_to_bank.setBounds(30,390-i*30,80,40);
+		add_to_bank.setBounds(30,420-i*30,80,40);
 		add_to_bank.setFocusable(false);
 		add_to_bank.addActionListener(new ActionListener() {
 			@Override
@@ -100,18 +94,17 @@ public class ViewController extends JFrame implements ActionListener {
 		});
 		layeredPane.add(add_to_bank, JLayeredPane.PALETTE_LAYER);
 		use_function = new JButton("USE FUNCTION");
-		use_function.setBounds(30,440-i*30,80,40);
+		use_function.setBounds(30,470-i*30,80,40);
 		use_function.setFocusable(false);
 		use_function.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				gameController.getCardController().moveToFoldPile();
-
 			}
 		});
 		layeredPane.add(use_function, JLayeredPane.PALETTE_LAYER);
 		add_house = new JButton("ADD HOUSE");
-		add_house.setBounds(30,490-i*30,80,40);
+		add_house.setBounds(30,520-i*30,80,40);
 		add_house.setFocusable(false);
 		add_house.addActionListener(new ActionListener() {
 			@Override
@@ -123,7 +116,7 @@ public class ViewController extends JFrame implements ActionListener {
 		});
 		layeredPane.add(add_house, JLayeredPane.PALETTE_LAYER);
 		finish_output = new JButton("END");
-		finish_output.setBounds(30,540-i*30,80,40);
+		finish_output.setBounds(30,570-i*30,80,40);
 		finish_output.setFocusable(false);
 		finish_output.addActionListener(new ActionListener() {
 			@Override
@@ -141,7 +134,7 @@ public class ViewController extends JFrame implements ActionListener {
 		layeredPane.add(finish_output, JLayeredPane.PALETTE_LAYER);
 
 		give_up = new JButton("GIVE UP");
-		give_up.setBounds(30,590-i*30,80,40);
+		give_up.setBounds(30,620-i*30,80,40);
 		give_up.setFocusable(false);
 		give_up.addActionListener(new ActionListener() {
 			@Override
@@ -250,15 +243,15 @@ public class ViewController extends JFrame implements ActionListener {
 		container.setLayout(null);
 		this.setVisible(true);
 
-		// 设置标题
+		// set the title
 		this.setTitle("Monopoly Deal Cards");
-		// 设置大小
+		// set the size
 		this.setSize(1024, 768);
-		// 设置关闭模式
+	
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// 设置窗口无法进行调节
+	
 		this.setResizable(false);
-		// 界面居中
+		
 		this.setLocationRelativeTo(null);
 
 		playerScreen pS = new playerScreen(this, container);
@@ -332,7 +325,8 @@ public class ViewController extends JFrame implements ActionListener {
 			model.getAgeList().clear();
 			JOptionPane.showMessageDialog(null, "Incorrect number of entered age, please re-enter from Player 1");
 		}else {
-			dispose(); //The Start window is closed
+			dispose();
+			//The Start window is closed
 			beginPlay();
 
 

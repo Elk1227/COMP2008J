@@ -42,14 +42,12 @@ public abstract class Card extends JLabel implements MouseListener {
 
     public void turnFront() throws IOException {
 
-        // 给牌设置反面
+    	// Set the card on the reverse side
         changeImageSize changeSize = new changeImageSize();
         this.removeAll();
         changeSize.changeSize(this.graph,this.getWidth(),this.getHeight());
         this.setIcon(new ImageIcon(this.graph));
         this.repaint();
-        //gameJFrame.repaint();
-        // 修改成员变量
         this.up = true;
     }
 
@@ -59,7 +57,7 @@ public abstract class Card extends JLabel implements MouseListener {
             int step;
             if(this.owner.getHandCards().getHandcards().contains(this)){
                 if (clicked) {
-                    //已经被点击：下降, 而且原本选中的角色不变成未选中状态
+                    // The card that has been clicked drops
                     step = 20;
                     clicked = false;
                 } else {
@@ -92,12 +90,10 @@ public abstract class Card extends JLabel implements MouseListener {
 
 
     public void turnRear() {
-        // 给牌设置反面
+    	// Set the card on the reverse side
         this.removeAll();
         this.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         this.repaint();
-        //gameJFrame.repaint();
-        // 修改成员变量
         this.up = false;
     }
 
