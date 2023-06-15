@@ -13,11 +13,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ChangeImageSizeTest {
-	private Game.changeImageSize changeImageSize;
+	private View.changeImageSize changeImageSize;
 
     @BeforeEach
     public void setUp() {
-        changeImageSize = new Game.changeImageSize();
+        changeImageSize = new View.changeImageSize();
     }
 
     @Test

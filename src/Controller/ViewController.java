@@ -1,10 +1,14 @@
 package Controller;
 
 
-import Cards.Card;
-import Cards.CardPile;
-import Game.*;
-import Player.Player;
+import  Model.Cards.Card;
+import  Model.Cards.CardPile;
+import Model.*;
+import Model. Player.Player;
+import View.MonopolyStartScreenView;
+import View.ViewBank;
+import View.ViewFrame;
+import View.playerScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,18 +56,11 @@ public class ViewController extends JFrame implements ActionListener {
 
 	public ViewController()  {
 		playerNumber = MonopolyModel.selectedValue;
-
-		// 设置界面
+		// Set the panel
 		initJframe();
-		// 初始化玩家\
-		// 添加组件
 		initView();
-		// 先展示界面再发牌，因为发牌里面有动画，界面不展示出来，动画无法展示
 		this.setVisible(true);
-		// 准备牌，洗牌，发牌
-		// 打牌之前的准备工作
-
-
+		
 	}
 
 	public void setGameController(GameController gameController){
@@ -179,114 +176,6 @@ public class ViewController extends JFrame implements ActionListener {
 	}
 
 
-//	private void initPlayer() {
-//		if(playerNumber==2) {
-//			Player player1 = new Player(1);
-//			Player player2 = new Player(2);
-//			playersArr.add(player1);
-//			playersArr.add(player2);
-//		}else if(playerNumber==3) {
-//			Player player1 = new Player(1);
-//			Player player2 = new Player(2);
-//			Player player3 = new Player(3);
-//			playersArr.add(player1);
-//			playersArr.add(player2);
-//			playersArr.add(player3);
-//
-//
-//		}else if(playerNumber==4) {
-//			Player player1 = new Player(1);
-//			Player player2 = new Player(2);
-//			Player player3 = new Player(3);
-//			Player player4 = new Player(4);
-//			playersArr.add(player1);
-//			playersArr.add(player2);
-//			playersArr.add(player3);
-//			playersArr.add(player4);
-//		}else{
-//			Player player1 = new Player(1);
-//			Player player2 = new Player(2);
-//			Player player3 = new Player(3);
-//			Player player4 = new Player(4);
-//			Player player5 = new Player(5);
-//			playersArr.add(player1);
-//			playersArr.add(player2);
-//			playersArr.add(player3);
-//			playersArr.add(player4);
-//			playersArr.add(player5);
-//		}
-//	}
-
-//	private void initCard() {
-//		for (Card card : cardPile.getCardPile()) {
-//			this.setCardLocation(card);
-//		}
-//
-//		if(playersArr.size() == 2){
-//			Player player1 =  playersArr.get(0);
-//			ArrayList<Card> cards = player1.drawCard(cardPile);
-//			for (int i = 0; i<cards.size(); i++) {
-//				Card card = cards.get(i);
-//				Common.move(card , card.getLocation(),new Point(180+i*100,500));
-//
-//				try {
-//					card.turnFront();
-//				} catch (IOException e) {
-//					throw new RuntimeException(e);
-//				}
-//			}
-//
-//		}
-//
-//		if(playersArr.size() == 3){
-//			Player player1 =  playersArr.get(0);
-//			ArrayList<Card> cards = player1.drawCard(cardPile);
-//			for (int i = 0; i<cards.size(); i++) {
-//				Card card = cards.get(i);
-//				Common.move(card , card.getLocation(),new Point(180+i*100,550));
-//
-//				try {
-//					card.turnFront();
-//				} catch (IOException e) {
-//					throw new RuntimeException(e);
-//				}
-//			}
-//
-//		}
-//		if(playersArr.size() == 4){
-//			Player player1 =  playersArr.get(0);
-//			ArrayList<Card> cards = player1.drawCard(cardPile);
-//			for (int i = 0; i<cards.size(); i++) {
-//				Card card = cards.get(i);
-//				Common.move(card , card.getLocation(),new Point(150+i*100,635));
-//
-//				try {
-//					card.turnFront();
-//				} catch (IOException e) {
-//					throw new RuntimeException(e);
-//				}
-//			}
-//
-//		}
-//		if(playersArr.size() == 5){
-//			Player player1 =  playersArr.get(0);
-//			ArrayList<Card> cards = player1.drawCard(cardPile);
-//			for (int i = 0; i<cards.size(); i++) {
-//				Card card = cards.get(i);
-//				Common.move(card , card.getLocation(),new Point(150+i*100,645));
-//
-//				try {
-//					card.turnFront();
-//				} catch (IOException e) {
-//					throw new RuntimeException(e);
-//				}
-//			}
-//
-//		}
-//
-//
-//	}
-
 
 	private void initJframe() {
 		// TODO Auto-generated method stub
@@ -294,15 +183,15 @@ public class ViewController extends JFrame implements ActionListener {
 		container.setLayout(null);
 		this.setVisible(true);
 
-		// 设置标题
+		// Set the title
 		this.setTitle("Monopoly Deal Cards");
-		// 设置大小
+		// Set the size
 		this.setSize(1024, 768);
-		// 设置关闭模式
+		// Set the off mode
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// 设置窗口无法进行调节
+		// The Settings window cannot be adjusted
 		this.setResizable(false);
-		// 界面居中
+		// The interface is in the center
 		this.setLocationRelativeTo(null);
 
 		playerScreen pS = new playerScreen(this, container);
@@ -375,23 +264,13 @@ public class ViewController extends JFrame implements ActionListener {
 			model.getAgeList().clear();
 			JOptionPane.showMessageDialog(null, "Incorrect number of entered age, please re-enter from Player 1");
 		}else {
-			dispose(); //The Start window is closed
+			dispose();
+			//The Start window is closed
 			beginPlay();
 
 
 		}
 	}
-//		int selectedMembers = (int) memberComboBox.getSelectedItem();
-//		if (model.isAgeListComplete(selectedMembers)&&model.isInputMember(selectedMembers)) {
-//			dispose(); //The Start window is closed
-//			beginPlay();
-//		} else {
-//			JOptionPane.showMessageDialog(null, "Please add player age first!");
-//		}
-//		System.out.println(selectedMembers);
-//	}
-
-
 
 	public int getPlayerNumber() {
 		return playerNumber;

@@ -1,10 +1,10 @@
 package DemoTests;
 
-import Bank.Bank;
-import Cards.ActionCard.*;
-import Cards.Card;
-import Cards.CardPrice;
-import Player.Player;
+import  Model.Bank.Bank;
+import  Model.Cards.ActionCard.*;
+import  Model.Cards.Card;
+import  Model.Cards.CardPrice;
+import  Model.Player.Player;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

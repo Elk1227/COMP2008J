@@ -3,12 +3,12 @@ package DemoTests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-import Cards.Card;
-import Cards.ActionCard.*;
+import  Model.Cards.Card;
+import  Model.Cards.ActionCard.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import Cards.CardFactory;
+import  Model.Cards.CardFactory;
 class CardFactoryTest {
 
 	 @Test

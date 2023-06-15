@@ -1,11 +1,11 @@
 package DemoTests;
 
-import Cards.Card;
-import Cards.ActionCard.DealBreakerCard;
-import Cards.ActionCard.DebtCollectorCard;
-import Cards.ActionCard.ForceDealCard;
-import HandCards.HandCards;
-import Player.Player;
+import  Model.Cards.Card;
+import  Model.Cards.ActionCard.DealBreakerCard;
+import  Model.Cards.ActionCard.DebtCollectorCard;
+import  Model.Cards.ActionCard.ForceDealCard;
+import  Model.HandCards.HandCards;
+import Model. Player.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

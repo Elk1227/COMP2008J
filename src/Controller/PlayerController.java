@@ -1,6 +1,6 @@
 package Controller;
 
-import Player.Player;
+import  Model.Player.Player;
 
 import java.util.ArrayList;
 

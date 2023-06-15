@@ -1,10 +1,10 @@
 package DemoTests;
 
-import Building.Building;
-import Cards.ActionCard.HotelCard;
-import Cards.ActionCard.HouseCard;
-import Cards.CardColor;
-import Cards.Properties.PropertyCard;
+import  Model.Building.Building;
+import  Model.Cards.ActionCard.HotelCard;
+import  Model.Cards.ActionCard.HouseCard;
+import Model. Cards.CardColor;
+import Model. Cards.Properties.PropertyCard;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,8 +19,8 @@ public class BuildingTest {
     @Before
     public void setup() {
         building = new Building(CardColor.Blue);
-        propertyCard1 = new PropertyCard("Blue property card", Cards.CardPrice.M4,Cards.CardColor.Blue,2,"resources/property cards/Dark Blue.jpg");
-        propertyCard2 = new PropertyCard("Blue property card", Cards.CardPrice.M4,Cards.CardColor.Blue,2,"resources/property cards/Dark Blue.jpg");
+        propertyCard1 = new PropertyCard("Blue property card",  Model.Cards.CardPrice.M4, Model.Cards.CardColor.Blue,2,"resources/property cards/Dark Blue.jpg");
+        propertyCard2 = new PropertyCard("Blue property card",  Model.Cards.CardPrice.M4, Model.Cards.CardColor.Blue,2,"resources/property cards/Dark Blue.jpg");
         houseCard = new HouseCard();
         hotelCard = new HotelCard();
     }

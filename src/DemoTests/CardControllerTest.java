@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 
 import Controller.CardController;
 import Controller.GameController;
-import Player.Player;
+import  Model.Player.Player;
 import java.awt.Dimension;
-import Cards.Card;
+import  Model.Cards.Card;
 
 class CardControllerTest {
 	 private CardController cardController;
