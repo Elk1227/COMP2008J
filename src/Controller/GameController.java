@@ -22,7 +22,6 @@ public class GameController  {
 	static MonopolyStartScreenView view =new MonopolyStartScreenView(model);
 
 
-	
 	private JButton[] playerButton = new JButton[5];
 	public JButton check_bank;
 	public ViewFrame viewFrame;
@@ -70,7 +69,7 @@ public class GameController  {
 
 	}
 
-	public void initGame() {
+	private void initGame() {
 		// TODO Auto-generated method stub
 
 	}
@@ -141,14 +140,119 @@ public ArrayList<Player> getPlayersArr() {
 		playerCurrent.setTime(3);
 		int index =  handCards.size();
 		ArrayList<Card> cards = playerCurrent.drawCard(cardPile);
+		Point point  = new Point();
 
-		for (Card card : cards) {
-			card.setOwner(playerCurrent);
-			Point point = new Point(handCards.get(index-1).getLocation().x+card.getWidth(),handCards.get(index-1).getLocation().y);
-			cardController.moveCard(card,point);
-			card.setLocation(point);
-			card.turnFront();
-			index++;
+		if(playersArr.size()==2){
+			for (Card card : cards) {
+				card.setOwner(playerCurrent);
+				if (handCards.indexOf(card) == 0) {
+					if (playersArr.size() == 2) {
+						point = new Point(180, 500);
+
+					} else if (playersArr.size() == 3) {
+						point = new Point(180, 550);
+					} else if (playersArr.size() == 4) {
+						point = new Point(150, 635);
+					} else {
+						point = new Point(150, 645);
+
+					}
+
+
+				} else {
+					point = new Point(handCards.get(index - 1).getLocation().x + 100, handCards.get(index - 1).getLocation().y);
+				}
+
+				cardController.moveCard(card, point);
+				card.setLocation(point);
+				card.turnFront();
+				index++;
+
+			}
+		} else if (playersArr.size()==3) {
+			for (Card card : cards) {
+				card.setOwner(playerCurrent);
+				if (handCards.indexOf(card) == 0) {
+					if (playersArr.size() == 2) {
+						point = new Point(180, 500);
+
+					} else if (playersArr.size() == 3) {
+						point = new Point(180, 550);
+					} else if (playersArr.size() == 4) {
+						point = new Point(150, 635);
+					} else {
+						point = new Point(150, 645);
+
+					}
+
+
+				} else {
+					point = new Point(handCards.get(index - 1).getLocation().x + 100, handCards.get(index - 1).getLocation().y);
+				}
+
+				cardController.moveCard(card, point);
+				card.setLocation(point);
+				card.turnFront();
+				index++;
+
+			}
+
+
+		} else if (playersArr.size()==4) {
+			for (Card card : cards) {
+				card.setOwner(playerCurrent);
+				if (handCards.indexOf(card) == 0) {
+					if (playersArr.size() == 2) {
+						point = new Point(180, 500);
+
+					} else if (playersArr.size() == 3) {
+						point = new Point(180, 550);
+					} else if (playersArr.size() == 4) {
+						point = new Point(150, 635);
+					} else {
+						point = new Point(150, 645);
+
+					}
+
+
+				} else {
+					point = new Point(handCards.get(index - 1).getLocation().x + 100, handCards.get(index - 1).getLocation().y);
+				}
+
+				cardController.moveCard(card, point);
+				card.setLocation(point);
+				card.turnFront();
+				index++;
+
+			}
+
+		}else {
+			for (Card card : cards) {
+				card.setOwner(playerCurrent);
+				if (handCards.indexOf(card) == 0) {
+					if (playersArr.size() == 2) {
+						point = new Point(180, 500);
+
+					} else if (playersArr.size() == 3) {
+						point = new Point(180, 550);
+					} else if (playersArr.size() == 4) {
+						point = new Point(150, 635);
+					} else {
+						point = new Point(150, 645);
+
+					}
+
+
+				} else {
+					point = new Point(handCards.get(index - 1).getLocation().x + 100, handCards.get(index - 1).getLocation().y);
+				}
+
+				cardController.moveCard(card, point);
+				card.setLocation(point);
+				card.turnFront();
+				index++;
+
+			}
 
 		}
 		Player player1 =  playerController.getCurrentplayer();
@@ -161,6 +265,8 @@ public ArrayList<Player> getPlayersArr() {
 		}
 
 	}
+
+
 	public boolean checkDeadHeat(){
 		if(cardPile.isEmpty()){
 			return true;

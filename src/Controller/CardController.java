@@ -1,6 +1,9 @@
 package Controller;
 
 import  Model.Cards.ActionCard.ActionCard;
+import Model.Building.Building;
+import Model.Cards.ActionCard.HotelCard;
+import Model.Cards.ActionCard.HouseCard;
 import  Model.Cards.Card;
 import  Model.Cards.CardColor;
 import  Model.Cards.CardFactory;
@@ -33,9 +36,7 @@ public class CardController {
     private ViewController viewController;
 
 
-
-
-    public CardController(GameController gameController){
+    public CardController(GameController gameController) {
         this.gameController = gameController;
         viewController = gameController.getViewController();
         factory = new CardFactory();
@@ -49,22 +50,20 @@ public class CardController {
     }
 
 
-
-
     public void initCard() {
         for (Card card : cardPile.getCardPile()) {
             this.setCardLocation(card);
         }
 
 
-        if(players.size() == 2){
-            Player player1 =  players.get(0);
+        if (players.size() == 2) {
+            Player player1 = players.get(0);
             ArrayList<Card> cards = player1.drawCard(cardPile);
-            for (int i = 0; i<cards.size(); i++) {
+            for (int i = 0; i < cards.size(); i++) {
                 Card card = cards.get(i);
                 card.setOwner(player1);
                 System.out.println(card.getName());
-                this.move(card , card.getLocation(),new Point(180+i*100,500));
+                this.move(card, card.getLocation(), new Point(180 + i * 100, 500));
                 System.out.println(card.getLocation().toString());
                 try {
                     this.turnFront(card);
@@ -72,12 +71,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player2 =  players.get(1);
-            ArrayList<Card> cards2 = player2.drawCard(cardPile);
-            for (int i = 0; i<cards2.size(); i++) {
+            Player player2 = players.get(1);
+            ArrayList<Card> cards2 = cardPile.getCards(3);
+            player2.getHandCards().getHandcards().addAll(cards2);
+            for (int i = 0; i < cards2.size(); i++) {
                 Card card = cards2.get(i);
                 card.setOwner(player2);
-                card.setLocation(new Point(180+i*100,500));
+                card.setLocation(new Point(180 + i * 100, 500));
 
                 card.setVisible(false);
                 try {
@@ -86,25 +86,27 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-        }if(players.size() == 3){
-            Player player1 =  players.get(0);
+        }
+        if (players.size() == 3) {
+            Player player1 = players.get(0);
             ArrayList<Card> cards = player1.drawCard(cardPile);
-            for (int i = 0; i<cards.size(); i++) {
+            for (int i = 0; i < cards.size(); i++) {
                 Card card = cards.get(i);
                 card.setOwner(player1);
-                this.move(card , card.getLocation(),new Point(180+i*100,550));
+                this.move(card, card.getLocation(), new Point(180 + i * 100, 550));
                 try {
                     this.turnFront(card);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
-            Player player2 =  players.get(1);
-            ArrayList<Card> cards2 = player2.drawCard(cardPile);
-            for (int i = 0; i<cards2.size(); i++) {
+            Player player2 = players.get(1);
+            ArrayList<Card> cards2 = cardPile.getCards(3);
+            player2.getHandCards().getHandcards().addAll(cards2);
+            for (int i = 0; i < cards2.size(); i++) {
                 Card card = cards2.get(i);
                 card.setOwner(player2);
-                card.setLocation(new Point(180+i*100,550));
+                card.setLocation(new Point(180 + i * 100, 550));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -112,12 +114,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player3 =  players.get(2);
-            ArrayList<Card> cards3 = player3.drawCard(cardPile);
-            for (int i = 0; i<cards3.size(); i++) {
+            Player player3 = players.get(2);
+            ArrayList<Card> cards3 = cardPile.getCards(3);
+            player3.getHandCards().getHandcards().addAll(cards3);
+            for (int i = 0; i < cards3.size(); i++) {
                 Card card = cards3.get(i);
                 card.setOwner(player3);
-                card.setLocation(new Point(180+i*100,550));
+                card.setLocation(new Point(180 + i * 100, 550));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -127,25 +130,26 @@ public class CardController {
             }
 
         }
-        if(players.size() == 4){
-            Player player1 =  players.get(0);
+        if (players.size() == 4) {
+            Player player1 = players.get(0);
             ArrayList<Card> cards = player1.drawCard(cardPile);
-            for (int i = 0; i<cards.size(); i++) {
+            for (int i = 0; i < cards.size(); i++) {
                 Card card = cards.get(i);
                 card.setOwner(player1);
-                this.move(card , card.getLocation(),new Point(150+i*100,635));
+                this.move(card, card.getLocation(), new Point(150 + i * 100, 635));
                 try {
                     this.turnFront(card);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
-            Player player2 =  players.get(1);
-            ArrayList<Card> cards2 = player2.drawCard(cardPile);
-            for (int i = 0; i<cards2.size(); i++) {
+            Player player2 = players.get(1);
+            ArrayList<Card> cards2 = cardPile.getCards(3);
+            player2.getHandCards().getHandcards().addAll(cards2);
+            for (int i = 0; i < cards2.size(); i++) {
                 Card card = cards2.get(i);
                 card.setOwner(player2);
-                card.setLocation(new Point(150+i*100,635));
+                card.setLocation(new Point(150 + i * 100, 635));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -153,12 +157,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player3 =  players.get(2);
-            ArrayList<Card> cards3 = player3.drawCard(cardPile);
-            for (int i = 0; i<cards3.size(); i++) {
+            Player player3 = players.get(2);
+            ArrayList<Card> cards3 = cardPile.getCards(3);
+            player3.getHandCards().getHandcards().addAll(cards3);
+            for (int i = 0; i < cards3.size(); i++) {
                 Card card = cards3.get(i);
                 card.setOwner(player3);
-                card.setLocation(new Point(150+i*100,635));
+                card.setLocation(new Point(150 + i * 100, 635));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -166,12 +171,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player4 =  players.get(3);
-            ArrayList<Card> cards4 = player4.drawCard(cardPile);
-            for (int i = 0; i<cards4.size(); i++) {
+            Player player4 = players.get(3);
+            ArrayList<Card> cards4 = cardPile.getCards(3);
+            player4.getHandCards().getHandcards().addAll(cards4);
+            for (int i = 0; i < cards4.size(); i++) {
                 Card card = cards4.get(i);
                 card.setOwner(player4);
-                card.setLocation(new Point(150+i*100,635));
+                card.setLocation(new Point(150 + i * 100, 635));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -181,25 +187,26 @@ public class CardController {
             }
 
         }
-        if(players.size() == 5){
-            Player player1 =  players.get(0);
+        if (players.size() == 5) {
+            Player player1 = players.get(0);
             ArrayList<Card> cards = player1.drawCard(cardPile);
-            for (int i = 0; i<cards.size(); i++) {
+            for (int i = 0; i < cards.size(); i++) {
                 Card card = cards.get(i);
                 card.setOwner(player1);
-                this.move(card, card.getLocation(),new Point(150+i*100,645));
+                this.move(card, card.getLocation(), new Point(150 + i * 100, 645));
                 try {
                     this.turnFront(card);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
-            Player player2 =  players.get(1);
-            ArrayList<Card> cards2 = player2.drawCard(cardPile);
-            for (int i = 0; i<cards2.size(); i++) {
+            Player player2 = players.get(1);
+            ArrayList<Card> cards2 = cardPile.getCards(3);
+            player2.getHandCards().getHandcards().addAll(cards2);
+            for (int i = 0; i < cards2.size(); i++) {
                 Card card = cards2.get(i);
                 card.setOwner(player2);
-                card.setLocation(new Point(150+i*100,645));
+                card.setLocation(new Point(150 + i * 100, 645));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -207,12 +214,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player3 =  players.get(2);
-            ArrayList<Card> cards3 = player3.drawCard(cardPile);
-            for (int i = 0; i<cards3.size(); i++) {
+            Player player3 = players.get(2);
+            ArrayList<Card> cards3 = cardPile.getCards(3);
+            player3.getHandCards().getHandcards().addAll(cards3);
+            for (int i = 0; i < cards3.size(); i++) {
                 Card card = cards3.get(i);
                 card.setOwner(player3);
-                card.setLocation(new Point(150+i*100,645));
+                card.setLocation(new Point(150 + i * 100, 645));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -220,12 +228,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player4 =  players.get(3);
-            ArrayList<Card> cards4 = player4.drawCard(cardPile);
-            for (int i = 0; i<cards4.size(); i++) {
+            Player player4 = players.get(3);
+            ArrayList<Card> cards4 = cardPile.getCards(3);
+            player4.getHandCards().getHandcards().addAll(cards4);
+            for (int i = 0; i < cards4.size(); i++) {
                 Card card = cards4.get(i);
                 card.setOwner(player4);
-                card.setLocation(new Point(150+i*100,645));
+                card.setLocation(new Point(150 + i * 100, 645));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -233,12 +242,13 @@ public class CardController {
                     throw new RuntimeException(e);
                 }
             }
-            Player player5 =  players.get(4);
-            ArrayList<Card> cards5 = player5.drawCard(cardPile);
-            for (int i = 0; i<cards5.size(); i++) {
+            Player player5 = players.get(4);
+            ArrayList<Card> cards5 = cardPile.getCards(3);
+            player5.getHandCards().getHandcards().addAll(cards5);
+            for (int i = 0; i < cards5.size(); i++) {
                 Card card = cards5.get(i);
                 card.setOwner(player5);
-                card.setLocation(new Point(150+i*100,645));
+                card.setLocation(new Point(150 + i * 100, 645));
                 card.setVisible(false);
                 try {
                     this.turnFront(card);
@@ -252,24 +262,22 @@ public class CardController {
     }
 
 
-
-
-    public void  initialPile(){
-         cardPile.setCardPile((ArrayList<Card>)factory.packaging()) ;
+    public void initialPile() {
+        cardPile.setCardPile((ArrayList<Card>) factory.packaging());
         for (Card card : cardPile.getCardPile()) {
             card.setUp(false);
             this.turnRear(card);
-            if(players.size()==2){
-                card.setSize(90,150);
+            if (players.size() == 2) {
+                card.setSize(90, 150);
 
-            } else if (players.size()==3) {
-                card.setSize(60,100);
+            } else if (players.size() == 3) {
+                card.setSize(60, 100);
 
-            } else if (players.size()==4) {
-                card.setSize(54,90);
+            } else if (players.size() == 4) {
+                card.setSize(54, 90);
 
-            }else {
-                card.setSize(48,80);
+            } else {
+                card.setSize(48, 80);
             }
             card.setVisible(true);
         }
@@ -278,21 +286,14 @@ public class CardController {
     }
 
 
-
-
-
-
-
-
-    public  void move(Card card, Point from, Point to) {
+    public void move(Card card, Point from, Point to) {
         if (to.y != from.y) {
             double k = (double) (to.x - from.x) / (to.y - from.y);
             double b = to.x - to.y * k;
             int speed = 0;
             if (from.y < to.y) {
                 speed = 2;
-            }
-            else{
+            } else {
                 speed = -2;
             }
             for (int i = from.y; Math.abs(i - to.y) > 2; i += speed) {
@@ -309,6 +310,8 @@ public class CardController {
         }
         card.setLocation(to);
     }
+
+
 
 
     public void setCardLocation(Card card) {
@@ -340,27 +343,26 @@ public class CardController {
 
     public void turnFront(Card card) throws IOException {
 
-        // Set the cards on the reverse side
+        // 给牌设置反面
         changeImageSize changeSize = new changeImageSize();
         card.removeAll();
-        changeSize.changeSize(card.getGraph(),card.getWidth(),card.getHeight());
+        changeSize.changeSize(card.getGraph(), card.getWidth(), card.getHeight());
         card.setIcon(new ImageIcon(card.getGraph()));
         card.repaint();
         viewController.repaint();
-        // Modifying member variable
+        // 修改成员变量
         card.setUp(true);
 
     }
 
 
-
     public void turnRear(Card card) {
-        // Set the cards on the reverse side
-         card.removeAll();
+        // 给牌设置反面
+        card.removeAll();
         card.setIcon(new ImageIcon("resources/action cards/images.jpg"));
         card.repaint();
         viewController.repaint();
-        // Modifying member variable
+        // 修改成员变量
         card.setUp(false);
     }
 
@@ -372,27 +374,49 @@ public class CardController {
                 if (player.getId() == 1) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
                         if (handcard.isClicked()) {
-                            if (handcard instanceof PropertyCard ) {
-                                PropertyCard propertyCard = (PropertyCard)handcard;
-                                if(propertyCard.getColor()!=null && propertyCard.getColor()!= CardColor.wild){
-                                    player.buildPropertySet((PropertyCard) handcard);
-                                    int i = player.getRealEstate().getSize();
-                                    Point to = new  Point(550+i*90,100);
-                                    this.moveCard(handcard,to);
-                                    player.getHandCards().removeCard(handcard);
-                                    reposition();
-                                    int time = player.getTime()-1;
-                                    player.setTime(time);
-                                } else if (propertyCard.getColor()== CardColor.wild) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point  to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if(player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if(j-i==0){
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to  = building.getBuilding().get(0).getLocation();
 
 
+                                        }else {
+                                            to = new Point(550 + i * 90, 100);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
 
 
-                                }else {
-                                
-                                     viewController.button2.setVisible(true);
-                                     viewController.button1.setVisible(true);
-                                     System.out.println("11111");
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
                                 }
 
 
@@ -406,275 +430,760 @@ public class CardController {
         }
         return null;
     }
-                public void buildRealEstate(){
-        Player player =  playerController.getCurrentplayer();
-        int size  =    players.size();
-        if (player.getTime()!=0){
-            if(size == 2){
-                if(player.getId()==1){
+
+    public void buildRealEstate() {
+        Player player = playerController.getCurrentplayer();
+        int size = players.size();
+        if (player.getTime() != 0) {
+            if (size == 2) {
+                if (player.getId() == 1) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(550+i*90,100);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point  to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if(player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if(j-i==0){
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to  = building.getBuilding().get(0).getLocation();
+
+
+                                        }else {
+                                            to = new Point(550 + i * 90, 100);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
 
 
                             }
                         }
 
                     }
-                }else if(player.getId()==2){
+                } else if (player.getId() == 2) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(550+i*90,320);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
+
+
+
+
+                                        } else {
+                                            to = new Point(550 + i * 90, 320);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
 
 
                             }
                         }
 
                     }
-
                 }
 
             } else if (size == 3) {
-                if(player.getId()==1){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(550+i*60,80);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                if (player.getId() == 1) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point  to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if(player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if(j-i==0){
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to  = building.getBuilding().get(0).getLocation();
 
 
-                            }
-                        }
+                                    }else {
+                                        to = new Point(550 + i * 60, 80);
 
-                    }
-                }else if(player.getId()==2){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(550+i*60,320);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
+
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
+
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
 
 
-                            }
-                        }
+                                }
 
-                    }
 
-                }else if(player.getId()==3){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(550+i*60,430);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
-
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
 
                             }
-                        }
 
+
+                        }
                     }
 
                 }
-
-            }else if (size == 4){
-                if(player.getId()==1){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*54,70);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
-
-                            }
-                        }
-
-                    }
-                }else if(player.getId()==2){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*54,220);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+            } else if (player.getId() == 2) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if (j - i == 0) {
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to = building.getBuilding().get(0).getLocation();
 
 
-                            }
-                        }
+                                    } else {
+                                        to = new Point(550 + i * 60, 320);
 
-                    }
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
 
-                }else if(player.getId()==3){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*54,370);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
 
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
+
+
+                                }
+
+
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
 
                             }
+
+
                         }
-
-                    }
-
-                }else if(player.getId()==4){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*54,520);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
-
-
-                            }
-                        }
-
                     }
 
                 }
-
-
-
-            }else {
-                if(player.getId()==1){
+            } else if (player.getId()==3) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*48,70);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
-
-                            }
-                        }
-
-                    }
-                }else if(player.getId()==2){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*48,220);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
 
 
-                            }
-                        }
+                                        } else {
+                                            to = new Point(550 + i * 60, 430);
 
-                    }
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
 
-                }else if(player.getId()==3){
-                    for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*48,370);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
 
 
                             }
                         }
 
                     }
+                }
 
-                }else if(player.getId()==4){
+            }
+            else if (size == 4) {
+                if (player.getId() == 1) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*48,520);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point  to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if(player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if(j-i==0){
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to  = building.getBuilding().get(0).getLocation();
+
+
+                                        }else {
+                                            to = new Point(530 + i * 54, 70);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
 
 
                             }
                         }
 
                     }
-
-                }else {
+                } else if (player.getId() == 2) {
                     for (Card handcard : player.getHandCards().getHandcards()) {
-                        if(handcard.isClicked()){
-                            if(handcard instanceof PropertyCard){
-                                player.buildPropertySet((PropertyCard) handcard);
-                                int i = player.getRealEstate().getSize();
-                                Point to = new  Point(530+i*48,550);
-                                this.moveCard(handcard,to);
-                                player.getHandCards().removeCard(handcard);
-                                reposition();
-                                int time = player.getTime()-1;
-                                player.setTime(time);
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
+
+
+                                        } else {
+                                            to = new Point(530 + i * 54, 220);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
+
+
+                            }
+                        }
+
+                    }
+                } else if (player.getId()==3) {
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
+
+
+                                        } else {
+                                            to = new Point(530 + i * 54, 370);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
+
+
+                            }
+                        }
+
+                    }
+                } else if (player.getId()==4) {
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
+
+
+                                        } else {
+                                            to = new Point(530 + i * 54, 520);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
+
+
+                            }
+                        }
+
+                    }
+                }
+            } else {if (player.getId() == 1) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point  to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if(player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if(j-i==0){
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to  = building.getBuilding().get(0).getLocation();
+
+
+                                    }else {
+                                        to = new Point(530 + i * 48, 70);
+
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
+
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
+
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
+
+
+                                }
+
+
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
+
+                            }
+
+
+                        }
+                    }
+
+                }
+            } else if (player.getId() == 2) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if (j - i == 0) {
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to = building.getBuilding().get(0).getLocation();
+
+
+                                    } else {
+                                        to = new Point(530 + i * 48, 220);
+
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
+
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
+
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
+
+
+                                }
+
+
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
+
+                            }
+
+
+                        }
+                    }
+
+                }
+            } else if (player.getId()==3) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if (j - i == 0) {
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to = building.getBuilding().get(0).getLocation();
+
+
+                                    } else {
+                                        to = new Point(530 + i * 48, 370);
+
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
+
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
+
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
+
+
+                                }
+
+
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
+
+                            }
+
+
+                        }
+                    }
+
+                }
+            } else if (player.getId()==4) {
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked()) {
+                        if (handcard instanceof PropertyCard) {
+                            PropertyCard propertyCard = (PropertyCard) handcard;
+                            if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                Point to = new Point();
+                                int j = player.getRealEstate().getSize();
+                                if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                    int i = player.getRealEstate().getSize();
+                                    if (j - i == 0) {
+                                        Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                        to = building.getBuilding().get(0).getLocation();
+
+
+                                    } else {
+                                        to = new Point(530 + i * 48, 520);
+
+                                    }
+                                    this.moveCard(handcard, to);
+                                    player.getHandCards().removeCard(handcard);
+                                    reposition();
+                                    int time = player.getTime() - 1;
+                                    player.setTime(time);
+
+                                    for (JButton button : viewController.getButtons()) {
+                                        button.setVisible(false);}
+
+                                }
+
+                            } else if (propertyCard.getColor() == CardColor.wild) {
+                                int i = 0;
+                                for (Building building : player.getRealEstate().getBuildings()) {
+                                    viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                    viewController.getButtons().get(i).setVisible(true);
+
+
+                                }
+
+
+                            } else {
+                                viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                viewController.button2.setVisible(true);
+                                viewController.button1.setVisible(true);
+
+                            }
+
+
+                        }
+                    }
+
+                }
+            }
+                else if(player.getId()==5){
+
+                    for (Card handcard : player.getHandCards().getHandcards()) {
+                        if (handcard.isClicked()) {
+                            if (handcard instanceof PropertyCard) {
+                                PropertyCard propertyCard = (PropertyCard) handcard;
+                                if (propertyCard.getColor() != null && propertyCard.getColor() != CardColor.wild) {
+                                    Point to = new Point();
+                                    int j = player.getRealEstate().getSize();
+                                    if (player.getRealEstate().addRealEstate((PropertyCard) handcard)) {
+                                        int i = player.getRealEstate().getSize();
+                                        if (j - i == 0) {
+                                            Building building = player.getRealEstate().searchTheBuilding(propertyCard.getColor());
+                                            to = building.getBuilding().get(0).getLocation();
+
+
+                                        } else {
+                                            to = new Point(530 + i * 48, 550);
+
+                                        }
+                                        this.moveCard(handcard, to);
+                                        player.getHandCards().removeCard(handcard);
+                                        reposition();
+                                        int time = player.getTime() - 1;
+                                        player.setTime(time);
+
+                                        for (JButton button : viewController.getButtons()) {
+                                            button.setVisible(false);}
+
+                                    }
+
+                                } else if (propertyCard.getColor() == CardColor.wild) {
+                                    int i = 0;
+                                    for (Building building : player.getRealEstate().getBuildings()) {
+                                        viewController.getButtons().get(i).setBackground(building.getColorOfBuilding().getColor());
+                                        viewController.getButtons().get(i).setVisible(true);
+
+
+                                    }
+
+
+                                } else {
+                                    viewController.button1.setBackground(propertyCard.getColor1().getColor());
+                                    viewController.button2.setBackground(propertyCard.getColor2().getColor());
+                                    viewController.button2.setVisible(true);
+                                    viewController.button1.setVisible(true);
+
+                                }
 
 
                             }
@@ -688,36 +1197,34 @@ public class CardController {
         }
 
 
-
-
     }
 
 
-    public void reposition(){
+    public void reposition() {
         Player player = playerController.getCurrentplayer();
         ArrayList<Card> handcards = player.getHandCards().getHandcards();
         int size = players.size();
-        if(size == 2){
+        if (size == 2) {
             for (int i = 0; i < handcards.size(); i++) {
                 Card card = handcards.get(i);
-                moveCard(card,new Point(180+i*100,500));
+                moveCard(card, new Point(180 + i * 100, 500));
             }
         } else if (size == 3) {
             for (int i = 0; i < handcards.size(); i++) {
                 Card card = handcards.get(i);
-                moveCard(card,new Point(180+i*100,550));
+                moveCard(card, new Point(180 + i * 100, 550));
             }
 
-        }else if (size == 4) {
+        } else if (size == 4) {
             for (int i = 0; i < handcards.size(); i++) {
                 Card card = handcards.get(i);
-                moveCard(card,new Point(150+i*100,635));
+                moveCard(card, new Point(150 + i * 100, 635));
             }
 
-        }else {
+        } else {
             for (int i = 0; i < handcards.size(); i++) {
                 Card card = handcards.get(i);
-                moveCard(card,new Point(150+i*100,645));
+                moveCard(card, new Point(150 + i * 100, 645));
             }
 
         }
@@ -728,7 +1235,7 @@ public class CardController {
 
         Player player = playerController.getCurrentplayer();
 
-        if(player.getTime()!=0){
+        if (player.getTime() != 0) {
             if (players.size() == 2) {
                 if (player.getId() == 1) {
                     for (Card collectCard : player.getHandCards().getHandcards()) {
@@ -741,7 +1248,7 @@ public class CardController {
                             System.out.println(collectCard.getLocation());
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
 
                         }
@@ -755,7 +1262,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -770,7 +1277,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -783,7 +1290,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -796,7 +1303,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -811,7 +1318,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -824,7 +1331,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -837,7 +1344,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -850,7 +1357,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -865,7 +1372,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -878,7 +1385,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -891,7 +1398,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -905,7 +1412,7 @@ public class CardController {
                             player.getHandCards().removeCard(collectCard);
 
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -919,7 +1426,7 @@ public class CardController {
                             this.moveCard(collectCard, to);
                             player.getHandCards().removeCard(collectCard);
                             reposition();
-                            int time = player.getTime()-1;
+                            int time = player.getTime() - 1;
                             player.setTime(time);
                         }
                     }
@@ -929,15 +1436,31 @@ public class CardController {
     }
 
 
-    public  void moveCard(Card moveCard, Point to) {
-        this.move(moveCard,moveCard.getLocation(),to);
+    public void moveCard(Card moveCard, Point to) {
+        this.move(moveCard, moveCard.getLocation(), to);
+//        Runnable moveTask = new MoveCartoon(moveCard, to);
+//        EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                // TODO Auto-generated method stub
+//                Thread move = new Thread(moveTask);
+//                move.start();
+//                try {
+//                    move.join();
+//                    moveTask.run();
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
+
     }
 
-    public class MoveCartoon implements Runnable{
+    public class MoveCartoon implements Runnable {
         private Card card;
         private Point point;
 
-        public MoveCartoon(Card aCard,Point aPoint) {
+        public MoveCartoon(Card aCard, Point aPoint) {
             card = aCard;
             point = aPoint;
         }
@@ -961,51 +1484,55 @@ public class CardController {
     }
 
 
+    public void setColor(Color color) {
+
+        Player player = playerController.getCurrentplayer();
+        for (CardColor value : CardColor.values()) {
+            if (color == value.getColor()) {
+                CardColor cardColor = value;
+                for (Card handcard : player.getHandCards().getHandcards()) {
+                    if (handcard.isClicked() == true) {
+                        if (handcard instanceof PropertyCard) {
+                            ((PropertyCard) handcard).setColor(value);
+                            buildRealEstate();
+                        }
+
+//                        }if(handcard instanceof  ActionCard){
+//                            if(handcard instanceof HotelCard){
+//                                for (Building building : player.getRealEstate().getBuildings()) {
+//                                    if (building.getColorOfBuilding()==value){
+//                                        building.buildHotel((HotelCard) handcard);
+//                                    }
+//
+//                                }
+//                                int i = player.getRealEstate().getSize();
+//                                Point to = new Point(550 + i * 90, 100);
+//                                this.moveCard(handcard, to);
+//                                player.getHandCards().removeCard(handcard);
+//                                reposition();
+//                                int time = player.getTime() - 1;
+//                                player.setTime(time);
+//
+//                            }else if(handcard instanceof HouseCard){
+//
+//                            }
+//
+                    }
+
+                }
+
+            }
+
+        }
+
+
+    }
+
 
 
     public void discard(){
         Player player =  playerController.getCurrentplayer();
-        if (player.getHandCards().getHandCardSize()==8){
-        for (Card handcard : player.getHandCards().getHandcards()) {
-
-                if(handcard.isClicked()){
-                    player.getHandCards().removeCard(handcard);
-                    foldPile.add(handcard);
-                    if (players.size() == 2) {
-                        Point to = new  Point(40,260);
-                        this.moveCard(handcard,to);
-
-
-                    }
-                    else if(players.size() == 3) {
-                        Point to = new  Point(40,240);
-                        this.moveCard(handcard,to);
-
-
-                    }else if(players.size() == 4) {
-                        Point to = new  Point(40,220);
-                        this.moveCard(handcard,to);
-
-
-                    }
-                    else if(players.size() == 5) {
-                        Point to = new  Point(40,200);
-                        this.moveCard(handcard,to);
-
-                    }
-                    reposition();
-
-
-                }
-            viewController.add_house.setVisible(true);
-            viewController.add_to_bank.setVisible(true);
-            viewController.use_function.setVisible(true);
-            viewController.finish_output.setVisible(true);
-
-            }
-        } else if (player.getHandCards().getHandCardSize()==9) {
-
-
+        if (player.getHandCards().getHandCardSize()==9){
             for (Card handcard : player.getHandCards().getHandcards()) {
 
                 if(handcard.isClicked()){
@@ -1037,7 +1564,81 @@ public class CardController {
 
 
                 }
+
+
+            }
+        }else if (player.getHandCards().getHandCardSize()==8){
+            for (Card handcard : player.getHandCards().getHandcards()) {
+
+                if(handcard.isClicked()){
+                    player.getHandCards().removeCard(handcard);
+                    foldPile.add(handcard);
+                    if (players.size() == 2) {
+                        Point to = new  Point(40,260);
+                        this.moveCard(handcard,to);
+
+
+                    }
+                    else if(players.size() == 3) {
+                        Point to = new  Point(40,240);
+                        this.moveCard(handcard,to);
+
+
+                    }else if(players.size() == 4) {
+                        Point to = new  Point(40,220);
+                        this.moveCard(handcard,to);
+
+
+                    }
+                    else if(players.size() == 5) {
+                        Point to = new  Point(40,200);
+                        this.moveCard(handcard,to);
+
+                    }
+                    reposition();
+                    viewController.add_house.setVisible(true);
+                    viewController.add_to_bank.setVisible(true);
+                    viewController.use_function.setVisible(true);
+                    viewController.finish_output.setVisible(true);
+                }
             }
         }
+
     }
+
+
+    public void moveToFoldPile() {
+        Player player = playerController.getCurrentplayer();
+        for (int i=0;i<player.getHandCards().getHandcards().size();i++) {
+            Card handcard=player.getHandCards().getHandcards().get(i);
+            if (handcard.isClicked()&& (handcard instanceof ActionCard)) {
+                player.getHandCards().removeCard(handcard);
+                foldPile.add(handcard);
+                if (players.size() == 2) {
+                    Point to = new Point(40, 260);
+                    this.moveCard(handcard, to);
+
+
+                } else if (players.size() == 3) {
+                    Point to = new Point(40, 240);
+                    this.moveCard(handcard, to);
+
+
+                } else if (players.size() == 4) {
+                    Point to = new Point(40, 220);
+                    this.moveCard(handcard, to);
+
+
+                } else if (players.size() == 5) {
+                    Point to = new Point(40, 200);
+                    this.moveCard(handcard, to);
+
+                }
+                reposition();
+            }
+        }
+
+    }
+
+
 }

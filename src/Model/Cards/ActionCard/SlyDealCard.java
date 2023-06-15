@@ -2,18 +2,13 @@ package Model.Cards.ActionCard;
 
 import java.awt.event.MouseEvent;
 
+import Controller.GameController;
 import Model.Cards.CardPrice;
 
 public class SlyDealCard extends ActionCard {
 
 	public SlyDealCard() {
 		super("Sly Deal",CardPrice.M3,"resources/action cards/sly-deal.jpg");
-		
-	}
-
-	@Override
-	public void function() {
-		
 		
 	}
 
@@ -41,4 +36,8 @@ public class SlyDealCard extends ActionCard {
 		
 	}
 
+	@Override
+	public void function(GameController controller) {
+
+	}
 }

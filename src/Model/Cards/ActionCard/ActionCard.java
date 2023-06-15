@@ -1,5 +1,6 @@
 package Model.Cards.ActionCard;
 
+import Controller.GameController;
 import Model.Cards.Card;
 import Model.Cards.CardPrice;
 public abstract class ActionCard extends Card {
@@ -7,5 +8,5 @@ public abstract class ActionCard extends Card {
         super(name, price,graph);
     }
 
-    public abstract void function();
+    public abstract void function(GameController controller);
 }

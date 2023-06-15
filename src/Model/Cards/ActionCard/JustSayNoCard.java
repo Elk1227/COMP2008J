@@ -2,6 +2,7 @@ package Model.Cards.ActionCard;
 
 import java.awt.event.MouseEvent;
 
+import Controller.GameController;
 import Model.Cards.CardPrice;
 
 public class JustSayNoCard extends ActionCard {
@@ -11,11 +12,7 @@ public class JustSayNoCard extends ActionCard {
 		
 	}
 
-	@Override
-	public void function() {
-		
-		
-	}
+
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -41,4 +38,8 @@ public class JustSayNoCard extends ActionCard {
 		
 	}
 
+	@Override
+	public void function(GameController controller) {
+
+	}
 }

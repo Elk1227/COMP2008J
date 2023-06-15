@@ -78,17 +78,28 @@ public class ViewBank implements ActionListener{
 		}
 	}
 
-	public void showRealEstate(ArrayList<Building> estate){
-		for (int i = 0; i < estate.size(); i++){
-			ImageIcon icon = new ImageIcon(estate.get(i).getBuilding().get(0).getGraph());
+//	public void showRealEstate(ArrayList<Building> estate){
+//		for (int i = 0; i < estate.size(); i++){
+//			ImageIcon icon = new ImageIcon(estate.get(i).getBuilding().get(0).getGraph());
+//			JLabel put_building = new JLabel(icon);
+//			put_building.setBounds(100*i,300, icon.getIconWidth(), icon.getIconHeight());
+//			put_building.setOpaque(true);
+//			panel.add(put_building);
+//
+//		}
+//
+//	}
+public void showRealEstate(ArrayList<Building> estate){
+	for (int j = 0; j < estate.size(); j++) {
+		for (int i = 0; i < estate.get(j).getBuilding().size(); i++) {
+			ImageIcon icon = new ImageIcon(estate.get(j).getBuilding().get(i).getGraph());
 			JLabel put_building = new JLabel(icon);
-			put_building.setBounds(100*i,300, icon.getIconWidth(), icon.getIconHeight());
+			put_building.setBounds(100 * j, 300+icon.getIconHeight() *i, icon.getIconWidth(), icon.getIconHeight());
 			put_building.setOpaque(true);
 			panel.add(put_building);
 
 		}
-
 	}
-
+}
 
 }

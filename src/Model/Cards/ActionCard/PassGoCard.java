@@ -2,6 +2,7 @@ package Model.Cards.ActionCard;
 
 import java.awt.event.MouseEvent;
 
+import Controller.GameController;
 import Model.Cards.CardPrice;
 
 public class PassGoCard extends ActionCard {
@@ -11,11 +12,6 @@ public class PassGoCard extends ActionCard {
 		
 	}
 
-	@Override
-	public void function() {
-		
-		
-	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -41,4 +37,8 @@ public class PassGoCard extends ActionCard {
 		
 	}
 
+	@Override
+	public void function(GameController controller) {
+
+	}
 }

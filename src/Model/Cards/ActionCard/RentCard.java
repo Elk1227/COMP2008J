@@ -2,6 +2,7 @@ package Model.Cards.ActionCard;
 
 import java.awt.event.MouseEvent;
 
+import Controller.GameController;
 import Model.Cards.CardColor;
 import Model.Cards.CardPrice;
 
@@ -32,11 +33,7 @@ public class RentCard extends ActionCard{
 	        return color;
 	    }
 	 
-	@Override
-	public void function() {
-		
-		
-	}
+
 	public CardColor getColorOne() {
 		return color1;
 	}
@@ -69,4 +66,8 @@ public class RentCard extends ActionCard{
 		
 	}
 
+	@Override
+	public void function(GameController controller) {
+
+	}
 }

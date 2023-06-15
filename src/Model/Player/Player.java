@@ -68,11 +68,6 @@ public class Player {
     public void storedInBank(Card card){
         bank.addCard(card);
     }
-    public void playCard(ActionCard card){
-        card.function();
-
-
-    }
     public void payRent(){}
     public void buildPropertySet(PropertyCard card){
         realEstate.addRealEstate(card);

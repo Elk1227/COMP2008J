@@ -2,6 +2,7 @@ package Model.Cards.ActionCard;
 
 import java.awt.event.MouseEvent;
 
+import Controller.GameController;
 import Model.Cards.CardPrice;
 import Model.Player.Player;
 
@@ -12,11 +13,8 @@ public class DebtCollectorCard extends ActionCard{
 		
 	}
 
-	@Override
-	public void function() {
-		
-		
-	}
+
+
 
 	public CardPrice DebtCollector(Player player){
 		return CardPrice.M5;
@@ -46,4 +44,8 @@ public class DebtCollectorCard extends ActionCard{
 		
 	}
 
+	@Override
+	public void function(GameController controller) {
+
+	}
 }

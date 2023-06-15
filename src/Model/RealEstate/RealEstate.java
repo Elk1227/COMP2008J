@@ -11,15 +11,14 @@ public class RealEstate {
     ArrayList<Building> buildings;
     Player owner;
 
+    public RealEstate() {
+    }
+
     public RealEstate(Player owner) {
         this.buildings = new ArrayList<>();
         this.owner = owner;
     }
 
-    public RealEstate(){
-        this.buildings = new ArrayList<>();
-    }
-    
     public boolean addRealEstate(PropertyCard propertycard) {
         if(checkIfCanInsert(propertycard.getColor())){
             for (Building building : buildings) {
@@ -82,6 +81,16 @@ public class RealEstate {
     }
     public  void removeBuilding(Building building){
         buildings.remove(building);
+    }
+
+    public Building searchTheBuilding(CardColor color){
+        for (Building building : buildings) {
+            if(building.getColorOfBuilding() == color){
+                return building;
+            }
+
+        }
+        return  null;
     }
 
     public  int getSize(){

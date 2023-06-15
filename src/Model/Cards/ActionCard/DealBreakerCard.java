@@ -1,5 +1,6 @@
 package Model.Cards.ActionCard;
 
+import Controller.GameController;
 import Model.Cards.CardPrice;
 import Model.Player.Player;
 import Model.RealEstate.RealEstate;
@@ -12,10 +13,6 @@ public class DealBreakerCard extends ActionCard {
 		super("Deal Breaker",CardPrice.M5,"resources/action cards/DEAL BREAKER.jpg");
 		}
 
-	@Override
-	public void function() {
-		
-	}
 
 	public void DealBreaker(Player player){
 		RealEstate realEstate =  player.getRealEstate();
@@ -41,6 +38,11 @@ public class DealBreakerCard extends ActionCard {
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+
+	}
+
+	@Override
+	public void function(GameController controller) {
 
 	}
 }
